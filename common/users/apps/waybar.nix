@@ -81,8 +81,8 @@
 
         # Modules Left
         "sway/workspaces" = {
-          disable-scroll = true;
           all-outputs = false;
+          sort-by-coordinates = true;
           format = "{name}:{icon}";
           format-icons = {
             urgent = "";
@@ -91,7 +91,15 @@
           };
         };
 
-        "wlr/taskbar" = { };
+        "wlr/taskbar" = {
+          all-outputs = false;
+          format = "{icon}";
+          icon-size = 14;
+          icon-theme = "Numix-Circle";
+          tooltip-format = "{title}";
+          on-click = "activate";
+          on-click-middle = "close";
+        };
 
         # Modules Center
         "sway/mode" = {
