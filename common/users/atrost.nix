@@ -22,19 +22,15 @@
     gnumake
     file
     joplin-desktop
-    pavucontrol
+    netbird-ui
     pcmanfm
+    xfce.mousepad
     youtube-music
     # Development
     dbeaver
     go
-    # Sway
-    font-awesome # Icon font
-    wl-clipboard
-    wluma
-    wob
-    swaylock-fancy
-    swaycwd
+    nodejs_18
+    yarn
   ];
 
   targets.genericLinux.enable = true;

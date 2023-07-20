@@ -39,11 +39,25 @@ in
   };
 
   # Scripts
-  home.file."wob.sh" = {
+  home.file."sway-grimshot.sh" = {
+    executable = true;
+    source = ./sway/scripts/grimshot.sh;
+    target = "${config.xdg.configHome}/sway/scripts/grimshot.sh";
+  };
+  home.file."sway-wob.sh" = {
     executable = true;
     source = ./sway/scripts/wob.sh;
     target = "${config.xdg.configHome}/sway/scripts/wob.sh";
   };
+
+  home.packages = with pkgs; [
+    grim
+    slurp
+    wl-clipboard
+    wob
+    swaycwd
+    swaylock-fancy
+  ];
 
   wayland.windowManager.sway = {
     enable = true;
@@ -539,6 +553,16 @@ in
       set $volume_up $onscreen_bar $(pactl set-sink-volume @DEFAULT_SINK@ +5% && $sink_volume)
       set $volume_mute $onscreen_bar $(pactl set-sink-mute @DEFAULT_SINK@ toggle && pactl get-sink-mute @DEFAULT_SINK@ | sed -En "/no/ s/.*/$($sink_volume)/p; /yes/ s/.*/0/p")
       set $mic_mute $onscreen_bar $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@ | sed -En "/no/ s/.*/$($source_volume)/p; /yes/ s/.*/0/p")
+
+      # screenshot
+      set $grimshot /usr/share/sway/scripts/grimshot
+      set $image_upload /usr/share/sway/scripts/upload-image.sh
+      set $screenshot_screen_clipboard $grimshot --notify copy output
+      set $screenshot_screen_file $grimshot --notify save output
+      set $screenshot_screen_upload $screenshot_screen_file | xargs $image_upload
+      set $screenshot_selection_clipboard $grimshot --notify copy window
+      set $screenshot_selection_file $grimshot --notify save window
+      set $screenshot_selection_upload $screenshot_selection_file | xargs $image_upload
 
       # laptop buttons
       $bindsym --locked XF86AudioRaiseVolume exec $volume_up

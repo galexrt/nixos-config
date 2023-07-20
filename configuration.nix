@@ -113,7 +113,9 @@ in
     greetd.tuigreet
     jq
     lm_sensors
+    netbird
     nixpkgs-fmt
+    restic
     rsync
     parted
     pulseaudio

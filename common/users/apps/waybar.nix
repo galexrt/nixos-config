@@ -39,6 +39,12 @@
     };
   };
 
+  home.packages = with pkgs; [
+    font-awesome # Icon font
+    pavucontrol
+    wluma
+  ];
+
   programs.waybar = {
     enable = true;
     settings = {
