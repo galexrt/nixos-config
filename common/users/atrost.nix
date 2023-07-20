@@ -34,6 +34,8 @@
     parsec-bin
     pcmanfm
     perl536Packages.AppClusterSSH
+    protonup-qt
+    steam
     thunderbird
     xfce.mousepad
     yarn
