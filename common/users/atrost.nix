@@ -18,11 +18,12 @@
   home.homeDirectory = "/home/atrost";
 
   home.packages = with pkgs; [
-    thunderbird
+    gopass
     gnumake
     file
     joplin-desktop
     netbird-ui
+    thunderbird
     pcmanfm
     xfce.mousepad
     youtube-music
@@ -43,7 +44,7 @@
     defaultCacheTtl = 34560000;
     maxCacheTtl = 34560000;
     enableZshIntegration = true;
-    pinentryFlavor = "qt";
+    pinentryFlavor = "gtk2";
   };
   programs.gpg = {
     enable = true;
