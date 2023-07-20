@@ -18,20 +18,26 @@
   home.homeDirectory = "/home/atrost";
 
   home.packages = with pkgs; [
-    gopass
-    gnumake
-    file
-    joplin-desktop
-    netbird-ui
-    thunderbird
-    pcmanfm
-    xfce.mousepad
-    youtube-music
-    # Development
+    _1password-gui
+    android-tools
     dbeaver
+    dconf
+    file
+    gimp
+    gnumake
     go
+    gopass
+    joplin-desktop
+    meld
+    netbird-ui
     nodejs_18
+    parsec-bin
+    pcmanfm
+    perl536Packages.AppClusterSSH
+    thunderbird
+    xfce.mousepad
     yarn
+    youtube-music
   ];
 
   targets.genericLinux.enable = true;
@@ -75,6 +81,15 @@
     };
   };
 
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+
   imports = [
     ./apps/basics.nix
     ./apps/sway.nix
@@ -83,5 +98,22 @@
     ./apps/thunderbird.nix
     ./apps/vscode.nix
   ];
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adementary-dark";
+      package = pkgs.adementary-theme;
+    };
+    font = {
+      name = "Hack";
+      package = null;
+      size = 10;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+  };
 
 }

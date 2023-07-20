@@ -16,12 +16,13 @@ in
     target = "${config.xdg.configHome}/sway/wallpapers/eva-notes-flipped.png";
   };
 
-  # Sway Modes
-  home.file."sway-modes-default" = {
+  # Sway Theme
+  home.file."sway-theme-definitions" = {
     executable = true;
-    source = ./sway/modes/default;
-    target = "${config.xdg.configHome}/sway/modes/default";
+    source = ./sway/theme-definitions;
+    target = "${config.xdg.configHome}/sway/theme-definitions";
   };
+  # Sway Modes
   home.file."sway-modes-resize" = {
     executable = true;
     source = ./sway/modes/resize;
@@ -52,6 +53,7 @@ in
 
   home.packages = with pkgs; [
     grim
+    libnotify
     slurp
     wl-clipboard
     wob
@@ -504,6 +506,8 @@ in
     };
 
     extraConfigEarly = ''
+      set $mod ${cfg.config.modifier}
+
       # Add --to-code to bindsym, support for non-latin layouts
       set $bindsym bindsym --to-code
 
@@ -532,10 +536,15 @@ in
       set $ws19 number 19
       set $ws20 number 20
 
+      # Load theme file
+      include ${config.xdg.configHome}/sway/theme-definitions
+
       # Definitions
       set $term_float ${pkgs.wezterm}/bin/wezterm start --class floating_shell
       set $focus_after_move true
       set $focus_ws [ $focus_after_move == 'true' ] && swaymsg workspace
+
+      set $locking ${lockCommand}
 
       set $onscreen_bar bash ${config.xdg.configHome}/sway/scripts/wob.sh "$accent-color" "$background-color"
 
@@ -555,14 +564,11 @@ in
       set $mic_mute $onscreen_bar $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@ | sed -En "/no/ s/.*/$($source_volume)/p; /yes/ s/.*/0/p")
 
       # screenshot
-      set $grimshot /usr/share/sway/scripts/grimshot
-      set $image_upload /usr/share/sway/scripts/upload-image.sh
+      set $grimshot ${config.xdg.configHome}/sway/scripts/grimshot.sh
       set $screenshot_screen_clipboard $grimshot --notify copy output
       set $screenshot_screen_file $grimshot --notify save output
-      set $screenshot_screen_upload $screenshot_screen_file | xargs $image_upload
       set $screenshot_selection_clipboard $grimshot --notify copy window
       set $screenshot_selection_file $grimshot --notify save window
-      set $screenshot_selection_upload $screenshot_selection_file | xargs $image_upload
 
       # laptop buttons
       $bindsym --locked XF86AudioRaiseVolume exec $volume_up
@@ -588,7 +594,9 @@ in
 
     extraConfig = ''
       # Enable modes
-      include ${config.xdg.configHome}/sway/etc/sway/modes/*
+      include ${config.xdg.configHome}/sway/modes/*
+
+      exec --no-startup-id swaymsg workspace \$ws1
     '';
 
     extraSessionCommands = ''

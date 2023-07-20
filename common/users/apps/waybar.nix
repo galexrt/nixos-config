@@ -48,7 +48,7 @@
   programs.waybar = {
     enable = true;
     settings = {
-      mainBar = {
+      default = {
         layer = "top";
         position = "bottom";
         height = 32;
@@ -244,7 +244,7 @@
         };
 
         "tray" = {
-          icon-size = 21;
+          icon-size = 23;
           spacing = 5;
         };
 
@@ -535,6 +535,201 @@
 
       #scratchpad.empty {
         background-color: transparent;
+      }
+
+      /*
+       * Taken from https://github.com/manjaro-sway/desktop-settings/blob/6a0e727fbe10b664d9e1ca7e64da4b9c7b633da3/community/sway${config.xdg.configHome}/templates/waybar/style.css
+       */
+
+      @keyframes blink-warning {
+          70% {
+              color: @wm_icon_bg;
+          }
+
+          to {
+              color: @wm_icon_bg;
+              background-color: @warning_color;
+          }
+      }
+
+      @keyframes blink-critical {
+          70% {
+              color: @wm_icon_bg;
+          }
+
+          to {
+              color: @wm_icon_bg;
+              background-color: @error_color;
+          }
+      }
+
+      /* -----------------------------------------------------------------------------
+       * Base styles
+       * -------------------------------------------------------------------------- */
+
+      /* Reset all styles */
+      * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          margin: 0;
+          padding: 0;
+      }
+
+      /* The whole bar */
+      window#waybar {
+          background: @theme_bg_color;
+          color: @wm_icon_bg;
+          font-size: 14px;
+      }
+
+      /* Each module */
+      #custom-pacman,
+      #custom-menu,
+      #custom-help,
+      #custom-scratchpad,
+      #custom-github,
+      #custom-clipboard,
+      #custom-zeit,
+      #custom-dnd,
+      #bluetooth,
+      #battery,
+      #clock,
+      #cpu,
+      #memory,
+      #mode,
+      #network,
+      #pulseaudio,
+      #temperature,
+      #idle_inhibitor,
+      #backlight,
+      #language,
+      #custom-adaptive-light,
+      #custom-sunset,
+      #custom-playerctl,
+      #tray {
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+
+      /* -----------------------------------------------------------------------------
+       * Module styles
+       * -------------------------------------------------------------------------- */
+
+      #custom-scratchpad,
+      #custom-menu,
+      #workspaces button.focused,
+      #clock {
+          color: @theme_bg_color;
+          background-color: @theme_selected_bg_color;
+      }
+
+      #custom-zeit.tracking {
+          background-color: @warning_color;
+      }
+
+      #battery {
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+      }
+
+      #battery.warning {
+          color: @warning_color;
+      }
+
+      #battery.critical {
+          color: @error_color;
+      }
+
+      #battery.warning.discharging {
+          animation-name: blink-warning;
+          animation-duration: 3s;
+      }
+
+      #battery.critical.discharging {
+          animation-name: blink-critical;
+          animation-duration: 2s;
+      }
+
+      #clock {
+          font-weight: bold;
+      }
+
+      #cpu.warning {
+          color: @warning_color;
+      }
+
+      #cpu.critical {
+          color: @error_color;
+      }
+
+      #custom-menu {
+          padding-left: 8px;
+          padding-right: 13px;
+      }
+
+      #memory {
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+      }
+
+      #memory.warning {
+          color: @warning_color;
+      }
+
+      #memory.critical {
+          color: @error_color;
+          animation-name: blink-critical;
+          animation-duration: 2s;
+      }
+
+      #mode {
+          background: @background_color;
+      }
+
+      #network.disconnected {
+          color: @warning_color;
+      }
+
+      #pulseaudio.muted {
+          color: @warning_color;
+      }
+
+      #temperature.critical {
+          color: @error_color;
+      }
+
+      #workspaces button {
+          border-top: 2px solid transparent;
+          /* To compensate for the top border and still have vertical centering */
+          padding-bottom: 2px;
+          padding-left: 10px;
+          padding-right: 10px;
+          color: @theme_selected_bg_color;
+      }
+
+      #workspaces button.focused {
+          border-color: @theme_selected_bg_color;
+      }
+
+      #workspaces button.urgent {
+          border-color: @error_color;
+          color: @error_color;
+      }
+
+      #custom-pacman {
+          color: @warning_color;
+      }
+
+      #bluetooth.disabled {
+          color: @warning_color;
+      }
+
+      #custom-wf-recorder {
+          color: @error_color;
+          padding-right: 10px;
       }
     '';
   };
