@@ -37,6 +37,18 @@
 
   fonts.fontconfig.enable = true;
 
+  # GPG
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 34560000;
+    maxCacheTtl = 34560000;
+    enableZshIntegration = true;
+    pinentryFlavor = "qt";
+  };
+  programs.gpg = {
+    enable = true;
+  };
+
   services.easyeffects.enable = true;
 
   services.nextcloud-client = {
