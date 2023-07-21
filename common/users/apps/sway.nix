@@ -492,7 +492,9 @@ in
         position = "bottom";
       }];
 
-      startup = [ ];
+      startup = [
+        { command = "sleep 5 && Beeper"; }
+      ];
 
       # Display device configuration
       output = {

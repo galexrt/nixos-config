@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, lib, fetchurl, ... }: {
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -31,7 +31,6 @@
     file
     gimp
     gnumake
-    go
     gopass
     joplin-desktop
     meld
@@ -46,6 +45,7 @@
     xfce.mousepad
     yarn
     youtube-music
+    (callPackage ../../pkgs/beeper.nix { })
   ];
 
   targets.genericLinux.enable = true;
@@ -121,6 +121,19 @@
     iconTheme = {
       name = "Adwaita";
       package = pkgs.gnome.adwaita-icon-theme;
+    };
+  };
+
+  # Development Tools
+  programs.go = {
+    enable = true;
+    goPath = "Projects/go"
+  };
+
+  programs.vim = {
+    enable = true;
+    settings = {
+      history = 1000;
     };
   };
 
