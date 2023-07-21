@@ -40,11 +40,13 @@
     pcmanfm
     perl536Packages.AppClusterSSH
     protonup-qt
+    sshpass
     steam
     thunderbird
     xfce.mousepad
     yarn
     youtube-music
+    # Custom
     (callPackage ../../pkgs/beeper.nix { })
   ];
 
@@ -55,9 +57,12 @@
   # GPG
   services.gpg-agent = {
     enable = true;
+    enableZshIntegration = true;
+    enableSshSupport = true;
     defaultCacheTtl = 34560000;
     maxCacheTtl = 34560000;
-    enableZshIntegration = true;
+    maxCacheTtlSsh = 34560000;
+    defaultCacheTtlSsh = 34560000;
     pinentryFlavor = "gtk2";
   };
   programs.gpg = {
