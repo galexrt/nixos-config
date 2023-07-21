@@ -188,6 +188,7 @@ in
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
       "go.toolsManagement.autoUpdate" = true;
+      "go.gopath" = "${config.home.homeDirectory}/Projects/go";
       "java.referencesCodeLens.enabled" = true;
       "java.codeGeneration.generateComments" = true;
       "java.configuration.runtimes" = [
