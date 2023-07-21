@@ -498,7 +498,7 @@ in
       output = {
         eDP-1 = {
           # Set HIDP scale (pixel integer scaling)
-          scale = "1";
+          scale = "1.1";
           bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
         };
       };
@@ -596,7 +596,7 @@ in
       # Enable modes
       include ${config.xdg.configHome}/sway/modes/*
 
-      exec --no-startup-id swaymsg workspace \$ws1
+      exec --no-startup-id swaymsg workspace 1
     '';
 
     extraSessionCommands = ''

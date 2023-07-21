@@ -10,6 +10,7 @@ in
 {
   imports =
     [
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/lenovo/thinkpad/p14s/amd/gen2"
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
@@ -108,6 +109,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    appimage-run
     curl
     git
     greetd.tuigreet

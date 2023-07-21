@@ -124,7 +124,7 @@
         };
 
         "cpu" = {
-          interval = 10;
+          interval = 3;
           format = " {}%";
           states = {
             warning = 70;
@@ -135,7 +135,7 @@
         };
 
         "memory" = {
-          interval = 15;
+          interval = 5;
           format = " {}%";
           states = {
             warning = 70;

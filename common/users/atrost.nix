@@ -17,11 +17,17 @@
   home.username = "atrost";
   home.homeDirectory = "/home/atrost";
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (_: true);
+  };
+
   home.packages = with pkgs; [
     _1password-gui
     android-tools
     dbeaver
     dconf
+    discord
     file
     gimp
     gnumake

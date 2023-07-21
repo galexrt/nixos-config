@@ -21,6 +21,10 @@
       plugins = [ "git" "systemd" "common-aliases" "golang" "kubectl" "rsync" ];
       theme = "rkj-repos";
     };
+
+    shellAliases = {
+      "code" = "codium";
+    };
   };
 
   programs.atuin = {
@@ -38,6 +42,7 @@
     userName = "Alexander Trost";
     userEmail = "galexrt@googlemail.com";
     extraConfig = {
+      core.editor = "vim";
       commit.gpgsign = true;
       user.signingkey = "5CF1D4600D4CBFDF";
       # Cache git credentials for an hour
@@ -56,6 +61,25 @@
       advice = {
         addEmptyPathspec = false;
       };
+
     };
   };
+
+  home.file."ssh-connections" = {
+    text = "";
+    target = "${config.home.homeDirectory}/.ssh/connections/.keep";
+  };
+
+  programs.ssh = {
+    serverAliveInterval = 360;
+    compression = true;
+    controlMaster = "auto";
+    controlPersist = "yes";
+    controlPath = "~/.ssh/connections/%C";
+
+    extraConfig = ''
+      NoHostAuthenticationForLocalhost yes
+    '';
+  };
+
 }
