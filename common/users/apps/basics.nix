@@ -14,6 +14,9 @@
       if [[ -z "$DISPLAY" ]] && [[ $(tty) = "/dev/tty1" ]]; then
           exec sway
       fi
+
+      export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
+      export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
     '';
 
     oh-my-zsh = {

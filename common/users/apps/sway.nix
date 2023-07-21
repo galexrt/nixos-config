@@ -611,6 +611,9 @@ in
       export GDK_DPI_SCALE=1
       export MOZ_ENABLE_WAYLAND=1
       export _JAVA_AWT_WM_NONREPARENTING=1
+
+      export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
+      export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
     '';
 
     wrapperFeatures = {

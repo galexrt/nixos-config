@@ -58,7 +58,7 @@
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
-    enableSshSupport = true;
+    enableSshSupport = false;
     defaultCacheTtl = 34560000;
     maxCacheTtl = 34560000;
     maxCacheTtlSsh = 34560000;
@@ -67,6 +67,15 @@
   };
   programs.gpg = {
     enable = true;
+  };
+
+  services.gnome-keyring = {
+    enable = true;
+    components = [
+      "pkcs11"
+      "secrets"
+      "ssh"
+    ];
   };
 
   services.easyeffects.enable = true;
@@ -132,7 +141,7 @@
   # Development Tools
   programs.go = {
     enable = true;
-    goPath = "Projects/go"
+    goPath = "Projects/go";
   };
 
   programs.vim = {
