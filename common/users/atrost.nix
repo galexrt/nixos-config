@@ -28,18 +28,23 @@
     dbeaver
     dconf
     discord
+    exiftool
     file
     gimp
-    gnumake
     gopass
     joplin-desktop
+    jpegoptim
+    kubectl
     meld
+    ncdu
     netbird-ui
     nodejs_18
+    optipng
     parsec-bin
     pcmanfm
     perl536Packages.AppClusterSSH
     protonup-qt
+    s5cmd
     sshpass
     steam
     thunderbird

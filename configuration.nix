@@ -112,6 +112,7 @@ in
     appimage-run
     curl
     git
+    gnumake
     greetd.tuigreet
     jq
     lm_sensors
@@ -119,6 +120,7 @@ in
     nixpkgs-fmt
     restic
     rsync
+    tree
     parted
     pulseaudio
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
