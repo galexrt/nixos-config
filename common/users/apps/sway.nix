@@ -500,7 +500,7 @@ in
       output = {
         eDP-1 = {
           # Set HIDP scale (pixel integer scaling)
-          scale = "1.1";
+          scale = "1.25";
           bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
         };
       };
@@ -599,6 +599,8 @@ in
       include ${config.xdg.configHome}/sway/modes/*
 
       exec --no-startup-id swaymsg workspace 1
+
+      exec --no-startup-id sleep 5 && joplin-desktop
     '';
 
     extraSessionCommands = ''
@@ -606,9 +608,9 @@ in
       export XDG_CURRENT_DESKTOP=sway
       export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
       export QT_AUTO_SCREEN_SCALE_FACTOR=0
-      export QT_SCALE_FACTOR=1
-      export GDK_SCALE=1
-      export GDK_DPI_SCALE=1
+      export QT_SCALE_FACTOR=1.25
+      export GDK_SCALE=1.25
+      export GDK_DPI_SCALE=1.25
       export MOZ_ENABLE_WAYLAND=1
       export _JAVA_AWT_WM_NONREPARENTING=1
 

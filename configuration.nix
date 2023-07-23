@@ -71,6 +71,10 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+
+    wireplumber = {
+      enable = true;
+    };
   };
 
   services.dbus.enable = true;
@@ -105,6 +109,17 @@ in
       ];
     };
   };
+
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
+  };
+
+  services.blueman.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
