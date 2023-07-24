@@ -58,7 +58,6 @@ in
     wl-clipboard
     wob
     swaycwd
-    swaylock-fancy
   ];
 
   wayland.windowManager.sway = {
@@ -548,9 +547,9 @@ in
 
       set $locking ${lockCommand}
 
-      set $onscreen_bar bash ${config.xdg.configHome}/sway/scripts/wob.sh "$accent-color" "$background-color"
+      set $onscreen_bar ${config.xdg.configHome}/sway/scripts/wob.sh "#662b9c" "#ffffff"
 
-      set $bluetooth $once $term_float bluetuith
+      set $bluetooth $once $term_float blueman-manager
 
       # brightness control
       set $brightness_step bash -c 'echo $(( $(light -Mr) / 100 * 5 < 1 ? 1 : $(( $(light -Mr) / 100 * 5 )) ))'
@@ -626,6 +625,7 @@ in
 
   programs.swaylock = {
     enable = true;
+    package = pkgs.swaylock-fancy;
     settings = {
       color = "808080";
       font-size = 24;
@@ -643,6 +643,10 @@ in
       { event = "lock"; command = lockCommand; }
     ];
     timeouts = [
+      {
+        timeout = 290;
+        command = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds' -t 9000";
+      }
       { timeout = 300; command = lockCommand; }
     ];
   };
