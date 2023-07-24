@@ -547,7 +547,7 @@ in
 
       set $locking ${lockCommand}
 
-      set $onscreen_bar ${config.xdg.configHome}/sway/scripts/wob.sh "#662b9c" "#ffffff"
+      set $onscreen_bar ${config.xdg.configHome}/sway/scripts/wob.sh "#bb88eb" "#ffffff"
 
       set $bluetooth $once $term_float blueman-manager
 
