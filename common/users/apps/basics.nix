@@ -27,6 +27,8 @@
 
     shellAliases = {
       "code" = "codium";
+      "sshknownhosts" = "vim ~/.ssh/known_hosts";
+      "sshconfig" = "vim ~/.ssh/config";
     };
   };
 
