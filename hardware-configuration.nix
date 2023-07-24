@@ -19,7 +19,14 @@
       options = [ "subvol=root" ];
     };
 
-  boot.initrd.luks.devices."encd".device = "/dev/disk/by-uuid/3cf4dc06-adf4-49ac-a84e-1d9816addd60";
+  boot.initrd.luks = {
+    devices = {
+      "encd" = {
+        device = "/dev/disk/by-uuid/3cf4dc06-adf4-49ac-a84e-1d9816addd60";
+        allowDiscards = true;
+      };
+    };
+  };
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/6a00e285-3364-457a-b693-7c3be6979f08";
