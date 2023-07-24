@@ -45,6 +45,7 @@
     perl536Packages.AppClusterSSH
     protonup-qt
     s5cmd
+    slack
     sshpass
     steam
     thunderbird
