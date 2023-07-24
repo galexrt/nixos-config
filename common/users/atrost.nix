@@ -49,6 +49,7 @@
     sshpass
     steam
     thunderbird
+    wdisplays
     xfce.mousepad
     yarn
     youtube-music

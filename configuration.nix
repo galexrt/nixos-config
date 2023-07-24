@@ -129,6 +129,7 @@ in
     git
     gnumake
     greetd.tuigreet
+    gparted
     jq
     lm_sensors
     netbird
@@ -138,6 +139,7 @@ in
     tree
     parted
     pulseaudio
+    unzip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     xdg-utils
