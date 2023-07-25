@@ -28,6 +28,7 @@
     dbeaver
     dconf
     discord
+    docker-compose
     exiftool
     file
     geeqie
