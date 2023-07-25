@@ -37,7 +37,6 @@
         device = "/dev/disk/by-uuid/bd02fb5b-f5c6-44b8-9109-d3973f23f5d6";
         allowDiscards = true;
       };
-      /*
       # Data
       "data1" = {
         device = "/dev/disk/by-uuid/9bafb0d7-944b-4750-8370-a529e0b5e429";
@@ -50,10 +49,10 @@
       };
       "data4" = {
         device = "/dev/disk/by-uuid/a0cc958f-8ba8-40d9-aa6f-87f9b4174fa0";
-      };*/
+      };
       # SSD
       "ssd1" = {
-        device = "/dev/disk/by-uuid/b430212-aaa0-41f5-83f2-f612358969cc";
+        device = "/dev/disk/by-uuid/6b430212-aaa0-41f5-83f2-f612358969cc";
         allowDiscards = true;
       };
       "ssd2" = {
@@ -101,7 +100,6 @@
       fsType = "vfat";
     };
 
-  /*
   fileSystems."/data/DATA" =
     { device = "/dev/disk/by-uuid/7c21899a-e25e-4a9d-bdd8-ff13f2798423";
       fsType = "btrfs";
@@ -112,7 +110,7 @@
     { device = "/dev/disk/by-uuid/f77d0890-3357-4dba-b098-3750b5c2e370";
       fsType = "btrfs";
       options = [ "noatime" ];
-    };*/
+    };
 
   swapDevices = [ ];
 

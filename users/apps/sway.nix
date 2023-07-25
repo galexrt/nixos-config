@@ -490,6 +490,12 @@ in
               };
               command = "floating enable border pixel 2, move scratchpad";
             }
+            {
+              criteria = {
+                class = "Cssh";
+              };
+              command = "floating enable";
+            }
             # inhibit idle
             {
               criteria = {
