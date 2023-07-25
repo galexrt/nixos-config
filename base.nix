@@ -31,7 +31,8 @@ in
     };
   };
 
-  networking.hostName = "moira"; # Define your hostname.
+  #networking.hostName = "moira"; # Define your hostname.
+  networking.hostName = "reaper"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -129,12 +130,13 @@ in
     htop
     jq
     lm_sensors
-    netbird
+    mtr
     nixpkgs-fmt
     restic
-    rsync
-    tree
     parted
+    rsync
+    traceroute
+    tree
     pulseaudio
     unzip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -200,6 +202,8 @@ in
       };
     };
   };
+
+  services.netbird.enable = true;
 
   virtualisation.docker = {
     enable = true;
