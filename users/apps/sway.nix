@@ -706,6 +706,11 @@ in
       backgroundColor = "#ffffff";
       borderColor = "#bb88eb";
       textColor = "#bb88eb";
+      extraConfig = ''
+        [urgency=high]
+        border-color=#bf616a
+        default-timeout=0
+      '';
     };
 
     programs.wofi = {
