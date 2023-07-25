@@ -49,6 +49,7 @@
     slack
     sshpass
     steam
+    teamspeak_client
     thunderbird
     wdisplays
     xarchiver
