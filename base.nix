@@ -126,6 +126,7 @@ in
     gnumake
     greetd.tuigreet
     gparted
+    htop
     jq
     lm_sensors
     netbird

@@ -164,6 +164,7 @@
           format-linked = "{ifname} (No IP) ";
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
+          on-click = "swaymsg exec \\$once \\$term_float nmtui connect";
         };
 
         "bluetooth" = {
