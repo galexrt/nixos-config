@@ -56,6 +56,7 @@
     wireguard-tools
     xarchiver
     xfce.mousepad
+    xterm
     yarn
     youtube-music
     yt-dlp
