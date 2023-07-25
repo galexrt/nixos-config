@@ -696,7 +696,16 @@ in
       enable = true;
       anchor = "bottom-center";
       layer = "top";
-      defaultTimeout = 6;
+      defaultTimeout = 6000;
+      markup = true;
+      sort = "-time";
+      height = 120;
+      width = 320;
+      icons = true;
+      font = "Hack";
+      backgroundColor = "#ffffff";
+      borderColor = "#bb88eb";
+      textColor = "#bb88eb";
     };
 
     programs.wofi = {
