@@ -51,6 +51,7 @@
     steam
     thunderbird
     wdisplays
+    xarchiver
     xfce.mousepad
     yarn
     youtube-music

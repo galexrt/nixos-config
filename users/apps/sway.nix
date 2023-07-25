@@ -151,8 +151,9 @@ in
             { class = "Steam"; }
           ];
           "$ws20" = [
-            { instance = "slack"; }
-            { title = "Discord.*"; }
+            { class = "Beeper"; }
+            { class = "discord"; }
+            { class = "Slack"; }
           ];
         };
         gaps = {
@@ -508,6 +509,8 @@ in
 
         startup = [
           { command = "sleep 5 && Beeper"; }
+          { command = "sleep 5 && joplin-desktop"; }
+          { command = "sleep 5 && systemctl --user restart nextcloud-client"; }
         ];
 
         # Display device configuration
@@ -638,8 +641,6 @@ in
         include ${config.xdg.configHome}/sway/modes/*
 
         exec --no-startup-id swaymsg workspace 1
-
-        exec --no-startup-id sleep 5 && joplin-desktop
       '';
 
       extraSessionCommands = ''
