@@ -52,9 +52,6 @@
         layer = "top";
         position = "bottom";
         height = 32;
-        output = [
-          "eDP-1"
-        ];
         modules-left = [ "sway/workspaces" "wlr/taskbar" ];
         modules-center = [ "sway/mode" "custom/weather" ];
         modules-right = [

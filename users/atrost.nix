@@ -30,6 +30,7 @@
     discord
     exiftool
     file
+    geeqie
     gimp
     gopass
     joplin-desktop
@@ -53,8 +54,9 @@
     xfce.mousepad
     yarn
     youtube-music
+    yt-dlp
     # Custom
-    (callPackage ../../pkgs/beeper.nix { })
+    (callPackage ../pkgs/beeper.nix { })
   ];
 
   targets.genericLinux.enable = true;
