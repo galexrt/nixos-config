@@ -32,6 +32,7 @@
     file
     geeqie
     gimp
+    git-crypt
     gopass
     joplin-desktop
     jpegoptim
