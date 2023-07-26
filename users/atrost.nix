@@ -26,6 +26,11 @@
       allowUnfreePredicate = (_: true);
     };
 
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+
     home.packages = with pkgs; [
       _1password-gui
       android-tools
