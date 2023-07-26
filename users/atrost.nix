@@ -49,6 +49,7 @@
       jpegoptim
       kubectl
       meld
+      mysql80
       ncdu
       netbird-ui
       nodejs_18
