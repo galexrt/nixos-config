@@ -49,7 +49,6 @@
       jpegoptim
       kubectl
       meld
-      mysql80
       ncdu
       netbird-ui
       nodejs_18
@@ -73,8 +72,17 @@
       yarn
       youtube-music
       yt-dlp
+      # Development
+      mysql80
+      protobuf
+      protoc-gen-go
+      protoc-gen-go-grpc
       # Custom
       (callPackage ../pkgs/beeper.nix { })
+    ];
+
+    home.sessionPath = [
+      "$HOME/Projects/go/bin"
     ];
 
     targets.genericLinux.enable = true;
