@@ -61,6 +61,7 @@
       slack
       sshpass
       steam
+      stern
       teamspeak_client
       thunderbird
       wdisplays
