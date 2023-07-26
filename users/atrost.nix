@@ -34,6 +34,7 @@
     home.packages = with pkgs; [
       _1password-gui
       android-tools
+      calc
       dbeaver
       dconf
       discord
