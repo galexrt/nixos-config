@@ -69,7 +69,6 @@
       xarchiver
       xfce.mousepad
       xterm
-      yarn
       youtube-music
       yt-dlp
       # Development
@@ -77,6 +76,9 @@
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
+      terraform
+      terragrunt
+      yarn
       # Custom
       (callPackage ../pkgs/beeper.nix { })
     ];

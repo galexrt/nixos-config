@@ -21,6 +21,7 @@ in
     opengl = {
       enable = true;
       driSupport = true;
+      driSupport32Bit = true;
     };
   };
 
@@ -123,6 +124,7 @@ in
   environment.systemPackages = with pkgs; [
     appimage-run
     curl
+    dig
     git
     gnumake
     greetd.tuigreet
@@ -134,6 +136,7 @@ in
     nixpkgs-fmt
     restic
     parted
+    pciutils
     rsync
     traceroute
     tree
