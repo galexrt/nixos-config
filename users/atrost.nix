@@ -51,6 +51,7 @@
       kubelogin-oidc
       krew
       meld
+      mumble
       ncdu
       netbird-ui
       nodejs_18
