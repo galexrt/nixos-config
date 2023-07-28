@@ -48,6 +48,8 @@
       joplin-desktop
       jpegoptim
       kubectl
+      kubelogin-oidc
+      krew
       meld
       ncdu
       netbird-ui

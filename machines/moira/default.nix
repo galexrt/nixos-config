@@ -6,5 +6,5 @@
     ./hardware-configuration.nix
   ];
 
-  config.wayland.windowManager.sway.scale = "1.25";
+  #config.wayland.windowManager.sway.scale = "1.25";
 }

@@ -470,7 +470,7 @@ in
               criteria = {
                 class = "Joplin";
               };
-              command = "floating enable border pixel 2, mark \"Joplin\", move scratchpad";
+              command = "floating enable border pixel 2, mark -add Joplin, move scratchpad";
             }
             {
               criteria = {
