@@ -45,6 +45,7 @@
       gimp
       git-crypt
       gopass
+      inetutils
       joplin-desktop
       jpegoptim
       kubectl

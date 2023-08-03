@@ -526,26 +526,26 @@ in
             scale = config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
-          DP-4 = {
+          DP-2 = {
             pos = "0,590";
             # Set HIDP scale (pixel integer scaling)
             scale = config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
-          HDMI-A-5 = {
+          HDMI-A-1 = {
             pos = "2560,1080";
             # Set HIDP scale (pixel integer scaling)
             scale = config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
-          HDMI-A-6 = {
+          HDMI-A-2 = {
             pos = "2560,0";
             transform = "180";
             # Set HIDP scale (pixel integer scaling)
             scale = config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
-          DP-3 = {
+          DP-1 = {
             pos = "5120,590";
             # Set HIDP scale (pixel integer scaling)
             scale = config.services.sway.scale;
