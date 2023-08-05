@@ -78,7 +78,6 @@
       yt-dlp
       # Development
       mysql80
-      php80
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
@@ -199,12 +198,6 @@
   programs.streamdeck-ui = {
     enable = true;
     autoStart = true;
-  };
-
-  home.nix = {
-    settings = {
-      experimental-features = "nix-command flakes";
-    };
   };
 
 }
