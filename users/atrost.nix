@@ -34,6 +34,7 @@
     home.packages = with pkgs; [
       _1password-gui
       android-tools
+      appimagekit
       calc
       dbeaver
       dconf
@@ -69,6 +70,7 @@
       stern
       teamspeak_client
       thunderbird
+      vlc
       wdisplays
       xarchiver
       xfce.mousepad

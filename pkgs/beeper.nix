@@ -2,8 +2,9 @@
 
 let
   pname = "Beeper";
-  sha256 = "38fb69d255e8e17c342d0391f42b8e68375ddbe621681323be05a5bdb3d4d9c3"; # Taken from release's checksums.txt.gpg
-  name = "${pname}";
+  sha256 = "5c5138382292ef54bfa7ff19ee814ebb53ded4742be423d2ed51f3d919d6a9bf";
+  version = "3.68.19";
+  name = "${pname}-${version}";
 
   src = fetchurl {
     url = "https://download.beeper.com/linux/appImage/x64";
@@ -19,8 +20,8 @@ let
     desktopName = pname;
     comment = "A single app to chat on iMessage, WhatsApp, and 13 other chat networks. You can search, snooze, or archive messages. And with a unified inbox, you'll never miss a message again.";
     exec = pname;
-    icon = "mycrypto";
-    categories = [ "Finance" ];
+    icon = "beeper";
+    categories = [ "Chat" ];
   };
 in
 appimageTools.wrapType2 rec {
@@ -29,6 +30,17 @@ appimageTools.wrapType2 rec {
   multiArch = false;
 
   extraPkgs = appimageTools.defaultFhsEnvArgs.multiPkgs;
+
+  extraInstallCommands =
+      let appimageContents = appimageTools.extractType2 { inherit name src; }; in
+      ''
+        mv $out/bin/{${name},${pname}}
+        install -Dm444 ${appimageContents}/beeper.desktop -t $out/share/applications
+        substituteInPlace $out/share/applications/beeper.desktop \
+          --replace 'Exec=AppRun --no-sandbox' 'Exec=${pname}'
+        install -m 444 -D ${appimageContents}/beeper.png \
+          $out/share/icons/hicolor/512x512/apps/beeper.png
+      '';
 
   meta = with lib; {
     description = "All your chats in one app. Yes, really.";
