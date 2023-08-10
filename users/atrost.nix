@@ -70,7 +70,6 @@
       teamspeak_client
       thunderbird
       wdisplays
-      wireguard-tools
       xarchiver
       xfce.mousepad
       xterm

@@ -54,7 +54,10 @@ in
   #};
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+  services.avahi.openFirewall = true;
 
   # Enable sound via Pipewire
   # rtkit is optional but recommended
@@ -145,6 +148,7 @@ in
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     wineWowPackages.stable
+    wireguard-tools
     xdg-utils
   ];
 
