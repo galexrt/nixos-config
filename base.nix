@@ -128,24 +128,25 @@ in
     appimage-run
     curl
     dig
+    evince
     git
     gnumake
-    greetd.tuigreet
     gparted
+    greetd.wlgreet
     htop
     jq
     lm_sensors
     mtr
     nixpkgs-fmt
-    restic
     parted
     pciutils
+    pulseaudio
+    restic
     rsync
     traceroute
     tree
-    pulseaudio
     unzip
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     wineWowPackages.stable
     wireguard-tools
@@ -204,7 +205,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway ";
+        command = "${pkgs.greetd.wlgreet}/bin/wlgreet --cmd ${pkgs.sway}/bin/sway ";
         user = "atrost";
       };
     };

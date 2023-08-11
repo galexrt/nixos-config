@@ -192,6 +192,7 @@
       settings = {
         history = 1000;
       };
+      defaultEditor = true;
     };
 
   };
