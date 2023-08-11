@@ -132,7 +132,7 @@ in
     git
     gnumake
     gparted
-    greetd.wlgreet
+    greetd.tuigreet
     htop
     jq
     lm_sensors
@@ -200,12 +200,11 @@ in
   programs.light.enable = true;
 
   # List services that you want to enable:
-
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.wlgreet}/bin/wlgreet --cmd ${pkgs.sway}/bin/sway ";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
         user = "atrost";
       };
     };
