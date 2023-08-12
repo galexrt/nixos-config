@@ -70,6 +70,7 @@
       stern
       teamspeak_client
       thunderbird
+      udiskie
       vlc
       wdisplays
       xarchiver
@@ -214,9 +215,15 @@
 
   };
 
-  programs.streamdeck-ui = {
-    enable = true;
-    autoStart = true;
-  };
+  #programs.streamdeck-ui = {
+  #  enable = true;
+  #  autoStart = true;
+  #};
+
+  #services.udiskie = {
+  #  enable = true;
+  #  automount = true;
+  #  notify = false;
+  #};
 
 }

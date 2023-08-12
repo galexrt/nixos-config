@@ -32,8 +32,8 @@ in
     };
   };
 
-  #networking.hostName = "moira"; # Define your hostname.
-  networking.hostName = "reaper"; # Define your hostname.
+  networking.hostName = "moira"; # Define your hostname.
+  #networking.hostName = "reaper"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -171,19 +171,21 @@ in
   };
 
   # Fonts
-  fonts.fonts = with pkgs; [
-    hack-font
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    roboto
-    font-awesome
-  ];
-  fonts.fontDir.enable = true;
-  fonts.fontconfig.defaultFonts.monospace = [
-    "Hack"
-    "Noto Color Emoji"
-  ];
+  fonts = {
+    packages = with pkgs; [
+      hack-font
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      roboto
+      font-awesome
+    ];
+    fontDir.enable = true;
+    fontconfig.defaultFonts.monospace = [
+      "Hack"
+      "Noto Color Emoji"
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

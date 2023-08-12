@@ -9,8 +9,8 @@ in
   options = {
     services.sway = {
       scale = mkOption {
-        type = with types; uniq string;
-        default = "1";
+        type = with types; uniq float;
+        default = 1.25;
         description = ''
           Scale set for window manager and apps.
         '';
@@ -523,32 +523,32 @@ in
         output = {
           eDP-1 = {
             # Set HIDP scale (pixel integer scaling)
-            scale = config.services.sway.scale;
+            scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
           DP-2 = {
             pos = "0,590";
             # Set HIDP scale (pixel integer scaling)
-            scale = config.services.sway.scale;
+            scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
           HDMI-A-1 = {
             pos = "2560,1080";
             # Set HIDP scale (pixel integer scaling)
-            scale = config.services.sway.scale;
+            scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
           HDMI-A-2 = {
             pos = "2560,0";
             transform = "180";
             # Set HIDP scale (pixel integer scaling)
-            scale = config.services.sway.scale;
+            scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
           DP-1 = {
             pos = "5120,590";
             # Set HIDP scale (pixel integer scaling)
-            scale = config.services.sway.scale;
+            scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
         };
@@ -654,9 +654,9 @@ in
         export XDG_CURRENT_DESKTOP=sway
         export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
         export QT_AUTO_SCREEN_SCALE_FACTOR=0
-        export QT_SCALE_FACTOR=${config.services.sway.scale}
-        export GDK_SCALE=${config.services.sway.scale}
-        export GDK_DPI_SCALE=${config.services.sway.scale}
+        export QT_SCALE_FACTOR=${lib.strings.floatToString config.services.sway.scale}
+        export GDK_SCALE=${lib.strings.floatToString config.services.sway.scale}
+        export GDK_DPI_SCALE=${lib.strings.floatToString config.services.sway.scale}
         export MOZ_ENABLE_WAYLAND=1
         export _JAVA_AWT_WM_NONREPARENTING=1
 
