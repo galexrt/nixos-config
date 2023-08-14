@@ -6,8 +6,8 @@
 {
   imports = [
     ./base.nix
-    #./machines/reaper
-    ./machines/moira
+    ./machines/reaper
+    #./machines/moira
   ];
 
 }

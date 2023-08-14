@@ -35,10 +35,12 @@
       _1password-gui
       android-tools
       appimagekit
+      buf
       calc
       dbeaver
       dconf
       discord
+      dnscontrol
       docker-compose
       exiftool
       file
@@ -78,6 +80,7 @@
       xterm
       youtube-music
       yt-dlp
+      zoom-us
       # Development
       mysql80
       protobuf

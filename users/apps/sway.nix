@@ -10,7 +10,7 @@ in
     services.sway = {
       scale = mkOption {
         type = with types; uniq float;
-        default = 1.25;
+        default = 1.0;
         description = ''
           Scale set for window manager and apps.
         '';
