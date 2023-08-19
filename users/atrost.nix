@@ -82,10 +82,15 @@
       yt-dlp
       zoom-us
       # Development
+      delve
       mysql80
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
+      python311
+      python311Packages.pygeos
+      python311Packages.gdal
+      python311Packages.pip
       terraform
       terragrunt
       yarn
