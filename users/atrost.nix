@@ -60,6 +60,7 @@
       ncdu
       netbird-ui
       nodejs_18
+      openssl
       optipng
       parsec-bin
       pcmanfm
