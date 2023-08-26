@@ -125,7 +125,7 @@
 
         "cpu" = {
           interval = 3;
-          format = " {}%";
+          format = " {usage}%";
           states = {
             warning = 70;
             critical = 90;

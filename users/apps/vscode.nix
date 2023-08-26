@@ -101,45 +101,46 @@ in
     # Make sure to use the open source vscodium
     package = pkgs.vscodium-fhs;
     enableUpdateCheck = false;
-    extensions = with pkgs.vscode-extensions; [
-      mads-hartmann.bash-ide-vscode
-      #betterComments
-      #betterJinja
-      naumovs.color-highlight
-      firefox-devtools.vscode-firefox-debug
-      vscjava.vscode-java-debug
-      editorconfig.editorconfig
-      #encodeDecode
-      usernamehw.errorlens
-      dbaeumer.vscode-eslint
-      #formattingToggle
-      eamodio.gitlens
-      golang.go
-      #grammarly
-      hashicorp.terraform
-      #moalamriInlineFold
-      lokalise.i18n-ally
-      #javascriptEs6CodeSnippets
-      redhat.java
-      ritwickdey.liveserver
-      #javaLombok
-      sumneko.lua
-      yzhang.markdown-all-in-one
-      bierner.markdown-mermaid
-      jnoortheen.nix-ide
-      #packageJsonUpgrade
-      bmewburn.vscode-intelephense-client
-      esbenp.prettier-vscode
-      #prettyTSErrors
-      ms-python.python
-      #selectedLinesCount
-      timonwong.shellcheck
-      #vscodeLuaFormat
-      zxh404.vscode-proto3
-      #vueVolar
-      redhat.vscode-xml
-      redhat.vscode-yaml
-    ];
+    mutableExtensionsDir = true;
+    #extensions = with pkgs.vscode-extensions; [
+    #  mads-hartmann.bash-ide-vscode
+    #  naumovs.color-highlight
+    #  firefox-devtools.vscode-firefox-debug
+    #  vscjava.vscode-java-debug
+    #  editorconfig.editorconfig
+    #  usernamehw.errorlens
+    #  dbaeumer.vscode-eslint
+    #  eamodio.gitlens
+    #  golang.go
+    #  hashicorp.terraform
+    #  lokalise.i18n-ally
+    #  redhat.java
+    #  ritwickdey.liveserver
+    #  sumneko.lua
+    #  yzhang.markdown-all-in-one
+    #  bierner.markdown-mermaid
+    #  jnoortheen.nix-ide
+    #  bmewburn.vscode-intelephense-client
+    #  esbenp.prettier-vscode
+    #  ms-python.python
+    #  timonwong.shellcheck
+    #  zxh404.vscode-proto3
+    #  redhat.vscode-xml
+    #  redhat.vscode-yaml
+    #  #betterComments
+    #  #betterJinja
+    #  #encodeDecode
+    #  #formattingToggle
+    #  #grammarly
+    #  #moalamriInlineFold
+    #  #javascriptEs6CodeSnippets
+    #  #javaLombok
+    #  #packageJsonUpgrade
+    #  #prettyTSErrors
+    #  #selectedLinesCount
+    #  #vscodeLuaFormat
+    #  #vueVolar
+    #];
     userSettings = {
       "workbench.startupEditor" = "none";
       "editor.fontFamily" = "Hack, 'Noto Color Emoji'";

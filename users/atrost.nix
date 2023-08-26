@@ -88,10 +88,6 @@
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
-      python311
-      python311Packages.pygeos
-      python311Packages.gdal
-      python311Packages.pip
       terraform
       terragrunt
       yarn
@@ -224,10 +220,10 @@
 
   };
 
-  #programs.streamdeck-ui = {
-  #  enable = true;
-  #  autoStart = true;
-  #};
+  programs.streamdeck-ui = {
+    enable = true;
+    autoStart = true;
+  };
 
   #services.udiskie = {
   #  enable = true;
