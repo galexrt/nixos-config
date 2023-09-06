@@ -42,6 +42,7 @@
       discord
       dnscontrol
       docker-compose
+      ethtool
       exiftool
       file
       geeqie
@@ -72,6 +73,7 @@
       steam
       stern
       teamspeak_client
+      temurin-bin
       thunderbird
       udiskie
       vlc
@@ -145,25 +147,8 @@
         obs-vaapi
         droidcam-obs
         obs-pipewire-audio-capture
-        # obs-ndi has some issues https://github.com/NixOS/nixpkgs/issues/219578#issuecomment-1454906546
-      ] ++ (lib.optionals config.nixpkgs.config.allowUnfree [
-        (obs-ndi.override {
-          ndi = pkgs.ndi.overrideAttrs (attrs: rec {
-            src = pkgs.fetchurl {
-              name = "${attrs.pname}-${attrs.version}.tar.gz";
-              url = "https://downloads.ndi.tv/SDK/NDI_SDK_Linux/Install_NDI_SDK_v5_Linux.tar.gz";
-              hash = "sha256-flxUaT1q7mtvHW1J9I1O/9coGr0hbZ/2Ab4tVa8S9/U=";
-            };
-
-            unpackPhase = ''
-              unpackFile $src
-              echo y | ./${attrs.installerName}.sh
-              sourceRoot="NDI SDK for Linux";
-              mkdir -p "$sourceRoot/logos";
-            '';
-          });
-        })
-      ]);
+        obs-teleport
+      ];
     };
 
     services.syncthing = {
