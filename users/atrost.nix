@@ -45,6 +45,7 @@
       ethtool
       exiftool
       file
+      filezilla
       geeqie
       gimp
       git-crypt
