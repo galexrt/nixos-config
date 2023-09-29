@@ -79,6 +79,7 @@
       temurin-bin
       thunderbird
       udiskie
+      unrar
       vlc
       wdisplays
       xarchiver
@@ -97,6 +98,7 @@
       protoc-gen-go-grpc
       python311
       python311Packages.pip
+      python311Packages.requests
       rustup
       terraform
       terragrunt
@@ -200,6 +202,7 @@
     # Development Tools
     programs.go = {
       enable = true;
+      package = pkgs.go_1_21;
       goPath = "Projects/go";
     };
 

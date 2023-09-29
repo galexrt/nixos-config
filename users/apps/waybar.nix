@@ -117,7 +117,10 @@
         };
 
         "temperature" = {
-          hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
+          # moira
+          #hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
+          # reaper
+          hwmon-path = "/sys/class/hwmon/hwmon6/temp1_input";
           critical-threshold = 75;
           format = "{temperatureC}°C {icon}";
           format-icons = [ "" "" "" ];
