@@ -35,6 +35,7 @@
       _1password-gui
       android-tools
       appimagekit
+      azure-cli
       buf
       calc
       dbeaver
@@ -50,6 +51,7 @@
       gimp
       git-crypt
       gopass
+      handbrake
       inetutils
       joplin-desktop
       jpegoptim
@@ -86,6 +88,7 @@
       yt-dlp
       zoom-us
       # Development
+      ansible_2_14
       gcc
       delve
       mysql80
