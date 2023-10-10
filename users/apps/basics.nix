@@ -66,7 +66,9 @@
       advice = {
         addEmptyPathspec = false;
       };
-
+      pack = {
+        sparse = true;
+      };
     };
   };
 
