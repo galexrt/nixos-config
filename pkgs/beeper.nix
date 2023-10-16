@@ -2,8 +2,8 @@
 
 let
   pname = "Beeper";
-  sha256 = "f1a7a217143363512e6d36f0b8dadd9a172605e75f6e1d43b5389a41e5a3270a";
-  version = "3.78.22";
+  sha256 = "71fcdf78cd5cce164acf41db6c9c363c3de5689160f495a9a40d9f2946f9b335";
+  version = "3.79.17";
   name = "${pname}-${version}";
 
   src = fetchurl {
