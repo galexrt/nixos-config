@@ -35,6 +35,7 @@
       _1password-gui
       android-tools
       appimagekit
+      audacity
       azure-cli
       buf
       calc
@@ -47,6 +48,7 @@
       exiftool
       file
       filezilla
+      ffmpeg
       geeqie
       gimp
       git-crypt
