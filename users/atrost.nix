@@ -65,7 +65,7 @@
       mumble
       ncdu
       netbird-ui
-      nodejs_18
+      nodejs_20
       openssl
       optipng
       parsec-bin
@@ -90,10 +90,12 @@
       youtube-music
       yt-dlp
       zoom-us
+      woeusb
       # Development
       ansible_2_14
       gcc
       delve
+      gdal
       mysql80
       protobuf
       protoc-gen-go
