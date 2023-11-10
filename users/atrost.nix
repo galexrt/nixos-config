@@ -96,6 +96,7 @@
       gcc
       delve
       gdal
+      graphviz
       mysql80
       protobuf
       protoc-gen-go

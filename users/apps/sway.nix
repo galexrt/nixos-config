@@ -527,7 +527,7 @@ in
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
           DP-2 = {
-            pos = "0,590";
+            pos = "0,610";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
@@ -546,7 +546,7 @@ in
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
           };
           DP-1 = {
-            pos = "5120,590";
+            pos = "5120,950";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
