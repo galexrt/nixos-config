@@ -64,7 +64,6 @@
       meld
       mumble
       ncdu
-      netbird-ui
       nodejs_20
       openssl
       optipng
@@ -77,6 +76,7 @@
       sshpass
       steam
       stern
+      tailscale-systray
       teamspeak_client
       temurin-bin
       thunderbird
@@ -231,5 +231,9 @@
   #  automount = true;
   #  notify = false;
   #};
+
+  services.tailscale = {
+    enable = true;
+  };
 
 }

@@ -139,6 +139,7 @@ in
     lm_sensors
     mtr
     nixpkgs-fmt
+    nvme-cli
     parted
     pciutils
     pulseaudio
@@ -212,8 +213,6 @@ in
       };
     };
   };
-
-  services.netbird.enable = true;
 
   virtualisation.docker = {
     enable = true;
