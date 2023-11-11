@@ -52,6 +52,7 @@
       geeqie
       gimp
       git-crypt
+      gnome.simple-scan
       gopass
       handbrake
       inetutils

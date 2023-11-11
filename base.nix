@@ -127,6 +127,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     appimage-run
+    bridge-utils
     curl
     dig
     evince
