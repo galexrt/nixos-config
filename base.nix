@@ -226,6 +226,10 @@ in
     storageDriver = "overlay2";
   };
 
+  virtualisation.virtualbox.host = {
+    enable = true;
+  };
+
   security.polkit.enable = true;
 
   # Allow sudo without password

@@ -54,6 +54,7 @@
       git-crypt
       gnome.simple-scan
       gopass
+      grafana-loki
       handbrake
       inetutils
       joplin-desktop
@@ -63,7 +64,9 @@
       kubelogin-oidc
       kubernetes-helm
       meld
+      minikube
       mumble
+      mullvad-vpn
       ncdu
       nodejs_20
       openssl
@@ -234,6 +237,10 @@
   #};
 
   services.tailscale = {
+    enable = true;
+  };
+
+  services.mullvad-vpn = {
     enable = true;
   };
 
