@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
@@ -41,6 +41,8 @@ in
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
+
+  networking.timeServers = [ "0.de.pool.ntp.org" "1.de.pool.ntp.org" "2.de.pool.ntp.org" ] ++ options.networking.timeServers.default;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
