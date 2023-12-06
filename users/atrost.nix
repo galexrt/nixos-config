@@ -65,6 +65,7 @@
       kubernetes-helm
       meld
       minikube
+      minio-client
       mumble
       mullvad-vpn
       ncdu
