@@ -239,6 +239,9 @@
 
   services.tailscale = {
     enable = true;
+    extraUpFlags = [
+      "--operator=atrost"
+    ];
   };
 
   services.mullvad-vpn = {
