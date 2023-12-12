@@ -56,6 +56,7 @@
       gopass
       grafana-loki
       handbrake
+      hugo
       inetutils
       joplin-desktop
       jpegoptim
@@ -83,6 +84,7 @@
       stern
       tailscale-systray
       teamspeak_client
+      termdown
       temurin-bin
       thunderbird
       udiskie
