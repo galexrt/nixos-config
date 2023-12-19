@@ -77,6 +77,7 @@
       pcmanfm
       perl536Packages.AppClusterSSH
       protonup-qt
+      remmina
       s5cmd
       slack
       sshpass
@@ -94,7 +95,7 @@
       xarchiver
       xfce.mousepad
       xterm
-      youtube-music
+      #youtube-music # Uses old Electron 25.9
       yt-dlp
       zoom-us
       woeusb
