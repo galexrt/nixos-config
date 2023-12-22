@@ -2,7 +2,7 @@
 
 let
   pname = "Beeper";
-  sha256 = "a38983d8b7169e5c3d108bafd2ffffe75b81c9a000c4a709373f662a3a7f269f";
+  sha256 = "80b71e2d6758ff4c80bde57721da0b6ea168ac52aac94ddaf5040e54427d4c88";
   version = "3.82.8";
   name = "${pname}-${version}";
 
