@@ -1,6 +1,8 @@
 { pkgs, config, lib, ... }:
 
 {
+  xdg.portal.config.common.default = "*";
+
   home-manager.users.atrost = {
 
     # This value determines the Home Manager release that your
@@ -49,6 +51,7 @@
       file
       filezilla
       ffmpeg
+      ferdium
       geeqie
       gimp
       git-crypt
@@ -116,8 +119,6 @@
       terraform
       terragrunt
       yarn
-      # Custom
-      (callPackage ../pkgs/beeper.nix { })
     ];
 
     home.sessionPath = [
