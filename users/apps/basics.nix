@@ -10,6 +10,16 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
 
+    initExtra = ''
+      randpw() {
+        length="$1"
+        if [ -z "$length" ]; then
+            length="24"
+        fi
+        < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-$length} | sed 's/-/_/';echo;
+    }
+    '';
+
     loginExtra = ''
       if [[ -z "$DISPLAY" ]] && [[ $(tty) = "/dev/tty1" ]]; then
           exec sway
@@ -29,6 +39,8 @@
       "code" = "codium";
       "sshknownhosts" = "vim ~/.ssh/known_hosts";
       "sshconfig" = "vim ~/.ssh/config";
+      "killnamed" = "pkill -f";
+      "ISMYINTERNETK" = "ping 8.8.8.8";
     };
   };
 
