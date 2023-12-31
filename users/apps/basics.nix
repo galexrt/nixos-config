@@ -16,8 +16,8 @@
         if [ -z "$length" ]; then
             length="24"
         fi
-        < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-$length} | sed 's/-/_/';echo;
-    }
+        < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c''\${1:-$length} | sed 's/-/_/';echo;
+      }
     '';
 
     loginExtra = ''
