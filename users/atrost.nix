@@ -61,6 +61,7 @@
       handbrake
       hugo
       inetutils
+      ipcalc
       joplin-desktop
       jpegoptim
       krew
