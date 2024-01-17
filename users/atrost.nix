@@ -98,7 +98,6 @@
       xarchiver
       xfce.mousepad
       xterm
-      #youtube-music # Uses old Electron 25.9
       yt-dlp
       zoom-us
       woeusb
@@ -119,6 +118,7 @@
       terraform
       terragrunt
       yarn
+      (callPackage ../pkgs/heynote.nix { })
     ];
 
     home.sessionPath = [

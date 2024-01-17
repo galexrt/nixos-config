@@ -151,9 +151,9 @@ in
             { class = "Steam"; }
           ];
           "$ws20" = [
-            { class = "Beeper"; }
             { class = "discord"; }
             { class = "Slack"; }
+            { class = "Ferdium"; }
           ];
         };
         gaps = {
@@ -486,13 +486,13 @@ in
             }
             {
               criteria = {
-                instance = "youtube-music";
+                class = "Cssh";
               };
-              command = "floating enable border pixel 2, move scratchpad";
+              command = "floating enable";
             }
             {
               criteria = {
-                class = "Cssh";
+                class = "Heynote";
               };
               command = "floating enable";
             }
@@ -514,9 +514,11 @@ in
         }];
 
         startup = [
-          { command = "sleep 5 && Beeper"; }
-          { command = "sleep 5 && joplin-desktop"; }
           { command = "sleep 5 && systemctl --user restart nextcloud-client"; }
+          { command = "sleep 5 && joplin-desktop"; }
+          { command = "sleep 5 && heynote"; }
+          { command = "sleep 5 && ferdium"; }
+          { command = "sleep 5 && discord"; }
         ];
 
         # Display device configuration
