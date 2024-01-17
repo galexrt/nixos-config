@@ -7,16 +7,16 @@
         name = "Default";
         isDefault = true;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          bitwarden
-          darkreader
-          enhancer-for-youtube
-          floccus
-          grammarly
-          onepassword-password-manager
-          refined-github
-          steam-database
-          ublock-origin
-          vue-js-devtools
+          #bitwarden
+          #darkreader
+          #enhancer-for-youtube
+          #floccus
+          #grammarly
+          #onepassword-password-manager
+          #refined-github
+          #steam-database
+          #ublock-origin
+          #vue-js-devtools
         ];
         settings = {
           "browser.aboutConfig.showWarning" = false;

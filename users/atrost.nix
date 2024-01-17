@@ -38,7 +38,6 @@
       android-tools
       appimagekit
       audacity
-      azure-cli
       buf
       calc
       dbeaver

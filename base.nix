@@ -1,12 +1,9 @@
 { config, pkgs, options, ... }:
 
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in
 {
   imports =
     [
-      (import "${home-manager}/nixos")
+      <home-manager/nixos>
       ./home.nix
     ];
 
@@ -16,6 +13,7 @@ in
   boot.loader.grub.memtest86.enable = true;
   boot.plymouth.enable = false;
   boot.supportedFilesystems = [ "btrfs" ];
+  boot.swraid.enable = true;
 
   hardware = {
     enableAllFirmware = true;
