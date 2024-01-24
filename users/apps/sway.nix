@@ -232,6 +232,9 @@ in
           ## Joplin
           "${cfg.config.modifier}+F5" = "[con_mark=\"Joplin\"] scratchpad show";
           "${cfg.config.modifier}+Shift+F5" = "[class=\"Joplin\"] mark -add Joplin, move scratchpad";
+          ## Heynote
+          "${cfg.config.modifier}+F6" = "[con_mark=\"Heynote\"] scratchpad show";
+          "${cfg.config.modifier}+Shift+F6" = "[class=\"Heynote\"] mark -add Heynote, move scratchpad";
 
           # workspace back and forth (with/without active container)
           "${cfg.config.modifier}+b" = "workspace back_and_forth";
@@ -494,7 +497,7 @@ in
               criteria = {
                 class = "Heynote";
               };
-              command = "floating enable";
+              command = "floating enable border pixel 2, mark -add Heynote, move scratchpad";
             }
             # inhibit idle
             {
