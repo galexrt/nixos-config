@@ -250,7 +250,7 @@ in
       "[lua]" = {
         "editor.defaultFormatter" = "sumneko.lua";
       };
-      "editor.fontSize" = 8;
+      "editor.fontSize" = 11;
     };
   };
 }

@@ -67,6 +67,9 @@
       kubectl
       kubelogin-oidc
       kubernetes-helm
+      krew
+      libreoffice-fresh
+      lua
       meld
       minikube
       minio-client
@@ -193,7 +196,7 @@
       ./apps/waybar.nix
       ./apps/firefox.nix
       ./apps/thunderbird.nix
-      ./apps/vscode.nix
+      ./apps/codium.nix
     ];
 
     gtk = {
