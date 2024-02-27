@@ -106,6 +106,7 @@
       woeusb
       # Development
       ansible_2_14
+      chromium
       gcc
       delve
       gdal
@@ -120,6 +121,7 @@
       rustup
       terraform
       terragrunt
+      vips
       yarn
       (callPackage ../pkgs/heynote.nix { })
     ];
