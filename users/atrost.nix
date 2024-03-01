@@ -121,7 +121,6 @@
       rustup
       terraform
       terragrunt
-      vips
       yarn
       (callPackage ../pkgs/heynote.nix { })
     ];
