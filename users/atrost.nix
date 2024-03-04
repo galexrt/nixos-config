@@ -77,6 +77,7 @@
       mullvad-vpn
       ncdu
       nodejs_20
+      openshot-qt
       openssl
       optipng
       parsec-bin
@@ -104,6 +105,7 @@
       yt-dlp
       zoom-us
       woeusb
+      zip
       # Development
       ansible_2_14
       chromium
