@@ -201,10 +201,6 @@ in
           "name" = "JavaSE-17";
           "path" = "/usr/lib/jvm/java-17-openjdk";
         }
-        {
-          "name" = "JavaSE-11";
-          "path" = "/usr/lib/jvm/java-11-openjdk";
-        }
       ];
       "intelephense.environment.phpVersion" = "7.4.16";
       "editor.quickSuggestions" = {
@@ -246,11 +242,11 @@ in
       "volar.format.initialIndent" = {
         "html" = true;
       };
-      "i18n-ally.displayLanguage" = "en-US";
       "[lua]" = {
         "editor.defaultFormatter" = "sumneko.lua";
       };
       "editor.fontSize" = 11;
+      "errorLens.enabled" = true;
     };
   };
 }

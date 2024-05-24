@@ -34,8 +34,8 @@
     "ferdi-5.8.1"
   ];
 
-  #networking.hostName = "moira"; # Define your hostname.
-  networking.hostName = "reaper"; # Define your hostname.
+  networking.hostName = "moira"; # Define your hostname.
+  #networking.hostName = "reaper"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -58,7 +58,10 @@
   #};
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplipWithPlugin ];
+  };
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
   services.avahi.openFirewall = true;

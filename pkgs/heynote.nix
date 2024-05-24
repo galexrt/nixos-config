@@ -2,8 +2,8 @@
 
 let
   pname = "heynote";
-  sha256 = "287cdfa03976301c38e7837a078a7f0f352e35054ce9318a217c854764de3c55";
-  version = "1.6.0";
+  sha256 = "6fcfb55bae2cbbe124bd5cfa86087a3900135aa6575fa2dc41331ce32d253c47";
+  version = "1.7.0";
   name = "${pname}-${version}";
 
   src = fetchurl {

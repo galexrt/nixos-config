@@ -1,5 +1,7 @@
 { pkgs, config, lib, ... }:
-
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   xdg.portal.config.common.default = "*";
 
@@ -109,6 +111,7 @@
       # Development
       ansible_2_14
       chromium
+      corepack
       gcc
       delve
       gdal
@@ -125,6 +128,7 @@
       terragrunt
       yarn
       (callPackage ../pkgs/heynote.nix { })
+      unstable.kubecolor
     ];
 
     home.sessionPath = [
@@ -257,5 +261,17 @@
   services.mullvad-vpn = {
     enable = true;
   };
+
+  /*
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+    };
+  };
+  */
 
 }
