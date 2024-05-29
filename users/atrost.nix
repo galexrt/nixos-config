@@ -117,6 +117,8 @@ in
       gdal
       graphviz
       mysql80
+      php83
+      php83Packages.composer
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
