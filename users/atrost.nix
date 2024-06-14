@@ -42,7 +42,7 @@ in
       audacity
       buf
       calc
-      dbeaver
+      dbeaver-bin
       dconf
       discord
       dnscontrol
@@ -109,7 +109,7 @@ in
       woeusb
       zip
       # Development
-      ansible_2_14
+      ansible_2_15
       chromium
       corepack
       gcc
@@ -150,7 +150,7 @@ in
       maxCacheTtl = 34560000;
       maxCacheTtlSsh = 34560000;
       defaultCacheTtlSsh = 34560000;
-      pinentryFlavor = "gtk2";
+      pinentryPackage = pkgs.pinentry-gtk2;
     };
     programs.gpg = {
       enable = true;
