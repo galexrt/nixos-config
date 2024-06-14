@@ -77,6 +77,7 @@ in
 
     wayland.windowManager.sway = {
       enable = true;
+      checkConfig = false;
       swaynag = {
         enable = true;
         settings = {
@@ -529,32 +530,32 @@ in
           eDP-1 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
           DP-2 = {
             pos = "0,1080";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
           HDMI-A-1 = {
             pos = "2560,1080";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
           HDMI-A-2 = {
             pos = "2560,0";
             transform = "180";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
           DP-1 = {
             pos = "5120,1080";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
         };
 
