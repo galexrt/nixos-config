@@ -540,13 +540,7 @@ in
           };
           HDMI-A-1 = {
             pos = "2560,1080";
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
-          };
-          HDMI-A-2 = {
-            pos = "2560,0";
-            transform = "180";
+            res = "2560x1440@143.991Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
