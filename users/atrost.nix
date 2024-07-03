@@ -80,6 +80,7 @@ in
       mumble
       mullvad-vpn
       ncdu
+      neofetch
       nodejs_20
       openshot-qt
       openssl
