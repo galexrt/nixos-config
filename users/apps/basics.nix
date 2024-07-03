@@ -33,6 +33,9 @@
       enable = true;
       plugins = [ "git" "systemd" "common-aliases" "golang" "kubectl" "rsync" ];
       theme = "rkj-repos";
+      extraConfig = ''
+        COMPLETION_WAITING_DOTS="true"
+      '';
     };
 
     shellAliases = {
@@ -80,6 +83,9 @@
       };
       pack = {
         sparse = true;
+      };
+      oh-my-zsh = {
+        hide-status = 0;
       };
     };
   };

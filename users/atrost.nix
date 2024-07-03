@@ -61,10 +61,12 @@ in
       grafana-loki
       handbrake
       hugo
+      unstable.imhex
       inetutils
       ipcalc
       joplin-desktop
       jpegoptim
+      kind
       krew
       kubectl
       kubelogin-oidc
