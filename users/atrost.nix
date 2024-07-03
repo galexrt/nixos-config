@@ -61,10 +61,12 @@ in
       grafana-loki
       handbrake
       hugo
+      unstable.imhex
       inetutils
       ipcalc
       joplin-desktop
       jpegoptim
+      kind
       krew
       kubectl
       kubelogin-oidc
@@ -78,6 +80,7 @@ in
       mumble
       mullvad-vpn
       ncdu
+      neofetch
       nodejs_20
       openshot-qt
       openssl
