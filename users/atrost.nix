@@ -56,7 +56,7 @@ in
       geeqie
       gimp
       git-crypt
-      gnome.simple-scan
+      simple-scan
       gopass
       grafana-loki
       handbrake
@@ -224,7 +224,7 @@ in
       };
       iconTheme = {
         name = "Adwaita";
-        package = pkgs.gnome.adwaita-icon-theme;
+        package = pkgs.adwaita-icon-theme;
       };
     };
 
