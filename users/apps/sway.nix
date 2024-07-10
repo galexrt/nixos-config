@@ -548,7 +548,7 @@ in
           };
           DP-1 = {
             pos = "5120,0";
-            res = "2560x1080@60.000Hz";
+            res = "2560x1440@143.991Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
