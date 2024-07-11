@@ -30,9 +30,6 @@
       inherit pkgs;
     };
   };
-  nixpkgs.config.permittedInsecurePackages = [
-    "ferdi-5.8.1"
-  ];
 
   #networking.hostName = "moira"; # Define your hostname.
   networking.hostName = "reaper"; # Define your hostname.
@@ -159,6 +156,7 @@
     nvme-cli
     parted
     pciutils
+    pkg-config
     pulseaudio
     restic
     rsync

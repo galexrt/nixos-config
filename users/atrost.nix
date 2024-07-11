@@ -61,7 +61,7 @@ in
       grafana-loki
       handbrake
       hugo
-      unstable.imhex
+      imhex
       inetutils
       ipcalc
       joplin-desktop
@@ -71,7 +71,6 @@ in
       kubectl
       kubelogin-oidc
       kubernetes-helm
-      krew
       libreoffice-fresh
       lua
       meld
