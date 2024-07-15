@@ -36,7 +36,6 @@ in
     };
 
     home.packages = with pkgs; [
-      _1password-gui
       android-tools
       appimagekit
       audacity
