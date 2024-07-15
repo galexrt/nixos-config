@@ -1,10 +1,16 @@
 # nixos-config
 
-## moira
+The NixOS config of a NixOS newbie ;-)
 
-Instructions are taken from https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html
+The config here can probably be improved a lot by someone that knows more about NixOS, though as it stands the config works fine for me and helps me reduce time spent on configs/OS issues.
 
-```
+## Hosts
+
+### moira - Laptops
+
+Instructions are based on <https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html> post.
+
+```bash
 DISK=/dev/nvme0n1
 
 # Created using `sfdisk -d "$DISK"
@@ -71,3 +77,7 @@ sync
 
 reboot
 ```
+
+### reaper - Workstation
+
+TODO
