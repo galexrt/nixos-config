@@ -60,7 +60,7 @@ cryptsetup open "$DISK2"p2 encd2
 cryptsetup --verify-passphrase -v luksFormat "$DISK2"p3
 cryptsetup open "$DISK2"p3 encs2
 
-mkfs.vfat -n boot "$DISK2"p2
+mkfs.vfat -n boot "$DISK2"p1
 
 mkfs.btrfs /dev/mapper/encd1
 mkfs.btrfs /dev/mapper/encd2
@@ -106,6 +106,12 @@ mount -o subvol=var-log,compress=zstd,noatime /dev/mapper/encd1 /mnt/var/log
 mkdir /mnt/boot
 mount "$DISK1"p1 /mnt/boot
 
+nix-channel --remove nixos
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+
+mkdir -p /mnt/etc/nixos/
 # Upload /mnt/etc/nixos/configuration.nix file to machine
 
 nixos-install

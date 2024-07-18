@@ -26,7 +26,7 @@
         allowDiscards = true;
       };
       "encd2" = {
-        device = "/dev/disk/by-uuid/24d2d242-11be-4c34-90ad-8913e56ccebe";
+        device = "/dev/disk/by-uuid/e40b391a-a7f2-4919-a2f4-1416075e55a5";
         allowDiscards = true;
       };
       "encs1" = {
