@@ -31,8 +31,10 @@
     };
   };
 
-  #networking.hostName = "moira"; # Define your hostname.
-  networking.hostName = "reaper"; # Define your hostname.
+  # Define your hostname.
+  networking.hostName = "finka";
+  #networking.hostName = "moira";
+  #networking.hostName = "reaper";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -146,10 +148,12 @@
     git
     gnumake
     gparted
+    gptfdisk
     greetd.tuigreet
     htop
     jq
     lm_sensors
+    lsof
     mtr
     nixpkgs-fmt
     nvme-cli

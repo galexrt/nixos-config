@@ -120,6 +120,8 @@
           # moira
           #hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
           # reaper
+          #hwmon-path = "/sys/class/hwmon/hwmon6/temp1_input";
+          # finka
           hwmon-path = "/sys/class/hwmon/hwmon6/temp1_input";
           critical-threshold = 75;
           format = "{temperatureC}°C {icon}";
