@@ -8,6 +8,8 @@
     ./hardware-configuration.nix
   ];
 
+  networking.hostName = "finka";
+
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {

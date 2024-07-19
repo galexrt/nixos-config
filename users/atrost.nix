@@ -39,7 +39,6 @@ in
       android-tools
       appimagekit
       audacity
-      buf
       calc
       dbeaver-bin
       dconf
@@ -71,7 +70,6 @@ in
       kubelogin-oidc
       kubernetes-helm
       libreoffice-fresh
-      lua
       meld
       minikube
       minio-client
@@ -100,6 +98,7 @@ in
       thunderbird
       udiskie
       unrar
+      vesktop
       vlc
       wdisplays
       xarchiver
@@ -111,12 +110,14 @@ in
       zip
       # Development
       ansible_2_15
+      buf
       chromium
+      clang_multi
       corepack
-      gcc
       delve
       gdal
       graphviz
+      lua
       mysql80
       php83
       php83Packages.composer

@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [
     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc/laptop"
@@ -7,5 +9,17 @@
     ./hardware-configuration.nix
   ];
 
-  #config.wayland.windowManager.sway.scale = "1.25";
+  networking.hostName = "moira";
+
+  home-manager.users.atrost = {
+    programs.waybar = {
+      settings = {
+        default = {
+          "temperature" = {
+            hwmon-path = lib.mkForce "/sys/class/hwmon/hwmon3/temp1_input";
+          };
+        };
+      };
+    };
+  };
 }

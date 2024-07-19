@@ -5,6 +5,8 @@
     ./hardware-configuration.nix
   ];
 
+  networking.hostName = "reaper";
+
   services.nfs.server = {
     enable = true;
     exports = ''
