@@ -112,9 +112,9 @@ in
       ansible_2_15
       buf
       chromium
-      clang_multi
       corepack
       delve
+      gcc
       gdal
       graphviz
       lua

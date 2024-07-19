@@ -142,18 +142,20 @@ in
     #  #vueVolar
     #];
     userSettings = {
-      "workbench.startupEditor" = "none";
-      "editor.fontFamily" = "Hack, 'Noto Color Emoji'";
-      "markdown.preview.fontSize" = 8;
-      "terminal.integrated.fontSize" = 8;
-      "scm.inputFontSize" = 10;
+      "debug.console.fontSize" = 10;
       "editor.codeLensFontSize" = 8;
-      "notebook.markup.fontSize" = 10;
-      "workbench.colorTheme" = "Default High Contrast";
-      "redhat.telemetry.enabled" = false;
+      "editor.fontFamily" = "Hack, 'Noto Color Emoji'";
+      "editor.fontSize" = 10;
       "explorer.confirmDelete" = false;
-      "git.confirmSync" = false;
       "git.autofetch" = true;
+      "git.confirmSync" = false;
+      "markdown.preview.fontSize" = 8;
+      "notebook.markup.fontSize" = 10;
+      "redhat.telemetry.enabled" = false;
+      "scm.inputFontSize" = 10;
+      "terminal.integrated.fontSize" = 8;
+      "workbench.colorTheme" = "Default High Contrast";
+      "workbench.startupEditor" = "none";
       "[markdown]" = {
         "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
       };
@@ -170,8 +172,6 @@ in
       "[html]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
-      "markdown.extension.toc.levels" = "2..6";
-      "markdown.extension.toc.unorderedList.marker" = "*";
       "[scss]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
@@ -197,17 +197,12 @@ in
           "name" = "JavaSE-19";
           "path" = "/usr/lib/jvm/java-19-openjdk";
         }
-        {
-          "name" = "JavaSE-17";
-          "path" = "/usr/lib/jvm/java-17-openjdk";
-        }
       ];
-      "intelephense.environment.phpVersion" = "7.4.16";
+      "intelephense.environment.phpVersion" = "8.3.8";
       "editor.quickSuggestions" = {
         "comments" = "on";
         "strings" = "on";
       };
-      "debug.console.fontSize" = 10;
       "json.format.keepLines" = true;
       "[vue]" = {
         "editor.defaultFormatter" = "Vue.volar";
@@ -245,8 +240,8 @@ in
       "[lua]" = {
         "editor.defaultFormatter" = "sumneko.lua";
       };
-      "editor.fontSize" = 11;
       "errorLens.enabled" = true;
+      "clangd.path" = "/home/atrost/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
     };
   };
 }
