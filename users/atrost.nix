@@ -84,6 +84,7 @@ in
       parsec-bin
       pcmanfm
       perl536Packages.AppClusterSSH
+      projectm
       protonup-qt
       remmina
       s5cmd
