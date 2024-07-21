@@ -146,7 +146,6 @@
     gparted
     gptfdisk
     greetd.tuigreet
-    gsmartcontrol
     htop
     jq
     lm_sensors
@@ -160,6 +159,7 @@
     pulseaudio
     restic
     rsync
+    smartmontools
     traceroute
     tree
     unzip
