@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4dc3873b-640d-4e62-9814-c30fb92b1947";
+    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
@@ -42,32 +42,32 @@
   };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/4dc3873b-640d-4e62-9814-c30fb92b1947";
+    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/4dc3873b-640d-4e62-9814-c30fb92b1947";
+    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/4dc3873b-640d-4e62-9814-c30fb92b1947";
+    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/lib" =
-    { device = "/dev/disk/by-uuid/4dc3873b-640d-4e62-9814-c30fb92b1947";
+    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
       fsType = "btrfs";
       options = [ "subvol=var-lib" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/4dc3873b-640d-4e62-9814-c30fb92b1947";
+    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
       fsType = "btrfs";
       options = [ "subvol=var-log" "compress=zstd" "noatime" ];
       neededForBoot = true;
@@ -80,8 +80,8 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/0fa2aaad-1704-4c3a-8fc6-bac3eeddf913"; }
-      { device = "/dev/disk/by-uuid/676d72c4-a361-4966-b7d1-38ec4e8c02cf"; }
+    [ { device = "/dev/disk/by-uuid/08f8e5ba-ceba-4e25-bc9b-5463987ca2d2"; }
+      { device = "/dev/disk/by-uuid/e86fa466-1613-4b0a-9683-6204bdcc4601"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
