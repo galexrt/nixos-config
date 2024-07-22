@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
+    { device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
@@ -22,19 +22,19 @@
   boot.initrd.luks = {
     devices = {
       "encd1" = {
-        device = "/dev/disk/by-uuid/49e30aa3-93ac-490a-b524-db5b9598990b";
+        device = "/dev/disk/by-uuid/fae956a3-677e-4bc8-8dc5-00885653a5fc";
         allowDiscards = true;
       };
       "encs1" = {
-        device = "/dev/disk/by-uuid/deca0040-6665-4573-b74f-c9bf6dc253c6";
+        device = "/dev/disk/by-uuid/38daf491-9ccc-4569-a01e-a9410c50e680";
         allowDiscards = true;
       };
       "encd2" = {
-        device = "/dev/disk/by-uuid/1a4be654-d34a-4873-821c-b35f137cc27a";
+        device = "/dev/disk/by-uuid/b75fc1b5-0c5f-4d57-92b1-9e59167ad96d";
         allowDiscards = true;
       };
       "encs2" = {
-        device = "/dev/disk/by-uuid/ec74f554-532b-4435-9658-7cb3f2bf7e16";
+        device = "/dev/disk/by-uuid/c9fe422d-0f4f-4a9e-938b-161a573ac05e";
         allowDiscards = true;
       };
     };
@@ -42,46 +42,46 @@
   };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
+    { device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
+    { device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
+    { device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/lib" =
-    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
+    { device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
       options = [ "subvol=var-lib" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/b899481f-570f-409f-9050-2799aabd0ea1";
+    { device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
       options = [ "subvol=var-log" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D891-634B";
+    { device = "/dev/disk/by-uuid/1965-7043"; # Second disk /dev/disk/by-uuid/1965-7043
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/08f8e5ba-ceba-4e25-bc9b-5463987ca2d2"; }
-      { device = "/dev/disk/by-uuid/e86fa466-1613-4b0a-9683-6204bdcc4601"; }
+    [ { device = "/dev/disk/by-uuid/b03a866c-effb-48e7-a6b5-5c86b625df87"; }
+      { device = "/dev/disk/by-uuid/9ffa2470-9195-4853-862b-57b01a5ae3eb"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

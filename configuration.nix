@@ -7,8 +7,8 @@
   imports = [
     ./base.nix
     #./machines/finka
-    #./machines/moira
-    ./machines/reaper
+    ./machines/moira
+    #./machines/reaper
   ];
 
 }
