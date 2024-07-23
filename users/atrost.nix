@@ -97,7 +97,7 @@ in
       termdown
       temurin-bin
       thunderbird
-      transmission-qt
+      transmission_4-qt
       udiskie
       unrar
       vesktop

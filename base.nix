@@ -15,6 +15,9 @@
   boot.supportedFilesystems = [ "btrfs" ];
   boot.swraid.enable = true;
 
+  # Linux 6.10 kernel
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_10);
+
   hardware = {
     enableAllFirmware = true;
 
