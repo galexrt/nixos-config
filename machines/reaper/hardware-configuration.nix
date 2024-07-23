@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
@@ -14,7 +15,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
+    {
+      device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
@@ -39,17 +41,14 @@
       };
       # Data
       "data1" = {
-        device = "/dev/disk/by-uuid/9bafb0d7-944b-4750-8370-a529e0b5e429";
-      };
-      "data2" = {
         device = "/dev/disk/by-uuid/88697004-5812-405a-8c6a-b102194aed25";
       };
-      "data3" = {
-        device = "/dev/disk/by-uuid/a806b7f0-5fb4-441d-8f67-ab7b17d91c6a";
-      };
-      "data4" = {
+      "data2" = {
         device = "/dev/disk/by-uuid/a0cc958f-8ba8-40d9-aa6f-87f9b4174fa0";
       };
+      #"data3" = {
+      #  device = "/dev/disk/by-uuid/a806b7f0-5fb4-441d-8f67-ab7b17d91c6a";
+      #};
       # SSD
       "ssd1" = {
         device = "/dev/disk/by-uuid/6b430212-aaa0-41f5-83f2-f612358969cc";
@@ -64,50 +63,58 @@
   };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
+    {
+      device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
+    {
+      device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
+    {
+      device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/lib" =
-    { device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
+    {
+      device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
       options = [ "subvol=var-lib" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
+    {
+      device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
       options = [ "subvol=var-log" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ECC2-7EF2";
+    {
+      device = "/dev/disk/by-uuid/ECC2-7EF2";
       fsType = "vfat";
     };
 
   fileSystems."/data/DATA" =
-    { device = "/dev/disk/by-uuid/7c21899a-e25e-4a9d-bdd8-ff13f2798423";
+    {
+      device = "/dev/disk/by-uuid/7c21899a-e25e-4a9d-bdd8-ff13f2798423";
       fsType = "btrfs";
       options = [ "noatime" ];
     };
 
   fileSystems."/data/SSD" =
-    { device = "/dev/disk/by-uuid/f77d0890-3357-4dba-b098-3750b5c2e370";
+    {
+      device = "/dev/disk/by-uuid/f77d0890-3357-4dba-b098-3750b5c2e370";
       fsType = "btrfs";
       options = [ "noatime" ];
     };

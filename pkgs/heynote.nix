@@ -32,15 +32,15 @@ appimageTools.wrapType2 rec {
   extraPkgs = appimageTools.defaultFhsEnvArgs.multiPkgs;
 
   extraInstallCommands =
-      let appimageContents = appimageTools.extractType2 { inherit name src; }; in
-      ''
-        mv $out/bin/{${name},${pname}}
-        install -Dm444 ${appimageContents}/heynote.desktop -t $out/share/applications
-        substituteInPlace $out/share/applications/heynote.desktop \
-          --replace 'Exec=AppRun --no-sandbox' 'Exec=${pname}'
-        install -m 444 -D ${appimageContents}/heynote.png \
-          $out/share/icons/hicolor/512x512/apps/heynote.png
-      '';
+    let appimageContents = appimageTools.extractType2 { inherit name src; }; in
+    ''
+      mv $out/bin/{${name},${pname}}
+      install -Dm444 ${appimageContents}/heynote.desktop -t $out/share/applications
+      substituteInPlace $out/share/applications/heynote.desktop \
+        --replace 'Exec=AppRun --no-sandbox' 'Exec=${pname}'
+      install -m 444 -D ${appimageContents}/heynote.png \
+        $out/share/icons/hicolor/512x512/apps/heynote.png
+    '';
 
   meta = with lib; {
     description = "A dedicated scratchpad for developers";
