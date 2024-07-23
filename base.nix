@@ -154,6 +154,7 @@
     nixpkgs-fmt
     nvme-cli
     parted
+    parallel
     pciutils
     pkg-config
     pulseaudio
