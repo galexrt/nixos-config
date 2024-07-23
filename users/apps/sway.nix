@@ -518,11 +518,10 @@ in
         }];
 
         startup = [
-          { command = "sleep 5 && systemctl --user restart nextcloud-client"; }
-          { command = "sleep 5 && joplin-desktop"; }
-          { command = "sleep 5 && heynote"; }
-          { command = "sleep 5 && ferdium"; }
-          { command = "sleep 5 && discord"; }
+          { command = "joplin-desktop"; }
+          { command = "heynote"; }
+          { command = "sleep 4 && ferdium"; }
+          { command = "sleep 2 && vesktop"; }
         ];
 
         # Display device configuration

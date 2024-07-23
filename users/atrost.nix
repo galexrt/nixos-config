@@ -42,7 +42,6 @@ in
       calc
       dbeaver-bin
       dconf
-      discord
       dnscontrol
       docker-compose
       ethtool
@@ -52,6 +51,7 @@ in
       ffmpeg
       ferdium
       geeqie
+      gh
       gimp
       git-crypt
       simple-scan
