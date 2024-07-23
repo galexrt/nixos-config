@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -12,7 +12,7 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.greetd.settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway --unsupported-gpu --my-next-gpu-wont-be-nvidia";
+  services.greetd.settings.default_session.command = lib.mkForce "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway --unsupported-gpu --my-next-gpu-wont-be-nvidia";
 
   hardware.nvidia = {
     modesetting.enable = true;
