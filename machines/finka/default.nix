@@ -34,4 +34,6 @@
 
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
+
+  hardware.enableAllFirmware = true;
 }

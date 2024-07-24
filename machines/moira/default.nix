@@ -22,4 +22,6 @@
       };
     };
   };
+
+  hardware.enableAllFirmware = true;
 }

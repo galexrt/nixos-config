@@ -46,15 +46,6 @@
       "data2" = {
         device = "/dev/disk/by-uuid/a0cc958f-8ba8-40d9-aa6f-87f9b4174fa0";
       };
-      # SSD
-      "ssd1" = {
-        device = "/dev/disk/by-uuid/6b430212-aaa0-41f5-83f2-f612358969cc";
-        allowDiscards = true;
-      };
-      "ssd2" = {
-        device = "/dev/disk/by-uuid/de6ca414-d01e-40fb-ac7e-f3f34cbf6704";
-        allowDiscards = true;
-      };
     };
     reusePassphrases = true;
   };
@@ -109,13 +100,6 @@
       options = [ "noatime" ];
     };
 
-  fileSystems."/data/SSD" =
-    {
-      device = "/dev/disk/by-uuid/f77d0890-3357-4dba-b098-3750b5c2e370";
-      fsType = "btrfs";
-      options = [ "noatime" ];
-    };
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -123,12 +107,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp10s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp9s0f0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp9s0f1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  #powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

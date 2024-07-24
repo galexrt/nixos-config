@@ -163,6 +163,7 @@
     pulseaudio
     restic
     rsync
+    screen
     smartmontools
     traceroute
     tree
