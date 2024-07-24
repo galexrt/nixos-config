@@ -46,9 +46,6 @@
       "data2" = {
         device = "/dev/disk/by-uuid/a0cc958f-8ba8-40d9-aa6f-87f9b4174fa0";
       };
-      #"data3" = {
-      #  device = "/dev/disk/by-uuid/a806b7f0-5fb4-441d-8f67-ab7b17d91c6a";
-      #};
       # SSD
       "ssd1" = {
         device = "/dev/disk/by-uuid/6b430212-aaa0-41f5-83f2-f612358969cc";
