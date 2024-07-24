@@ -18,7 +18,7 @@
     {
       device = "/dev/disk/by-uuid/2b33b778-26c6-44df-8504-22081169e03e";
       fsType = "btrfs";
-      options = [ "subvol=root" ];
+      options = [ "subvol=root" "noatime" ];
     };
 
   boot.initrd.luks = {

@@ -18,7 +18,7 @@
     {
       device = "/dev/disk/by-uuid/97821e22-0856-482c-ad3a-b49b2f1b6088";
       fsType = "btrfs";
-      options = [ "subvol=root" ];
+      options = [ "subvol=root" "noatime" ];
     };
 
   boot.initrd.luks = {
@@ -97,7 +97,7 @@
     {
       device = "/dev/disk/by-uuid/7c21899a-e25e-4a9d-bdd8-ff13f2798423";
       fsType = "btrfs";
-      options = [ "noatime" ];
+      options = [ "compress=zstd" "noatime" ];
     };
 
   swapDevices = [ ];
