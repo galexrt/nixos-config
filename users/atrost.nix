@@ -102,6 +102,7 @@ in
       unrar
       vesktop
       vlc
+      waypipe
       wdisplays
       xarchiver
       xfce.mousepad
