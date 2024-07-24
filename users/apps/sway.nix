@@ -153,6 +153,7 @@ in
           ];
           "$ws20" = [
             { class = "discord"; }
+            { class = "vesktop"; }
             { class = "Slack"; }
             { class = "Ferdium"; }
           ];
