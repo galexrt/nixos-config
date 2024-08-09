@@ -96,7 +96,6 @@ in
       teamspeak_client
       termdown
       temurin-bin
-      thunderbird
       transmission_4-qt
       udiskie
       unrar
