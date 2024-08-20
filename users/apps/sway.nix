@@ -103,7 +103,7 @@ in
         up = "k";
         right = "l";
         terminal = "${pkgs.wezterm}/bin/wezterm";
-        menu = "${pkgs.wofi}/bin/wofi --dmenu";
+        menu = "${pkgs.wofi}/bin/wofi --dmenu #| xargs swaymsg exec -- ";
 
         fonts = {
           names = [ "Hack" "Noto Color Emoji" ];
@@ -234,9 +234,6 @@ in
           ## Joplin
           "${cfg.config.modifier}+F5" = "[con_mark=\"Joplin\"] scratchpad show";
           "${cfg.config.modifier}+Shift+F5" = "[class=\"Joplin\"] mark -add Joplin, move scratchpad";
-          ## Heynote
-          "${cfg.config.modifier}+F6" = "[con_mark=\"Heynote\"] scratchpad show";
-          "${cfg.config.modifier}+Shift+F6" = "[class=\"Heynote\"] mark -add Heynote, move scratchpad";
 
           # workspace back and forth (with/without active container)
           "${cfg.config.modifier}+b" = "workspace back_and_forth";
@@ -495,12 +492,6 @@ in
               };
               command = "floating enable";
             }
-            {
-              criteria = {
-                class = "Heynote";
-              };
-              command = "floating enable border pixel 2, mark -add Heynote, move scratchpad";
-            }
             # inhibit idle
             {
               criteria = {
@@ -520,7 +511,6 @@ in
 
         startup = [
           { command = "joplin-desktop"; }
-          { command = "heynote"; }
           { command = "sleep 4 && ferdium"; }
           { command = "sleep 2 && vesktop"; }
         ];

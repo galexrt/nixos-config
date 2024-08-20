@@ -133,7 +133,6 @@ in
       terraform
       terragrunt
       yarn
-      (callPackage ../pkgs/heynote.nix { })
       unstable.kubecolor
     ];
 
@@ -246,10 +245,10 @@ in
 
   };
 
-  programs.streamdeck-ui = {
-    enable = true;
-    autoStart = true;
-  };
+  #programs.streamdeck-ui = {
+  #  enable = true;
+  #  autoStart = true;
+  #};
 
   #services.udiskie = {
   #  enable = true;

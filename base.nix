@@ -173,6 +173,7 @@
     wineWowPackages.stable
     wireguard-tools
     xdg-utils
+    yq
   ];
 
   environment.etc = {
