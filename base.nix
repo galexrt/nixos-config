@@ -21,10 +21,13 @@
   hardware = {
     enableAllFirmware = true;
 
-    graphics = {
+    opengl = {
+      driSupport = true;
+    };
+    /*graphics = {
       enable = true;
       enable32Bit = true;
-    };
+    };*/
   };
 
   nixpkgs.config.allowUnfree = true;
