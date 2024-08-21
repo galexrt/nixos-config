@@ -55,11 +55,11 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  #console = {
+  console = {
   #  font = "Lat2-Terminus16";
-  #  keyMap = "en";
+    keyMap = "de";
   #  useXkbConfig = true; # use xkbOptions in tty.
-  #};
+  };
 
   # Enable CUPS to print documents.
   services.printing = {
