@@ -11,8 +11,7 @@
     enable = true;
     exports = ''
       /data/DATA/topsecret/Music 172.16.1.101(rw,fsid=0,no_subtree_check)
+      /data/DATA/topsecret/Music 172.16.1.222(rw,fsid=0,no_subtree_check)
     '';
   };
-
-  hardware.enableAllFirmware = true;
 }
