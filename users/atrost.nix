@@ -62,7 +62,7 @@ in
       imhex
       inetutils
       ipcalc
-      joplin-desktop
+      unstable.joplin-desktop
       jpegoptim
       kind
       krew

@@ -103,7 +103,7 @@ in
         up = "k";
         right = "l";
         terminal = "${pkgs.wezterm}/bin/wezterm";
-        menu = "${pkgs.wofi}/bin/wofi --dmenu #| xargs swaymsg exec -- ";
+        menu = "${pkgs.wofi}/bin/wofi --show drun";
 
         fonts = {
           names = [ "Hack" "Noto Color Emoji" ];
