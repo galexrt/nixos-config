@@ -97,7 +97,6 @@ in
       termdown
       temurin-bin
       transmission_4-qt
-      udiskie
       unrar
       vesktop
       vlc
@@ -252,16 +251,10 @@ in
 
   };
 
-  #programs.streamdeck-ui = {
-  #  enable = true;
-  #  autoStart = true;
-  #};
-
-  #services.udiskie = {
-  #  enable = true;
-  #  automount = true;
-  #  notify = false;
-  #};
+  programs.streamdeck-ui = {
+    enable = true;
+    autoStart = true;
+  };
 
   services.tailscale = {
     enable = true;
@@ -274,6 +267,7 @@ in
     enable = true;
   };
 
+  /*
   programs.joplin-desktop = {
     enable = true;
     extraConfig = {
@@ -282,7 +276,7 @@ in
       "style.editor.fontSize" = 10;
       "editor.beta" = true;
       "spellChecker.languages" = [
-		    "en-US",
+        "en-US"
         "de"
       ];
     };
@@ -292,6 +286,7 @@ in
       target = "nextcloud";
     };
   };
+  */
 
   /*
     xdg.mimeApps = {
