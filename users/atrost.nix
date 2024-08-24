@@ -58,6 +58,7 @@ in
       gopass
       grafana-loki
       handbrake
+      unstable.hub
       hugo
       imhex
       inetutils
@@ -214,8 +215,8 @@ in
     gtk = {
       enable = true;
       theme = {
-        name = "Adementary-dark";
-        package = pkgs.adementary-theme;
+        name = "Flat-Remix-GTK-Blue-Darkest-Solid";
+        package = pkgs.flat-remix-gtk;
       };
       font = {
         name = "Hack";
@@ -223,9 +224,16 @@ in
         size = 10;
       };
       iconTheme = {
-        name = "Adwaita";
-        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Flat-Remix-Blue-Dark";
+        package = pkgs.flat-remix-icon-theme;
       };
+    };
+
+    home.pointerCursor = {
+      name = "phinger-cursors-dark";
+      package = pkgs.phinger-cursors;
+      size = 24;
+      gtk.enable = true;
     };
 
     # Development Tools

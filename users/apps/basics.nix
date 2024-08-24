@@ -61,6 +61,7 @@
     package = pkgs.gitAndTools.gitFull; # Install git wiith all the optional extras
     userName = "Alexander Trost";
     userEmail = "galexrt@googlemail.com";
+
     extraConfig = {
       core.editor = "vim";
       commit.gpgsign = true;
@@ -87,6 +88,7 @@
       oh-my-zsh = {
         hide-status = 0;
       };
+      gpg.format = "openpgp";
     };
   };
 
