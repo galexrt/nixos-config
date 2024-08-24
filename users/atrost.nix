@@ -63,7 +63,6 @@ in
       imhex
       inetutils
       ipcalc
-      unstable.joplin-desktop
       jpegoptim
       kind
       krew
@@ -273,6 +272,25 @@ in
 
   services.mullvad-vpn = {
     enable = true;
+  };
+
+  programs.joplin-desktop = {
+    enable = true;
+    extraConfig = {
+      "dateFormat" = "YYYY-MM-DD";
+      "theme" = 22;
+      "style.editor.fontSize" = 10;
+      "editor.beta" = true;
+      "spellChecker.languages" = [
+		    "en-US",
+        "de"
+      ];
+    };
+    package = unstable.joplin-desktop;
+    sync = {
+      interval = "5m";
+      target = "nextcloud";
+    };
   };
 
   /*
