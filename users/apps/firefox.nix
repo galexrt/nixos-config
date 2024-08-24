@@ -47,7 +47,10 @@
           "extensions.pocket.oAuthConsumerKey" = "";
           "extensions.pocket.showHome" = false;
           "extensions.pocket.site" = "";
+          # Disable password save dialog
+          "signon.rememberSignons" = false;
         };
+
         userChrome = ''
           #webrtcIndicator {
             display: none;
