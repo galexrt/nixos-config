@@ -85,6 +85,8 @@
           "custom/separator#dot-line"
           "memory"
           "custom/separator#dot-line"
+          "disk"
+          "custom/separator#dot-line"
           "backlight"
           "battery"
           "power-profiles-daemon"
@@ -136,7 +138,7 @@
           tooltip = true;
           hwmon-path = "/sys/class/hwmon/hwmon6/temp1_input";
           critical-threshold = 75;
-          format = "{temperatureC:2}°C {icon}";
+          format = "{icon} {temperatureC:2}°C";
           format-icons = [ "" "" "" ];
         };
 

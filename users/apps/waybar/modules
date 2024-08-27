@@ -5,7 +5,6 @@
 	//  NUMBERS and ICONS style
 	"sway/workspaces#4": {
 	  "format": " {name} {icon} ",
-	  //"format": " {icon} ",
 	  "show-special": false,
 	  "on-click": "activate",
 	  "on-scroll-up": "sway dispatch workspace e+1",

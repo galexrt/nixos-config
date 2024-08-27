@@ -84,7 +84,7 @@ tooltip {
 }
 
 #workspaces button.focused {
-    background-color: #bbccdd;
+    background-color: @bgcolor;
     color: @accent2;
     /* box-shadow: inset 0 -3px #ffffff; */
 }
