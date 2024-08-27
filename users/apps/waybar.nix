@@ -47,9 +47,12 @@
   home.packages = with pkgs; [
     font-awesome # Icon font
     pavucontrol
-    swaynotificationcenter
     wluma
   ];
+
+  services.swaync = {
+    enable = true;
+  };
 
   home.file."waybar-modules" = {
     executable = false;
