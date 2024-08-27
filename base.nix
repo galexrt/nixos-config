@@ -212,6 +212,7 @@
       noto-fonts-emoji
       roboto
       font-awesome
+      google-fonts
     ];
     fontDir.enable = true;
     fontconfig.defaultFonts.monospace = [
@@ -233,6 +234,8 @@
   programs.dconf.enable = true;
 
   programs.light.enable = true;
+
+  services.power-profiles-daemon.enable = true;
 
   # List services that you want to enable:
   services.greetd = {

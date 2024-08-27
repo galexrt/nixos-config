@@ -83,7 +83,7 @@ in
         settings = {
           "" = {
             edge = "top";
-            font = "Roboto 12";
+            font = "DM Sans 12";
           };
 
           green = {
@@ -506,7 +506,7 @@ in
         bars = [{
           id = "default";
           command = "${pkgs.waybar}/bin/waybar";
-          position = "bottom";
+          position = "top";
         }];
 
         startup = [
@@ -688,96 +688,6 @@ in
         }
         { timeout = 300; command = lockCommand; }
       ];
-    };
-
-    services.mako = {
-      enable = true;
-      anchor = "bottom-center";
-      layer = "top";
-      defaultTimeout = 6000;
-      markup = true;
-      sort = "-time";
-      height = 120;
-      width = 320;
-      icons = true;
-      font = "Hack";
-      backgroundColor = "#ffffff";
-      borderColor = "#bb88eb";
-      textColor = "#bb88eb";
-      extraConfig = ''
-        [urgency=high]
-        border-color=#bf616a
-        default-timeout=0
-      '';
-    };
-
-    programs.wofi = {
-      enable = true;
-      settings = {
-        location = "bottom-right";
-        allow_images = true;
-        allow_markup = true;
-        width = 700;
-        height = 500;
-        terminal = "${cfg.config.terminal}";
-        matching = "multi-contains";
-        insensitive = true;
-      };
-
-      # Taken from https://github.com/dracula/wofi/blob/master/style.css
-      style = ''
-        window {
-        margin: 0px;
-        border: 1px solid #bd93f9;
-        background-color: #282a36;
-        }
-
-        #input {
-        margin: 5px;
-        border: none;
-        color: #f8f8f2;
-        background-color: #44475a;
-        }
-
-        #inner-box {
-        margin: 5px;
-        border: none;
-        background-color: #282a36;
-        }
-
-        #outer-box {
-        margin: 5px;
-        border: none;
-        background-color: #282a36;
-        }
-
-        #scroll {
-        margin: 0px;
-        border: none;
-        }
-
-        #text {
-        margin: 5px;
-        border: none;
-        color: #f8f8f2;
-        } 
-
-        #entry.activatable #text {
-        color: #282a36;
-        }
-
-        #entry > * {
-        color: #f8f8f2;
-        }
-
-        #entry:selected {
-        background-color: #44475a;
-        }
-
-        #entry:selected #text {
-        font-weight: bold;
-        }
-      '';
     };
   };
 }

@@ -39,7 +39,9 @@ in
       android-tools
       appimagekit
       audacity
+      btop
       calc
+      cava
       dbeaver-bin
       dconf
       dnscontrol
@@ -101,14 +103,14 @@ in
       unrar
       vesktop
       vlc
+      wallust
       waypipe
       wdisplays
+      woeusb
       xarchiver
       xfce.mousepad
       xterm
       yt-dlp
-      zoom-us
-      woeusb
       zip
       # Development
       ansible_2_15
@@ -168,7 +170,7 @@ in
       ];
     };
 
-    services.easyeffects.enable = true;
+    services.easyeffects.enable = false;
 
     services.nextcloud-client = {
       enable = true;
@@ -206,6 +208,7 @@ in
       ./apps/basics.nix
       ./apps/sway.nix
       ./apps/waybar.nix
+      ./apps/wofi.nix
       ./apps/firefox.nix
       ./apps/thunderbird.nix
       ./apps/codium.nix
