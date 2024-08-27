@@ -145,8 +145,8 @@
         "cpu" = {
           interval = 1;
           format = " {usage:2}%";
-          "format-alt-click" = "click";
-	        "format-alt" = "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛";
+          "format-alt-click" = "click-right";
+	        "format-alt" = " {icon0}{icon1}{icon2}{icon3} {usage:>2}%";
 	        "format-icons" = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
           states = {
             warning = 70;
@@ -201,6 +201,7 @@
           interval = 1;
           format = " {:%H:%M %d-%m-%Y}";
           format-alt = " {:%H:%M   %Y, %d %B, %A";
+          "format-alt-click" = "click-right";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           calendar = {
             "mode" = "year";
