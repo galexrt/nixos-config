@@ -67,10 +67,7 @@
 	  "interval": 2,
 	  "align": 0,
 	  "rotate": 0,
-	  //"format": "{icon} {percent}%",
-	  "format-icons": [" ", " ", " ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 "],
-	  "format": "{icon}",
-	  //"format-icons": ["","","","","","","","","","","","","","",""],
+	  "format": " {percent}%",
 	  "tooltip-format": "backlight {percent}%",
 	  "icon-size": 10,
 	  "on-click": "",
@@ -105,7 +102,7 @@
 	  "format-alt-click": "right-click",
 	  "format-full": "{icon} Full",
 	  "format-alt": "{icon} {time}",
-	  "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+	  "format-icons": ["", "", "", "", ""],
 	  "format-time": "{H}h {M}min",
 	  "tooltip": true,
 	  "tooltip-format": "{timeTo} {power}w"
@@ -131,7 +128,7 @@
 	},
 	"network": {
 	  "format": "{ifname}",
-	  "format-wifi": "{icon}",
+	  "format-wifi": "",
 	  "format-ethernet": "",
 	  "format-disconnected": "⚠",
 	  "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
@@ -146,7 +143,7 @@
 	"network#speed": {
 	  "interval": 1,
 	  "format": "{ifname}",
-	  "format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+	  "format-wifi": "  {bandwidthUpBytes}  {bandwidthDownBytes}",
 	  "format-ethernet": "  {bandwidthUpBytes}  {bandwidthDownBytes}",
 	  "format-disconnected": "⚠",
 	  "tooltip-format": "{ipaddr}",
@@ -156,11 +153,10 @@
 	  "tooltip-format-disconnected": "⚠ Disconnected",
 	  "min-length": 20,
 	  "max-length": 24,
-	  "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
 	  "on-click-right": "swaymsg exec \\$once \\$term_float nmtui connect"
 	},
 	"power-profiles-daemon": {
-	  "format": "{icon}",
+	  "format": "{icon} {}",
 	  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 	  "tooltip": true,
 	  "format-icons": {
@@ -173,7 +169,7 @@
 	"pulseaudio": {
 	  "format": "{icon} {volume}%",
 	  "format-bluetooth": "{icon} 󰂰 {volume}%",
-	  "format-muted": "󰖁",
+	  "format-muted": "",
 	  "format-icons": {
 		"headphone": "",
 		"hands-free": "",

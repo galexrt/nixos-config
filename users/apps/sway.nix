@@ -522,6 +522,12 @@ in
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
+          eDP-2 = {
+            # Set HIDP scale (pixel integer scaling)
+            scale = lib.strings.floatToString config.services.sway.scale;
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+          };
+
           HDMI-A-2 = {
             pos = "0,0";
             res = "2560x1440@119.998Hz";
