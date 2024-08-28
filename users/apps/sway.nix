@@ -83,7 +83,7 @@ in
         settings = {
           "" = {
             edge = "top";
-            font = "DM Sans 12";
+            font = "DM Sans 11";
           };
 
           green = {
@@ -337,6 +337,7 @@ in
           hideEdgeBorders = "smart";
           border = 2;
           titlebar = false;
+
           # for_windows
           commands = [
             # Window Transparency
@@ -638,6 +639,9 @@ in
         # Change normal to inverse to use left mouse button for resizing and right
         # mouse button for dragging.
         floating_modifier $mod normal
+
+        titlebar_border_thickness 6
+        titlebar_padding 0
       '';
 
       extraConfig = ''
@@ -672,8 +676,8 @@ in
       enable = true;
       package = pkgs.swaylock-fancy;
       settings = {
-        color = "808080";
-        font-size = 24;
+        color = "000000";
+        font-size = 20;
         indicator-idle-visible = false;
         indicator-radius = 100;
         line-color = "ffffff";
