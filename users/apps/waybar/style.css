@@ -94,8 +94,14 @@ tooltip {
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: @bgcolor;
     border-bottom: 3px solid #ffffff;
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #backlight,

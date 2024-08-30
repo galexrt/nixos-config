@@ -162,10 +162,11 @@
     mtr
     nixpkgs-fmt
     nvme-cli
-    parted
     parallel
+    parted
     pciutils
     pkg-config
+    powertop
     pulseaudio
     restic
     rsync
