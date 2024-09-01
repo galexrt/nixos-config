@@ -1,4 +1,4 @@
-{ config, pkgs, options, ... }:
+{ config, lib, pkgs, options, ... }:
 
 {
   imports =
@@ -243,7 +243,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
+        command = lib.mkDefault "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
         user = "atrost";
       };
     };

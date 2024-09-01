@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   # Scripts
   home.file."cava.sh" = {
     executable = true;
@@ -136,7 +136,7 @@
         "temperature" = {
           interval = 5;
           tooltip = true;
-          hwmon-path = "/sys/class/hwmon/hwmon6/temp1_input";
+          hwmon-path = lib.mkDefault "/sys/class/hwmon/hwmon6/temp1_input";
           critical-threshold = 75;
           format = "{icon} {temperatureC:2}°C";
           format-icons = [ "" "" "" ];

@@ -12,7 +12,7 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.greetd.settings.default_session.command = lib.mkForce "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
+  services.greetd.settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -40,6 +40,18 @@
       openSha256 = "sha256-8hyRiGB+m2hL3c9MDA/Pon+Xl6E788MZ50WrrAGUVuY=";
       settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
       persistencedSha256 = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+    };
+  };
+
+  home-manager.users.atrost = {
+    programs.waybar = {
+      settings = {
+        default = {
+          "temperature" = {
+            hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
+          };
+        };
+      };
     };
   };
 }

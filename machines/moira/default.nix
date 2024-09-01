@@ -16,7 +16,7 @@
       settings = {
         default = {
           "temperature" = {
-            hwmon-path = lib.mkForce "/sys/class/hwmon/hwmon3/temp1_input";
+            hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
           };
         };
       };
