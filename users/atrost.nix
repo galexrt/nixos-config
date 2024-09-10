@@ -72,6 +72,7 @@ in
       kubectl
       kubelogin-oidc
       kubernetes-helm
+      kubeseal
       libreoffice-fresh
       meld
       minikube
