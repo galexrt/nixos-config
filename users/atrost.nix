@@ -147,6 +147,17 @@ in
 
     fonts.fontconfig.enable = true;
 
+    programs.direnv = {
+      enable = true;
+
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+
+      nix-direnv = {
+        enable = true;
+      };
+    };
+
     # GPG
     services.gpg-agent = {
       enable = true;
