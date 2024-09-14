@@ -190,6 +190,9 @@ in
       };
       "go.toolsManagement.autoUpdate" = true;
       "go.gopath" = "${config.home.homeDirectory}/Projects/go";
+      "gopls" = {
+	      "formatting.gofumpt" = true;
+      };
       "java.referencesCodeLens.enabled" = true;
       "java.codeGeneration.generateComments" = true;
       "java.configuration.runtimes" = [
