@@ -81,6 +81,7 @@ in
       mullvad-vpn
       ncdu
       neofetch
+      niv
       nodejs_20
       openshot-qt
       openssl
@@ -93,6 +94,7 @@ in
       remmina
       s5cmd
       slack
+      sops
       sshpass
       steam
       stern
