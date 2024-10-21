@@ -91,6 +91,7 @@ in
       perl536Packages.AppClusterSSH
       projectm
       protonup-qt
+      qemu-utils
       remmina
       s5cmd
       slack

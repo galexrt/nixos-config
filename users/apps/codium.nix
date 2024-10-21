@@ -102,6 +102,7 @@ in
     package = pkgs.vscodium-fhs;
     enableUpdateCheck = false;
     mutableExtensionsDir = true;
+
     #extensions = with pkgs.vscode-extensions; [
     #  mads-hartmann.bash-ide-vscode
     #  naumovs.color-highlight
@@ -141,59 +142,36 @@ in
     #  #vscodeLuaFormat
     #  #vueVolar
     #];
+
     userSettings = {
+      "clangd.path" = "/home/atrost/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
       "debug.console.fontSize" = 10;
+      "diffEditor.ignoreTrimWhitespace" = false;
       "editor.codeLensFontSize" = 8;
       "editor.fontFamily" = "Hack, 'Noto Color Emoji'";
       "editor.fontSize" = 10;
-      "explorer.confirmDelete" = false;
-      "git.autofetch" = true;
-      "git.confirmSync" = false;
-      "markdown.preview.fontSize" = 8;
-      "notebook.markup.fontSize" = 10;
-      "redhat.telemetry.enabled" = false;
-      "scm.inputFontSize" = 10;
-      "terminal.integrated.fontSize" = 8;
-      "workbench.colorTheme" = "Default High Contrast";
-      "workbench.startupEditor" = "none";
-      "[markdown]" = {
-        "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+      "editor.formatOnPaste" = false;
+      "editor.formatOnSave" = false;
+      "editor.formatOnType" = false;
+      "editor.largeFileOptimizations" = false;
+      "editor.quickSuggestions" = {
+        "comments" = "on";
+        "strings" = "on";
       };
+      "errorLens.enabled" = true;
+      "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "explorer.openEditors.visible" = 0;
-      "git.enableCommitSigning" = true;
       "git.alwaysSignOff" = true;
-      "[yaml]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[javascript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[html]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[scss]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "editor.largeFileOptimizations" = false;
-      "[json]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[css]" = {
-        "editor.defaultFormatter" = "vscode.css-language-features";
-      };
-      "[jsonc]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[typescript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "go.toolsManagement.autoUpdate" = true;
+      "git.autofetch" = true;
+      "git.confirmSync" = false;
+      "git.enableCommitSigning" = true;
       "go.gopath" = "${config.home.homeDirectory}/Projects/go";
+      "go.toolsManagement.autoUpdate" = true;
       "gopls" = {
 	      "formatting.gofumpt" = true;
       };
-      "java.referencesCodeLens.enabled" = true;
+      "intelephense.environment.phpVersion" = "8.3.8";
       "java.codeGeneration.generateComments" = true;
       "java.configuration.runtimes" = [
         {
@@ -201,21 +179,24 @@ in
           "path" = "/usr/lib/jvm/java-19-openjdk";
         }
       ];
-      "intelephense.environment.phpVersion" = "8.3.8";
-      "editor.quickSuggestions" = {
-        "comments" = "on";
-        "strings" = "on";
-      };
+      "java.referencesCodeLens.enabled" = true;
       "json.format.keepLines" = true;
-      "[vue]" = {
-        "editor.defaultFormatter" = "Vue.volar";
-      };
-      "update.showReleaseNotes" = false;
-      "editor.formatOnPaste" = false;
-      "editor.formatOnSave" = false;
-      "editor.formatOnType" = false;
-      "terminal.integrated.persistentSessionReviveProcess" = "never";
+      "markdown.preview.fontSize" = 8;
+      "notebook.markup.fontSize" = 10;
+      "redhat.telemetry.enabled" = false;
+      "scm.inputFontSize" = 10;
       "terminal.integrated.enablePersistentSessions" = false;
+      "terminal.integrated.fontSize" = 8;
+      "terminal.integrated.persistentSessionReviveProcess" = "never";
+      "update.showReleaseNotes" = false;
+      "volar.format.initialIndent" = {
+        "html" = true;
+      };
+      "workbench.colorTheme" = "Default High Contrast";
+      "workbench.sideBar.location" = "right";
+      "workbench.startupEditor" = "none";
+
+      # Make sure gitlens doesn't get on our nerves
       "gitlens.currentLine.pullRequests.enabled" = false;
       "gitlens.hovers.autolinks.enhanced" = false;
       "gitlens.hovers.pullRequests.enabled" = false;
@@ -236,15 +217,41 @@ in
       "gitlens.views.remotes.pullRequests.showForCommits" = false;
       "gitlens.views.remotes.pullRequests.showForBranches" = false;
       "gitlens.views.remotes.pullRequests.enabled" = false;
-      "diffEditor.ignoreTrimWhitespace" = false;
-      "volar.format.initialIndent" = {
-        "html" = true;
+
+      # Lanague specific
+      "[markdown]" = {
+        "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+      };
+      "[yaml]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[javascript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[html]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[scss]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[json]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[css]" = {
+        "editor.defaultFormatter" = "vscode.css-language-features";
+      };
+      "[jsonc]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[typescript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[vue]" = {
+        "editor.defaultFormatter" = "Vue.volar";
       };
       "[lua]" = {
         "editor.defaultFormatter" = "sumneko.lua";
       };
-      "errorLens.enabled" = true;
-      "clangd.path" = "/home/atrost/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
     };
   };
 }

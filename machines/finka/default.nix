@@ -18,15 +18,22 @@
     modesetting.enable = true;
 
     prime = {
-      offload.enable = true;
+      /*
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      */
+      sync.enable = true;
 
       amdgpuBusId = "PCI:07:00:0";
       nvidiaBusId = "PCI:01:00:0";
     };
 
-    powerManagement.enable = true;
-
-    powerManagement.finegrained = true;
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
 
     open = false;
 
