@@ -39,6 +39,7 @@ in
       android-tools
       appimagekit
       audacity
+      bambu-studio
       btop
       calc
       cava
