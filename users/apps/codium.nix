@@ -193,7 +193,8 @@ in
         "html" = true;
       };
       "workbench.colorTheme" = "Default High Contrast";
-      "workbench.sideBar.location" = "right";
+      "workbench.sideBar.location" = "left";
+      "workbench.panel.defaultLocation" = "right";
       "workbench.startupEditor" = "none";
 
       # Make sure gitlens doesn't get on our nerves
