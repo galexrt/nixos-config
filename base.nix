@@ -15,8 +15,8 @@
   boot.supportedFilesystems = [ "btrfs" ];
   boot.swraid.enable = true;
 
-  # Linux 6.10 kernel
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_10);
+  # Linux 6.11 kernel
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_11);
 
   hardware = {
     enableAllFirmware = true;
@@ -214,6 +214,9 @@
       roboto
       font-awesome
       google-fonts
+      # Microsoft Fonts
+      corefonts
+      vistafonts
     ];
     fontDir.enable = true;
     fontconfig.defaultFonts.monospace = [
