@@ -23,14 +23,13 @@
 
     opengl = {
       enable = true;
-      driSupport = true;
       driSupport32Bit = true;
     };
 
-    /*graphics = {
+    graphics = {
       enable = true;
       enable32Bit = true;
-    };*/
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -209,7 +208,7 @@
     packages = with pkgs; [
       hack-font
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       roboto
       font-awesome

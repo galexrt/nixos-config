@@ -53,6 +53,7 @@ in
       filezilla
       ffmpeg
       ferdium
+      freecad
       geeqie
       gh
       gimp
@@ -89,7 +90,7 @@ in
       optipng
       parsec-bin
       pcmanfm
-      perl536Packages.AppClusterSSH
+      perl538Packages.AppClusterSSH
       projectm
       protonup-qt
       qemu-utils
@@ -119,7 +120,7 @@ in
       yt-dlp
       zip
       # Development
-      ansible_2_15
+      ansible_2_16
       buf
       chromium
       corepack
