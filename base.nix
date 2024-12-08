@@ -39,6 +39,11 @@
     };
   };
 
+  # Enable binfmt
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+  ];
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -167,6 +172,7 @@
     pkg-config
     powertop
     pulseaudio
+    qemu
     restic
     rsync
     screen

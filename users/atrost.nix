@@ -107,7 +107,7 @@ in
       temurin-bin
       transmission_4-qt
       unrar
-      vagrant
+      #vagrant
       vesktop
       vlc
       wallust
