@@ -22,7 +22,7 @@ sector-size: 512
 EOF
 sgdisk -G "$DISK"
 
-cryptsetup --verify-passphrase -v luksFormat "$DISK"p2
+cryptsetup --verify-passphrase -v luksFormat --allow-discards "$DISK"p2
 cryptsetup open "$DISK"p2 encd
 
 mkfs.vfat -n boot "$DISK"p1
