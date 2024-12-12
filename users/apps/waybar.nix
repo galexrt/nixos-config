@@ -68,12 +68,12 @@
     settings = {
       default = {
         include = "~/.config/waybar/modules";
-        layer = "top";
+        layer = "bottom";
         exclusive = true;
         ipc = true;
         "margin-left" = 8;
         "margin-right" = 8;
-        position = "top";
+        position = "bottom";
         height = 30;
 
         modules-left = [

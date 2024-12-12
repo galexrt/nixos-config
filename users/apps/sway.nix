@@ -507,7 +507,7 @@ in
         bars = [{
           id = "default";
           command = "${pkgs.waybar}/bin/waybar";
-          position = "top";
+          position = "bottom";
         }];
 
         startup = [
