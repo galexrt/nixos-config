@@ -40,6 +40,7 @@ in
       appimagekit
       audacity
       bambu-studio
+      unstable.bazecor
       btop
       calc
       cava
@@ -255,6 +256,13 @@ in
       size = 24;
       gtk.enable = true;
     };
+
+    /*
+    programs.bazecor = {
+      enable = true;
+      package = unstable.bazecor;
+    };
+    */
 
     # Development Tools
     programs.go = {
