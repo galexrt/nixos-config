@@ -518,6 +518,7 @@ in
 
         # Display device configuration
         output = {
+          # Laptop Screens
           eDP-1 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
@@ -529,6 +530,7 @@ in
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
 
+          # Reaper
           HDMI-A-2 = {
             pos = "0,0";
             res = "2560x1440@119.998Hz";
@@ -543,7 +545,7 @@ in
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
-          DP-1 = {
+          DP-2 = {
             pos = "5120,0";
             res = "2560x1440@119.998Hz";
             # Set HIDP scale (pixel integer scaling)
