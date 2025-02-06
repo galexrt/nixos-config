@@ -92,9 +92,9 @@
     };
   };
 
-  home.file."ssh-connections" = {
+  home.file."ssh-cons" = {
     text = "";
-    target = "${config.home.homeDirectory}/.ssh/connections/.keep";
+    target = "${config.home.homeDirectory}/.ssh/cons/.keep";
   };
 
   home.file."libvirt-qemu-conf" = {
@@ -111,7 +111,7 @@
     compression = true;
     controlMaster = "auto";
     controlPersist = "yes";
-    controlPath = "~/.ssh/connections/%C";
+    controlPath = "~/.ssh/cons/%C";
 
     extraConfig = ''
       NoHostAuthenticationForLocalhost yes
