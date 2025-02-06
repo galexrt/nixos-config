@@ -103,7 +103,7 @@
   users.users.atrost = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "video" "networkmanager" "rfkill" "power" "lp" "uucp" "network" "docker" "scanner" "dialout" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "networkmanager" "rfkill" "power" "lp" "uucp" "network" "docker" "scanner" "dialout" "libvirtd" ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIACcqbQlcdBFswQafVSTt0OvMkBLwXjTSLhBsqAdo5Gf atrost@debwrk01"
     ];
@@ -155,6 +155,7 @@
     gptfdisk
     greetd.tuigreet
     htop
+    iotop
     jq
     lm_sensors
     lsof
@@ -261,6 +262,22 @@
 
   virtualisation.virtualbox.host = {
     enable = true;
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
   };
 
   security.polkit.enable = true;

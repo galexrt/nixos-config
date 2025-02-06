@@ -145,6 +145,9 @@ in
         workspaceAutoBackAndForth = true;
 
         assigns = {
+          "$ws1" = [
+            { class = "YouTube Music"; }
+          ];
           "$ws16" = [
             { app_id = "thunderbird"; }
           ];
@@ -490,6 +493,12 @@ in
             {
               criteria = {
                 class = "Cssh";
+              };
+              command = "floating enable";
+            }
+            {
+              criteria = {
+                class = "YouTube Music";
               };
               command = "floating enable";
             }

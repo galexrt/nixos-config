@@ -50,19 +50,19 @@ in
       docker-compose
       ethtool
       exiftool
+      ferdium
+      ffmpeg
       file
       filezilla
-      ffmpeg
-      ferdium
       freecad
       geeqie
       gh
       gimp
       git-crypt
-      simple-scan
       gopass
       grafana-loki
       handbrake
+      simple-scan
       unstable.hub
       hugo
       imhex
@@ -80,8 +80,8 @@ in
       meld
       minikube
       minio-client
-      mumble
       mullvad-vpn
+      mumble
       ncdu
       neofetch
       niv
@@ -104,8 +104,8 @@ in
       stern
       tailscale-systray
       teamspeak_client
-      termdown
       temurin-bin
+      termdown
       transmission_4-qt
       unrar
       #vagrant
@@ -118,6 +118,7 @@ in
       xarchiver
       xfce.mousepad
       xterm
+      youtube-music
       yt-dlp
       zip
       # Development
@@ -137,6 +138,7 @@ in
       protoc-gen-go
       protoc-gen-go-grpc
       python311
+      python311Packages.libvirt
       python311Packages.pip
       python311Packages.requests
       rustup
