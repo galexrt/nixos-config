@@ -85,7 +85,7 @@ in
       ncdu
       neofetch
       niv
-      nodejs_20
+      nodejs_22
       openshot-qt
       openssl
       optipng
@@ -125,7 +125,7 @@ in
       ansible_2_16
       buf
       chromium
-      corepack
+      corepack_23
       delve
       gcc
       gdal
