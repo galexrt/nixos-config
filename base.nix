@@ -99,6 +99,17 @@
     enable = true;
   };
 
+  services.cockpit = {
+    enable = true;
+    port = 9090;
+    openFirewall = true;
+    settings = {
+      WebService = {
+        AllowUnencrypted = true;
+      };
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.atrost = {
     isNormalUser = true;
@@ -203,7 +214,9 @@
   };
 
   boot.kernel.sysctl = {
-    "fs.inotify.max_user_watches" = "524288";
+    "fs.inotify.max_user_watches"   = 1048576;   # default:  8192
+    "fs.inotify.max_user_instances" =    1024;   # default:   128
+    "fs.inotify.max_queued_events"  =   32768;   # default: 16384
   };
 
   # Fonts
@@ -287,6 +300,14 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Automatic updates every day
+  system.autoUpgrade.enable = true;
+
+  # Automatic GC
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 30d";
 
   nix.extraOptions = ''
     auto-optimise-store = true
