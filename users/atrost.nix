@@ -269,7 +269,7 @@ in
     # Development Tools
     programs.go = {
       enable = true;
-      package = pkgs.go;
+      package = pkgs.go_1_24;
       goPath = "Projects/go";
     };
 
