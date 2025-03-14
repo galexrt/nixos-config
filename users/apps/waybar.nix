@@ -199,8 +199,8 @@
 
         "clock" = {
           interval = 1;
-          format = " {:%H:%M %d-%m-%Y}";
-          format-alt = " {:%H:%M   %Y, %d %B, %A";
+          format = " {:%H:%M:%S %d-%m-%Y}";
+          format-alt = " {:%H:%M:%S   %Y, %d %B, %A";
           "format-alt-click" = "click-right";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           calendar = {

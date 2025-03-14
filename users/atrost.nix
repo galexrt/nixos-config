@@ -89,6 +89,7 @@ in
       openshot-qt
       openssl
       optipng
+      packer
       parsec-bin
       pcmanfm
       perl538Packages.AppClusterSSH
@@ -142,6 +143,7 @@ in
       python311Packages.pip
       python311Packages.requests
       rustup
+      talosctl
       terraform
       terragrunt
       yarn
@@ -269,7 +271,7 @@ in
     # Development Tools
     programs.go = {
       enable = true;
-      package = pkgs.go_1_24;
+      package = pkgs.go_1_23;
       goPath = "Projects/go";
     };
 
