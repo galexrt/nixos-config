@@ -98,8 +98,7 @@ in
 {
   programs.vscode = {
     enable = true;
-    # Make sure to use the open source vscodium
-    package = pkgs.vscodium-fhs;
+    package = pkgs.vscode-fhs;
     enableUpdateCheck = false;
     mutableExtensionsDir = true;
 
@@ -144,7 +143,7 @@ in
     #];
 
     userSettings = {
-      "clangd.path" = "/home/atrost/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
+      "clangd.path" = "/home/atrost/.config/VSCode/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
       "debug.console.fontSize" = 10;
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.codeLensFontSize" = 8;

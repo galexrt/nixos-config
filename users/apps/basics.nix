@@ -39,7 +39,7 @@
     };
 
     shellAliases = {
-      "code" = "codium";
+      #"code" = "codium";
       "sshknownhosts" = "vim ~/.ssh/known_hosts";
       "sshconfig" = "vim ~/.ssh/config";
       "killnamed" = "pkill -f";

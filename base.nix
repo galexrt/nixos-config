@@ -16,7 +16,7 @@
   boot.swraid.enable = true;
 
   # Linux 6.11 kernel
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_11);
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_13);
 
   hardware = {
     enableAllFirmware = true;
@@ -267,28 +267,44 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-    liveRestore = true;
-    storageDriver = "overlay2";
-  };
+  virtualisation = {
+    containers = {
+      enable = true;
+    };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-  };
+    docker = {
+      enable = true;
+      liveRestore = true;
+      storageDriver = "overlay2";
+    };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd];
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = false;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+    virtualbox.host = {
+      enable = true;
+    };
+
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [(pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd];
+        };
       };
     };
   };

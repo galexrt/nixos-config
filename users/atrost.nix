@@ -73,7 +73,7 @@ in
       kind
       krew
       kubectl
-      kubelogin-oidc
+      unstable.kubelogin-oidc
       kubernetes-helm
       kubeseal
       libreoffice-fresh
@@ -148,6 +148,8 @@ in
       terragrunt
       yarn
       unstable.kubecolor
+      # Temp
+      vscodium-fhs
     ];
 
     home.sessionPath = [
@@ -234,7 +236,7 @@ in
       ./apps/wofi.nix
       ./apps/firefox.nix
       ./apps/thunderbird.nix
-      ./apps/codium.nix
+      ./apps/ide.nix
     ];
 
     gtk = {
