@@ -3,12 +3,22 @@
     ./wezterm.nix
   ];
 
+  home.file."rkj-repos-custom.zsh-theme" = {
+    executable = true;
+    source = ./zsh/rkj-repos-custom.zsh-theme;
+    target = "${config.home.homeDirectory}/.oh-my-zsh/custom/themes/rkj-repos-custom.zsh-theme";
+  };
+
   programs.zsh = {
     enable = true;
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
+
+    initExtraFirst = ''
+      export ZSH_CUSTOM="${config.home.homeDirectory}/.oh-my-zsh/custom"
+    '';
 
     initExtra = ''
       randpw() {
@@ -18,6 +28,8 @@
         fi
         < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c''\${1:-$length} | sed 's/-/_/';echo;
       }
+
+      source <(switcher init zsh)
     '';
 
     loginExtra = ''
@@ -31,8 +43,8 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "systemd" "common-aliases" "golang" "kubectl" "rsync" ];
-      theme = "rkj-repos";
+      plugins = [ "git" "systemd" "common-aliases" "golang" "kubectl" "rsync" "kube-ps1" ];
+      theme = "rkj-repos-custom";
       extraConfig = ''
         COMPLETION_WAITING_DOTS="true"
       '';

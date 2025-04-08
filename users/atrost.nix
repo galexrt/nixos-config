@@ -336,4 +336,8 @@ in
     };
   */
 
+  programs.kubeswitch = {
+    enable = true;
+  };
+
 }
