@@ -20,7 +20,7 @@
         scrollback_lines = 9999,
         hide_mouse_cursor_when_typing = false,
         pane_focus_follows_mouse = false,
-        front_end = "WebGpu",
+        front_end = "OpenGL",
       }
 
       return config
