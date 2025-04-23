@@ -118,6 +118,7 @@ in
       woeusb
       xarchiver
       xfce.mousepad
+      xournalpp
       xterm
       youtube-music
       yt-dlp
