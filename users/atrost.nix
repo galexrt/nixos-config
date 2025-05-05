@@ -40,10 +40,12 @@ in
       appimagekit
       audacity
       bambu-studio
+      orca-slicer
       unstable.bazecor
       btop
       calc
       cava
+      cabextract
       dbeaver-bin
       dconf
       dnscontrol
@@ -77,6 +79,7 @@ in
       kubernetes-helm
       kubeseal
       libreoffice-fresh
+      lutris
       meld
       minikube
       minio-client
@@ -89,6 +92,7 @@ in
       openshot-qt
       openssl
       optipng
+      orca-slicer
       packer
       parsec-bin
       pcmanfm

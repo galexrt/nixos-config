@@ -176,6 +176,7 @@ in
     curl
     dig
     evince
+    freetype
     git
     gnumake
     gparted
