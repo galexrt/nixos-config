@@ -356,9 +356,6 @@ in
       HCC_AMDGPU_TARGET = "gfx1100";
     };
     rocmOverrideGfx = "11.0.0";
-    
-    # Optional: preload models, see https://ollama.com/library
-    loadModels = [ "deepseek-coder-v2:16b" ];
   };
 
 }
