@@ -232,9 +232,9 @@
 
         "custom/gpu" = {
           interval = 1;
-          exec = "cat /sys/class/hwmon/hwmon*/device/gpu_busy_percent";
+          exec = "echo \"$(cat /sys/class/hwmon/hwmon*/device/gpu_busy_percent)% $(echo $(( $(cat /sys/class/hwmon/hwmon*/device/mem_info_vram_total) - $(cat /sys/class/hwmon/hwmon*/device/mem_info_vram_used) )) | awk '{printf \"%.0fGB\", $1/1024/1024/1024}')\"";
           "return-type" = "";
-          format = "🖵 {}%";
+          format = "🖵 {}";
           on-click = "${pkgs.sway}/bin/swaymsg exec \\$once \\$term_float amdgpu_top";
           tooltip = true;
         };

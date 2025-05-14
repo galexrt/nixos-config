@@ -272,6 +272,9 @@ label:focus {
 #custom-lock {
     color: #ffa000;
 }
+#custom-gpu {
+    color: @accent1;
+}
 
 #keyboard-state,
 #temperature {
