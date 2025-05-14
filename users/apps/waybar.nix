@@ -87,10 +87,15 @@
           "custom/separator#dot-line"
           "disk"
           "custom/separator#dot-line"
+          "custom/separator#blank_2"
+          "custom/gpu"
+          "custom/separator#blank_2"
+          "custom/separator#dot-line"
           "backlight"
           "battery"
           "power-profiles-daemon"
           "custom/separator#dot-line"
+          "custom/separator#blank_2"
           "custom/cava_mviz"
           "custom/separator#blank_3"
         ];
@@ -223,6 +228,15 @@
             "on-scroll-up" = "shift_up";
             "on-scroll-down" = "shift_down";
           };
+        };
+
+        "custom/gpu" = {
+          interval = 1;
+          exec = "cat /sys/class/hwmon/hwmon*/device/gpu_busy_percent";
+          "return-type" = "";
+          format = "🖵 {}%";
+          on-click = "${pkgs.sway}/bin/swaymsg exec \\$once \\$term_float amdgpu_top";
+          tooltip = true;
         };
 
       };

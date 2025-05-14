@@ -9,8 +9,8 @@
     
     "${(import ./nix/sources.nix).sops-nix}/modules/sops"
 
-    ./machines/finka
+    #./machines/finka
     #./machines/moira
-    #./machines/reaper
+    ./machines/reaper
   ];
 }

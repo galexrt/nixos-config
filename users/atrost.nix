@@ -36,6 +36,7 @@ in
     };
 
     home.packages = with pkgs; [
+      amdgpu_top
       android-tools
       appimagekit
       audacity
@@ -155,6 +156,9 @@ in
       unstable.kubecolor
       # Temp
       vscodium-fhs
+      # AI
+      rocmPackages.rocm-runtime
+      rocmPackages.rocminfo
     ];
 
     home.sessionPath = [
@@ -343,6 +347,18 @@ in
 
   programs.kubeswitch = {
     enable = true;
+  };
+
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    environmentVariables = {
+      HCC_AMDGPU_TARGET = "gfx1100";
+    };
+    rocmOverrideGfx = "11.0.0";
+    
+    # Optional: preload models, see https://ollama.com/library
+    loadModels = [ "deepseek-coder-v2:16b" ];
   };
 
 }
