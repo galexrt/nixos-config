@@ -99,7 +99,6 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.vscode-fhs;
-    enableUpdateCheck = false;
     mutableExtensionsDir = true;
 
     #extensions = with pkgs.vscode-extensions; [
@@ -142,116 +141,122 @@ in
     #  #vueVolar
     #];
 
-    userSettings = {
-      "clangd.path" = "/home/atrost/.config/VSCode/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
-      "debug.console.fontSize" = 10;
-      "diffEditor.ignoreTrimWhitespace" = false;
-      "editor.codeLensFontSize" = 8;
-      "editor.fontFamily" = "Hack, 'Noto Color Emoji'";
-      "editor.fontSize" = 10;
-      "editor.formatOnPaste" = false;
-      "editor.formatOnSave" = false;
-      "editor.formatOnType" = false;
-      "editor.largeFileOptimizations" = false;
-      "editor.quickSuggestions" = {
-        "comments" = "on";
-        "strings" = "on";
-      };
-      "errorLens.enabled" = true;
-      "explorer.confirmDelete" = false;
-      "explorer.confirmDragAndDrop" = false;
-      "explorer.openEditors.visible" = 0;
-      "git.alwaysSignOff" = true;
-      "git.autofetch" = true;
-      "git.confirmSync" = false;
-      "git.enableCommitSigning" = true;
-      "go.gopath" = "${config.home.homeDirectory}/Projects/go";
-      "go.toolsManagement.autoUpdate" = true;
-      "gopls" = {
-	      "formatting.gofumpt" = true;
-      };
-      "intelephense.environment.phpVersion" = "8.3.8";
-      "java.codeGeneration.generateComments" = true;
-      "java.configuration.runtimes" = [
-        {
-          "name" = "JavaSE-19";
-          "path" = "/usr/lib/jvm/java-19-openjdk";
-        }
-      ];
-      "java.referencesCodeLens.enabled" = true;
-      "json.format.keepLines" = true;
-      "markdown.preview.fontSize" = 8;
-      "notebook.markup.fontSize" = 10;
-      "redhat.telemetry.enabled" = false;
-      "scm.inputFontSize" = 10;
-      "terminal.integrated.enablePersistentSessions" = false;
-      "terminal.integrated.fontSize" = 8;
-      "terminal.integrated.persistentSessionReviveProcess" = "never";
-      "update.showReleaseNotes" = false;
-      "volar.format.initialIndent" = {
-        "html" = true;
-      };
-      "workbench.colorTheme" = "Default High Contrast";
-      "workbench.sideBar.location" = "left";
-      "workbench.panel.defaultLocation" = "right";
-      "workbench.startupEditor" = "none";
+    profiles = {
+      default = {
+        enableUpdateCheck = false;
+        userSettings = {
+          "clangd.path" = "/home/atrost/.config/VSCode/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
+          "debug.console.fontSize" = 10;
+          "diffEditor.ignoreTrimWhitespace" = false;
+          "editor.codeLensFontSize" = 8;
+          "editor.fontFamily" = "Hack, 'Noto Color Emoji'";
+          "editor.fontSize" = 10;
+          "editor.formatOnPaste" = false;
+          "editor.formatOnSave" = false;
+          "editor.formatOnType" = false;
+          "editor.largeFileOptimizations" = false;
+          "editor.quickSuggestions" = {
+            "comments" = "on";
+            "strings" = "on";
+          };
+          "errorLens.enabled" = true;
+          "explorer.confirmDelete" = false;
+          "explorer.confirmDragAndDrop" = false;
+          "explorer.openEditors.visible" = 0;
+          "git.alwaysSignOff" = true;
+          "git.autofetch" = true;
+          "git.confirmSync" = false;
+          "git.enableCommitSigning" = true;
+          "go.gopath" = "${config.home.homeDirectory}/Projects/go";
+          "go.toolsManagement.autoUpdate" = true;
+          "gopls" = {
+            "formatting.gofumpt" = true;
+          };
+          "intelephense.environment.phpVersion" = "8.3.8";
+          "java.codeGeneration.generateComments" = true;
+          "java.configuration.runtimes" = [
+            {
+              "name" = "JavaSE-19";
+              "path" = "/usr/lib/jvm/java-19-openjdk";
+            }
+          ];
+          "java.referencesCodeLens.enabled" = true;
+          "json.format.keepLines" = true;
+          "markdown.preview.fontSize" = 8;
+          "notebook.markup.fontSize" = 10;
+          "redhat.telemetry.enabled" = false;
+          "scm.inputFontSize" = 10;
+          "terminal.integrated.enablePersistentSessions" = false;
+          "terminal.integrated.fontSize" = 8;
+          "terminal.integrated.persistentSessionReviveProcess" = "never";
+          "update.showReleaseNotes" = false;
+          "volar.format.initialIndent" = {
+            "html" = true;
+          };
+          "workbench.colorTheme" = "Default High Contrast";
+          "workbench.sideBar.location" = "left";
+          "workbench.panel.defaultLocation" = "right";
+          "workbench.startupEditor" = "none";
 
-      # Make sure gitlens doesn't get on our nerves
-      "gitlens.currentLine.pullRequests.enabled" = false;
-      "gitlens.hovers.autolinks.enhanced" = false;
-      "gitlens.hovers.pullRequests.enabled" = false;
-      "gitlens.statusBar.pullRequests.enabled" = false;
-      "gitlens.views.branches.pullRequests.enabled" = false;
-      "gitlens.views.branches.pullRequests.showForBranches" = false;
-      "gitlens.views.branches.pullRequests.showForCommits" = false;
-      "gitlens.views.commits.pullRequests.enabled" = false;
-      "gitlens.views.commits.pullRequests.showForBranches" = false;
-      "gitlens.views.commits.pullRequests.showForCommits" = false;
-      "gitlens.views.contributors.pullRequests.enabled" = false;
-      "gitlens.views.contributors.pullRequests.showForCommits" = false;
-      "gitlens.views.searchAndCompare.pullRequests.showForCommits" = false;
-      "gitlens.views.searchAndCompare.pullRequests.enabled" = false;
-      "gitlens.views.repositories.pullRequests.showForCommits" = false;
-      "gitlens.views.repositories.pullRequests.showForBranches" = false;
-      "gitlens.views.repositories.pullRequests.enabled" = false;
-      "gitlens.views.remotes.pullRequests.showForCommits" = false;
-      "gitlens.views.remotes.pullRequests.showForBranches" = false;
-      "gitlens.views.remotes.pullRequests.enabled" = false;
+          # Make sure gitlens doesn't get on our nerves
+          "gitlens.currentLine.pullRequests.enabled" = false;
+          "gitlens.hovers.autolinks.enhanced" = false;
+          "gitlens.hovers.pullRequests.enabled" = false;
+          "gitlens.statusBar.pullRequests.enabled" = false;
+          "gitlens.views.branches.pullRequests.enabled" = false;
+          "gitlens.views.branches.pullRequests.showForBranches" = false;
+          "gitlens.views.branches.pullRequests.showForCommits" = false;
+          "gitlens.views.commits.pullRequests.enabled" = false;
+          "gitlens.views.commits.pullRequests.showForBranches" = false;
+          "gitlens.views.commits.pullRequests.showForCommits" = false;
+          "gitlens.views.contributors.pullRequests.enabled" = false;
+          "gitlens.views.contributors.pullRequests.showForCommits" = false;
+          "gitlens.views.searchAndCompare.pullRequests.showForCommits" = false;
+          "gitlens.views.searchAndCompare.pullRequests.enabled" = false;
+          "gitlens.views.repositories.pullRequests.showForCommits" = false;
+          "gitlens.views.repositories.pullRequests.showForBranches" = false;
+          "gitlens.views.repositories.pullRequests.enabled" = false;
+          "gitlens.views.remotes.pullRequests.showForCommits" = false;
+          "gitlens.views.remotes.pullRequests.showForBranches" = false;
+          "gitlens.views.remotes.pullRequests.enabled" = false;
 
-      # Lanague specific
-      "[markdown]" = {
-        "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
-      };
-      "[yaml]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[javascript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[html]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[scss]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[json]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[css]" = {
-        "editor.defaultFormatter" = "vscode.css-language-features";
-      };
-      "[jsonc]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[typescript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[vue]" = {
-        "editor.defaultFormatter" = "Vue.volar";
-      };
-      "[lua]" = {
-        "editor.defaultFormatter" = "sumneko.lua";
+          # Lanague specific
+          "[markdown]" = {
+            "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+          };
+          "[yaml]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[javascript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[html]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[scss]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[css]" = {
+            "editor.defaultFormatter" = "vscode.css-language-features";
+          };
+          "[jsonc]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[typescript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[vue]" = {
+            "editor.defaultFormatter" = "Vue.volar";
+          };
+          "[lua]" = {
+            "editor.defaultFormatter" = "sumneko.lua";
+          };
+        };
       };
     };
   };
+
 }

@@ -16,11 +16,9 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
 
-    initExtraFirst = ''
+    initContent = ''
       export ZSH_CUSTOM="${config.home.homeDirectory}/.oh-my-zsh/custom"
-    '';
 
-    initExtra = ''
       randpw() {
         length="$1"
         if [ -z "$length" ]; then
@@ -44,6 +42,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "systemd" "common-aliases" "golang" "kubectl" "rsync" "kube-ps1" ];
+      custom = "$HOME/.oh-my-zsh/custom";
       theme = "rkj-repos-custom";
       extraConfig = ''
         COMPLETION_WAITING_DOTS="true"

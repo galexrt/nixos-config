@@ -25,11 +25,6 @@ in
     home.username = "atrost";
     home.homeDirectory = "/home/atrost";
 
-    nixpkgs.config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
@@ -38,7 +33,6 @@ in
     home.packages = with pkgs; [
       amdgpu_top
       android-tools
-      appimagekit
       audacity
       bambu-studio
       orca-slicer
@@ -92,13 +86,14 @@ in
       nodejs_22
       openshot-qt
       openssl
+      openvpn
       optipng
       orca-slicer
       packer
       parsec-bin
       pcmanfm
       perl538Packages.AppClusterSSH
-      projectm
+      projectm-sdl-cpp
       protonup-qt
       qemu-utils
       remmina
@@ -132,7 +127,7 @@ in
       ansible_2_16
       buf
       chromium
-      corepack_23
+      corepack_latest
       delve
       gcc
       gdal
@@ -175,6 +170,12 @@ in
       enableBashIntegration = true;
       enableZshIntegration = true;
 
+      config = {
+        global = {
+          hide_env_diff = true;
+        };
+      };
+
       nix-direnv = {
         enable = true;
       };
@@ -189,7 +190,9 @@ in
       maxCacheTtl = 34560000;
       maxCacheTtlSsh = 34560000;
       defaultCacheTtlSsh = 34560000;
-      pinentryPackage = pkgs.pinentry-gtk2;
+      pinentry = {
+        package = pkgs.pinentry-gtk2;
+      };
     };
     programs.gpg = {
       enable = true;
@@ -350,7 +353,7 @@ in
   };
 
   services.ollama = {
-    enable = true;
+    enable = false;
     acceleration = "rocm";
     environmentVariables = {
       HCC_AMDGPU_TARGET = "gfx1100";

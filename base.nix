@@ -1,27 +1,11 @@
 { config, lib, pkgs, options, ... }:
 
-let
-  lact-pr = pkgs.fetchFromGitHub {
-    owner = "cything";
-    repo = "nixpkgs";
-    rev = "lact";
-    sha256 = "sha256-+iUn89qrKqBXD6vd8TvFJPwzuZ9iiV3FzX7I/gG0FLQ=";
-  };
-in
 {
   imports =
     [
       <home-manager/nixos>
       ./home.nix
     ];
-
-  nixpkgs.overlays = [
-        (final: prev: {
-            lact = final.callPackage "${lact-pr}/pkgs/by-name/la/lact/package.nix" {
-                hwdata = final.callPackage "${lact-pr}/pkgs/by-name/hw/hwdata/package.nix" { };
-            };
-        })
-  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -43,10 +27,13 @@ in
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (_: true);
+    packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
     };
   };
 
