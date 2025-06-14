@@ -161,8 +161,9 @@
     freeSwapThreshold = 2;
     freeMemThreshold = 2;
     extraArgs = [
-        "-g" "--avoid '^(Xwayland|sway|swaync-client)$'"
-        "--prefer '^(electron|libreoffice|gimp|__debug_bin.*)$'"
+        "-g"
+        "--avoid" "'^(Xwayland|sway|swaync-client)$'"
+        "--prefer" "'^(electron|libreoffice|gimp|__debug_bin.*)$'"
     ];
     enableNotifications = true;
   };
