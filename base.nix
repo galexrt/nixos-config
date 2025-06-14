@@ -156,6 +156,17 @@
 
   services.blueman.enable = true;
 
+  services.earlyoom = {
+    enable = true;
+    freeSwapThreshold = 2;
+    freeMemThreshold = 2;
+    extraArgs = [
+        "-g" "--avoid '^(Xwayland|sway|swaync-client)$'"
+        "--prefer '^(electron|libreoffice|gimp|__debug_bin.*)$'"
+    ];
+    enableNotifications = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
