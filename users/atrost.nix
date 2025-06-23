@@ -232,6 +232,11 @@ in
       };
     };
 
+    services.flameshot = {
+      enable = true;
+      package = pkgs.flameshot.override { enableWlrSupport = true; };
+    };
+
     dconf = {
       enable = true;
       settings = {

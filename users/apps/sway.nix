@@ -372,6 +372,12 @@ in
             # Floating mode overrides
             {
               criteria = {
+                title = "QNote:.*";
+              };
+              command = "floating enable";
+            }
+            {
+              criteria = {
                 instance = "lxappearance";
               };
               command = "floating enable";
