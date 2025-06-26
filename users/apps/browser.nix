@@ -1,6 +1,25 @@
 { config, pkgs, ... }: {
+  programs.librewolf = {
+    enable = true;
+    settings = {
+      # Enable WebGL
+      "webgl.disabled" = false;
+      "privacy.resistFingerprinting" = false;
+
+      # Preserve browsing and download history
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.downloads" = false;
+
+      # Enable Autoscroll
+      "middlemouse.paste" = false;
+      "general.autoScroll" = true;
+    };
+  };
+
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox;
+
     profiles = {
       alex = {
         id = 0;

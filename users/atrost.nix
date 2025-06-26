@@ -251,7 +251,7 @@ in
       ./apps/sway.nix
       ./apps/waybar.nix
       ./apps/wofi.nix
-      ./apps/firefox.nix
+      ./apps/browser.nix
       ./apps/thunderbird.nix
       ./apps/ide.nix
     ];
@@ -345,10 +345,10 @@ in
     xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
+      "x-scheme-handler/http" = "librewolf.desktop";
+      "x-scheme-handler/https" = "librewolf.desktop";
+      "x-scheme-handler/about" = "librewolf.desktop";
+      "x-scheme-handler/unknown" = "librewolf.desktop";
     };
     };
   */

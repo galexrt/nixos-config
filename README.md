@@ -18,6 +18,6 @@ Contains my per machine config.
 
 Manual steps/things to do/import for other programs to fit the style of my config.
 
-* Firefox: https://addons.mozilla.org/en-US/firefox/addon/oled-dark/
+* Firefox/Librewolf: https://addons.mozilla.org/en-US/firefox/addon/oled-dark/
 * Thunerbird: https://addons.thunderbird.net/en-US/thunderbird/addon/dark-black-theme/
 * Vesktop: https://luckfire.github.io/amoled-cord/src/amoled-cord.css

@@ -230,7 +230,7 @@ in
           "${cfg.config.modifier}+y" = "border pixel 2";
           "${cfg.config.modifier}+n" = "border normal";
           # Start Applications
-          "${cfg.config.modifier}+F2" = "exec ${pkgs.firefox}/bin/firefox";
+          "${cfg.config.modifier}+F2" = "exec ${pkgs.librewolf}/bin/librewolf";
           "${cfg.config.modifier}+F3" = "exec ${pkgs.pcmanfm}/bin/pcmanfm";
           "${cfg.config.modifier}+F4" = "exec ${pkgs.pcmanfm}/bin/codium";
           "${cfg.config.modifier}+Ctrl+m" = "exec ${pkgs.easyeffects}/bin/easyeffects";
@@ -396,7 +396,7 @@ in
             }
             {
               criteria = {
-                app_id = "firefox";
+                app_id = "librewolf";
                 title = "^Library$";
               };
               command = "floating enable, border pixel 1, sticky enable";
@@ -455,6 +455,12 @@ in
             {
               criteria = {
                 title = "Firefox — Sharing Indicator";
+              };
+              command = "floating enable";
+            }
+            {
+              criteria = {
+                title = "Librewolf — Sharing Indicator";
               };
               command = "floating enable";
             }
