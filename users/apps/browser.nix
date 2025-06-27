@@ -13,6 +13,11 @@
       # Enable Autoscroll
       "middlemouse.paste" = false;
       "general.autoScroll" = true;
+
+      # Enable the widevine and the openh264 plugins                                                                                             
+      "media.gmp-provider.enabled" = true;
+      "media.gmp-gmpopenh264.enabled" = true;
+      "media.webrtc.simulcast.vp9.enabled" = true;
     };
   };
 
