@@ -552,23 +552,23 @@ in
           };
 
           # Reaper
-          HDMI-A-2 = {
+          DP-1 = {
             pos = "0,0";
-            res = "2560x1440@119.998Hz";
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
-          };
-          HDMI-A-1 = {
-            pos = "2560,0";
-            res = "2560x1440@119.998Hz";
+            res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
           };
           DP-2 = {
+            pos = "2560,0";
+            res = "2560x1440@239.970Hz";
+            # Set HIDP scale (pixel integer scaling)
+            scale = lib.strings.floatToString config.services.sway.scale;
+            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+          };
+          DP-3 = {
             pos = "5120,0";
-            res = "2560x1440@119.998Hz";
+            res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
