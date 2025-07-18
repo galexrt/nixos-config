@@ -43,6 +43,8 @@
   services.paperless = {
     enable = true;
     consumptionDirIsPublic = true;
+    address = "0.0.0.0";
+
     settings = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_CONSUMER_IGNORE_PATTERN = [
