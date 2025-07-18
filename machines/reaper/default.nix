@@ -38,4 +38,39 @@
       ];
     };
   };
+
+  # Papers Please!
+  services.paperless = {
+    enable = true;
+    consumptionDirIsPublic = true;
+    settings = {
+      PAPERLESS_DBHOST = "/run/postgresql";
+      PAPERLESS_CONSUMER_IGNORE_PATTERN = [
+        ".DS_STORE/*"
+        "desktop.ini"
+      ];
+      PAPERLESS_CONSUMER_RECURSIVE = true;
+      PAPERLESS_TASK_WORKERS = 2;
+      PAPERLESS_THREADS_PER_WORKER = 4;
+      PAPERLESS_WEBSERVER_WORKERS = 2;
+      PAPERLESS_OCR_LANGUAGE = "deu+eng";
+      PAPERLESS_OCR_USER_ARGS = {
+        optimize = 1;
+        pdfa_image_compression = "lossless";
+      };
+    };
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+    ensureDatabases = [ "paperless" ];
+    ensureUsers = [
+      {
+        name = "paperless";
+        ensureDBOwnership = true;
+      }
+    ];
+  };
+
 }

@@ -80,6 +80,7 @@ in
       minio-client
       mullvad-vpn
       mumble
+      natscli
       ncdu
       neofetch
       niv
