@@ -93,7 +93,7 @@
     {
       device = "/dev/disk/by-uuid/C53C-21D3";
       fsType = "vfat";
-      options= [ "fmask=0077" "dmask=0077" ]
+      options= [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/data/DATA" =
