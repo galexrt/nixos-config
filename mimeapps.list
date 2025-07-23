@@ -1,4 +1,7 @@
 [Default Applications]
+# Vesktop
+x-scheme-handler/discord=vesktop.desktop
+# Librewolf
 x-scheme-handler/http=librewolf.desktop
 x-scheme-handler/https=librewolf.desktop
 x-scheme-handler/chrome=librewolf.desktop
@@ -9,8 +12,23 @@ application/x-extension-shtml=librewolf.desktop
 application/xhtml+xml=librewolf.desktop
 application/x-extension-xhtml=librewolf.desktop
 application/x-extension-xht=librewolf.desktop
+# Thunderbird
+x-scheme-handler/mailto=userapp-Thunderbird-D18792.desktop
+message/rfc822=userapp-Thunderbird-D18792.desktop
+x-scheme-handler/mid=userapp-Thunderbird-D18792.desktop
+x-scheme-handler/news=userapp-Thunderbird-I7ZAA3.desktop
+x-scheme-handler/snews=userapp-Thunderbird-I7ZAA3.desktop
+x-scheme-handler/nntp=userapp-Thunderbird-I7ZAA3.desktop
+x-scheme-handler/feed=userapp-Thunderbird-UNUCA3.desktop
+application/rss+xml=userapp-Thunderbird-UNUCA3.desktop
+application/x-extension-rss=userapp-Thunderbird-UNUCA3.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-XOREA3.desktop
+text/calendar=userapp-Thunderbird-XOREA3.desktop
+application/x-extension-ics=userapp-Thunderbird-XOREA3.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-XOREA3.desktop
 
 [Added Associations]
+# Librewolf
 x-scheme-handler/http=librewolf.desktop;
 x-scheme-handler/https=librewolf.desktop;
 x-scheme-handler/chrome=librewolf.desktop;
@@ -21,3 +39,14 @@ application/x-extension-shtml=librewolf.desktop;
 application/xhtml+xml=librewolf.desktop;
 application/x-extension-xhtml=librewolf.desktop;
 application/x-extension-xht=librewolf.desktop;
+# Thunderbird
+x-scheme-handler/mailto=userapp-Thunderbird-D18792.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-D18792.desktop;
+x-scheme-handler/news=userapp-Thunderbird-I7ZAA3.desktop;
+x-scheme-handler/snews=userapp-Thunderbird-I7ZAA3.desktop;
+x-scheme-handler/nntp=userapp-Thunderbird-I7ZAA3.desktop;
+x-scheme-handler/feed=userapp-Thunderbird-UNUCA3.desktop;
+application/rss+xml=userapp-Thunderbird-UNUCA3.desktop;
+application/x-extension-rss=userapp-Thunderbird-UNUCA3.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-XOREA3.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-XOREA3.desktop;
