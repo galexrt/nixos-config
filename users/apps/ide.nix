@@ -197,6 +197,7 @@ in
           "workbench.sideBar.location" = "left";
           "workbench.panel.defaultLocation" = "right";
           "workbench.startupEditor" = "none";
+          "workbench.secondarySideBar.defaultVisibility" = "hidden";
 
           # Make sure gitlens doesn't get on our nerves
           "gitlens.currentLine.pullRequests.enabled" = false;

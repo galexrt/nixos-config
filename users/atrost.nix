@@ -102,7 +102,6 @@ in
       slack
       sops
       sshpass
-      steam
       stern
       tailscale-systray
       teamspeak_client
