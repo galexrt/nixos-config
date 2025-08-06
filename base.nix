@@ -98,9 +98,18 @@
     enable = true;
   };
 
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = false;
+    enableBashIntegration = false;
+  };
+
   # LD Fix
   programs.nix-ld = {
     enable = true;
+    libraries = (with pkgs; [
+      stdenv.cc.cc
+    ]) ++ options.programs.nix-ld.libraries.default;
   };
 
   services.cockpit = {
