@@ -108,8 +108,9 @@
   programs.nix-ld = {
     enable = true;
     libraries = (with pkgs; [
-      stdenv.cc.cc
-    ]) ++ options.programs.nix-ld.libraries.default;
+      stdenv.cc.cc.lib
+    ]) ++ options.programs.nix-ld.libraries.default
+    ++ (pkgs.steam-run.args.multiPkgs pkgs);
   };
 
   services.cockpit = {
