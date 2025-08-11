@@ -1,9 +1,9 @@
-{ config, lib, pkgs, options, ... }:
+{ config, lib, pkgs, options, home-manager, ... }:
 
 {
   imports =
     [
-      <home-manager/nixos>
+      home-manager.nixosModules.default
       ./home.nix
     ];
 

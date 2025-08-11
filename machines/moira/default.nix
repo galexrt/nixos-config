@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, home-manager, ... }:
 
 {
   imports = [
