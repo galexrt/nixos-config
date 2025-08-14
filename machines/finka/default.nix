@@ -1,11 +1,13 @@
-{ config, lib, nixpkgs, home-manager, ... }:
+{ config, lib, nixpkgs, home-manager, nixos-hardware, ... }:
 
 {
   imports = [
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc/laptop"
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc/ssd"
+    nixos-hardware.nixosModules.common-pc-laptop
+    nixos-hardware.nixosModules.common-pc-ssd
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ../users/atrost.nix
   ];
 
   networking.hostName = "finka";

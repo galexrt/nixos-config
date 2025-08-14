@@ -2,7 +2,10 @@
   inputs = {
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-25.05";
-      config.allowUnfree = true;
+    };
+    nixos-unstable = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+      flake = false;
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -12,12 +15,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, sops-nix, home-manager }: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-unstable,
+    sops-nix,
+    home-manager,
+    nixos-hardware,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
+      # Laptop
       finka = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
@@ -25,10 +39,13 @@
           ./base.nix
           ./machines/finka
         ];
+        specialArgs = { inherit inputs; };
       };
 
+      # Laptop
       moira = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
@@ -36,10 +53,13 @@
           ./base.nix
           ./machines/moira
         ];
+        specialArgs = { inherit inputs; };
       };
 
+      # Workstation
       reaper = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
@@ -47,6 +67,25 @@
           ./base.nix
           ./machines/reaper
         ];
+
+        specialArgs = {
+          inherit inputs;
+        };
+      };
+
+      # Desktop
+      ana = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+
+          ./base.nix
+          ./machines/ana
+        ];
+
+        specialArgs = { inherit inputs; };
       };
     };
   };

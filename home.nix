@@ -1,8 +1,9 @@
-{ ... }: {
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
+{ inputs, ... }:
 
-  imports = [
-    ./users/atrost.nix
-  ];
+{
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    extraSpecialArgs = { inherit inputs; };
+  };
 }

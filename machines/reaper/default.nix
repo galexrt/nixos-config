@@ -1,11 +1,13 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, home-manager, nixos-hardware, ... }:
 
 {
   imports = [
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc"
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc/ssd"
+    nixos-hardware.nixosModules.common-pc
+    nixos-hardware.nixosModules.common-pc-ssd
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ../users/atrost.nix
   ];
 
   networking.hostName = "reaper";

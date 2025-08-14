@@ -1,12 +1,14 @@
-{ lib, home-manager, ... }:
+{ lib, home-manager, nixos-hardware, ... }:
 
 {
   imports = [
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc/laptop"
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/common/pc/ssd"
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/lenovo/thinkpad/p14s/amd/gen2"
+    nixos-hardware.nixosModules.common-pc-laptop
+    nixos-hardware.nixosModules.common-pc-ssd
+    nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ../users/atrost.nix
   ];
 
   networking.hostName = "moira";

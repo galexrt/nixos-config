@@ -5,6 +5,7 @@
     [
       home-manager.nixosModules.default
       ./home.nix
+      ./users.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -113,27 +114,6 @@
     ++ (pkgs.steam-run.args.multiPkgs pkgs);
   };
 
-  services.cockpit = {
-    enable = true;
-    port = 9090;
-    openFirewall = true;
-    settings = {
-      WebService = {
-        AllowUnencrypted = true;
-      };
-    };
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.atrost = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "video" "networkmanager" "rfkill" "power" "lp" "uucp" "network" "docker" "scanner" "dialout" "libvirtd" "gamemode" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIACcqbQlcdBFswQafVSTt0OvMkBLwXjTSLhBsqAdo5Gf atrost@debwrk01"
-    ];
-  };
-
   security.pam.services.swaylock.text = ''
     # PAM configuration file for the swaylock screen locker. By default, it includes
     # the 'login' configuration file (see /etc/pam.d/login)
@@ -147,6 +127,7 @@
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
+      config.common.default = "*";
     };
   };
 

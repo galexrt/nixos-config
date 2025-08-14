@@ -1,10 +1,8 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, nixos-unstable, pkgs, ... }:
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  unstable = nixos-unstable { config = { allowUnfree = true; }; };
 in
 {
-  xdg.portal.config.common.default = "*";
-
   home-manager.users.atrost = {
 
     # This value determines the Home Manager release that your
@@ -280,17 +278,10 @@ in
       gtk.enable = true;
     };
 
-    /*
-    programs.bazecor = {
-      enable = true;
-      package = unstable.bazecor;
-    };
-    */
-
     # Development Tools
     programs.go = {
       enable = true;
-      package = pkgs.go_1_23;
+      package = pkgs.go_1_24;
       goPath = "Projects/go";
     };
 

@@ -98,12 +98,6 @@ mount -o subvol=var-log,compress=zstd,noatime /dev/mapper/encd1 /mnt/var/log
 mkdir /mnt/boot
 mount "$DISK1"p1 /mnt/boot
 
-nix-channel --remove nixos
-nix-channel --add https://nixos.org/channels/nixos-25.05 nixos
-nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
-nix-channel --update
-
 mkdir -p /mnt/etc/nixos/
 # Upload /mnt/etc/nixos/configuration.nix file to machine
 
