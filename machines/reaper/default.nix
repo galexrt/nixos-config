@@ -1,13 +1,14 @@
-{ pkgs, home-manager, nixos-hardware, ... }:
+{ pkgs, nixos-hardware, ... }:
 
 {
   imports = [
     nixos-hardware.nixosModules.common-pc
     nixos-hardware.nixosModules.common-pc-ssd
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../users/atrost.nix
+    ../../users/atrost.nix
   ];
 
   networking.hostName = "reaper";

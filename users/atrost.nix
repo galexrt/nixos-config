@@ -1,7 +1,5 @@
 { config, lib, nixos-unstable, pkgs, ... }:
-let
-  unstable = nixos-unstable { config = { allowUnfree = true; }; };
-in
+
 {
   home-manager.users.atrost = {
 
@@ -34,7 +32,7 @@ in
       audacity
       bambu-studio
       orca-slicer
-      unstable.bazecor
+      nixos-unstable.bazecor
       btop
       calc
       cava
@@ -58,17 +56,17 @@ in
       grafana-loki
       handbrake
       simple-scan
-      unstable.hub
+      nixos-unstable.hub
       hugo
       imhex
       inetutils
       ipcalc
-      unstable.joplin-desktop
+      nixos-unstable.joplin-desktop
       jpegoptim
       kind
       krew
       kubectl
-      unstable.kubelogin-oidc
+      nixos-unstable.kubelogin-oidc
       kubernetes-helm
       kubeseal
       libreoffice-fresh
@@ -146,7 +144,7 @@ in
       terraform
       terragrunt
       yarn
-      unstable.kubecolor
+      nixos-unstable.kubecolor
       # Temp
       vscodium-fhs
       # AI
@@ -324,7 +322,7 @@ in
         "de"
       ];
     };
-    package = unstable.joplin-desktop;
+    package = nixos-unstable.joplin-desktop;
     sync = {
       interval = "5m";
       target = "nextcloud";

@@ -5,14 +5,13 @@
     };
     nixos-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
-      flake = false;
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -39,7 +38,10 @@
           ./base.nix
           ./machines/finka
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs nixos-hardware;
+          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+        };
       };
 
       # Laptop
@@ -53,7 +55,10 @@
           ./base.nix
           ./machines/moira
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs nixos-hardware;
+          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+        };
       };
 
       # Workstation
@@ -69,7 +74,8 @@
         ];
 
         specialArgs = {
-          inherit inputs;
+          inherit inputs nixos-hardware;
+          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
         };
       };
 
@@ -85,7 +91,10 @@
           ./machines/ana
         ];
 
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs nixos-hardware;
+          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+        };
       };
     };
   };
