@@ -9,5 +9,12 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
   
+  i18n.defaultLocale = "de_DE.UTF-8";
+
+  services.displayManager = {
+    autoLogin.enable = true;
+	  autoLogin.user = "ltrost";
+  };
+
   # TODO
 }
