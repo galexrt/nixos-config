@@ -17,6 +17,10 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
+  nixConfig = {
+    allowUnfree = true;
+  };
+
   outputs = {
     self,
     nixpkgs,

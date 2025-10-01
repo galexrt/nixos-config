@@ -221,6 +221,8 @@
     '';
   };
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches"   = 1048576;   # default:  8192
     "fs.inotify.max_user_instances" =    1024;   # default:   128

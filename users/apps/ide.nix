@@ -98,7 +98,7 @@ in
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode-fhs;
+    package = pkgs.vscode.fhs;
     mutableExtensionsDir = true;
 
     #extensions = with pkgs.vscode-extensions; [
@@ -145,7 +145,7 @@ in
       default = {
         enableUpdateCheck = false;
         userSettings = {
-          "clangd.path" = "/home/atrost/.config/VSCode/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
+          "clangd.path" = "/home/atrost/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/21.1.0/clangd_21.1.0/bin/clangd";
           "debug.console.fontSize" = 10;
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.codeLensFontSize" = 8;
@@ -167,7 +167,7 @@ in
           "git.autofetch" = true;
           "git.confirmSync" = false;
           "git.enableCommitSigning" = true;
-          "go.gopath" = "${config.home.homeDirectory}/Projects/go";
+          "go.gopath" = "${config.home.homeDirectory or (builtins.getEnv "HOME")}/Projects/go";
           "go.toolsManagement.autoUpdate" = true;
           "gopls" = {
             "formatting.gofumpt" = true;
