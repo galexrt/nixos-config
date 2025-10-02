@@ -236,7 +236,7 @@ in
           "${cfg.config.modifier}+Ctrl+m" = "exec ${pkgs.easyeffects}/bin/easyeffects";
           ## Joplin
           "${cfg.config.modifier}+F5" = "[con_mark=\"Joplin\"] scratchpad show";
-          "${cfg.config.modifier}+Shift+F5" = "[class=\"Joplin\"] mark -add Joplin, move scratchpad";
+          "${cfg.config.modifier}+Shift+F5" = "[app_id=\"@joplin/app-desktop\"] mark -add Joplin, move scratchpad";
 
           # workspace back and forth (with/without active container)
           "${cfg.config.modifier}+b" = "workspace back_and_forth";
