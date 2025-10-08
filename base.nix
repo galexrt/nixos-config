@@ -1,4 +1,4 @@
-{ config, lib, pkgs, options, ... }:
+{ config, inputs, lib, pkgs, options, system, ... }:
 
 {
   imports =
@@ -202,6 +202,10 @@
     wireguard-tools
     xdg-utils
     yq
+
+    # WinBoat - Windows app runner
+    inputs.winboat.packages.x86_64-linux.winboat
+    freerdp3
   ];
 
   environment.etc = {
