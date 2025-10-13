@@ -1,6 +1,25 @@
 { config, lib, nixos-unstable, pkgs, ... }:
 
 {
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = lib.mkDefault "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
+        user = "atrost";
+      };
+    };
+  };
+
+  users.users.atrost = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "video" "networkmanager" "rfkill" "power" "lp" "uucp" "network" "docker" "scanner" "dialout" "libvirtd" "gamemode" ]; # Enable ‘sudo’ for the user.
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIACcqbQlcdBFswQafVSTt0OvMkBLwXjTSLhBsqAdo5Gf atrost@debwrk01"
+    ];
+  };
+
   home-manager.users.atrost = {
 
     # This value determines the Home Manager release that your

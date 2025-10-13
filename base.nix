@@ -57,7 +57,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   console = {
   #  font = "Lat2-Terminus16";
     keyMap = "de";
@@ -271,16 +271,6 @@
   services.power-profiles-daemon.enable = true;
 
   # List services that you want to enable:
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = lib.mkDefault "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
-        user = "atrost";
-      };
-    };
-  };
-
   virtualisation = {
     containers = {
       enable = true;

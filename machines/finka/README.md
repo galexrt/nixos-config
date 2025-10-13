@@ -22,8 +22,8 @@ sector-size: 512
 
 EOF
 
-cryptsetup --verify-passphrase -v luksFormat --allow-discards "$DISK1"p2
-cryptsetup --verify-passphrase -v luksFormat --allow-discards "$DISK1"p3
+cryptsetup --verify-passphrase -v luksFormat "$DISK1"p2
+cryptsetup --verify-passphrase -v luksFormat "$DISK1"p3
 cryptsetup open "$DISK1"p2 encd1
 cryptsetup open "$DISK1"p3 encs1
 
@@ -47,8 +47,8 @@ sector-size: 512
 EOF
 #sgdisk -G "$DISK2"
 
-cryptsetup --verify-passphrase -v luksFormat --allow-discards "$DISK2"p2
-cryptsetup --verify-passphrase -v luksFormat --allow-discards "$DISK2"p3
+cryptsetup --verify-passphrase -v luksFormat "$DISK2"p2
+cryptsetup --verify-passphrase -v luksFormat "$DISK2"p3
 cryptsetup open "$DISK2"p2 encd2
 cryptsetup open "$DISK2"p3 encs2
 

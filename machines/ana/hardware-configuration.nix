@@ -8,13 +8,89 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
-  
-  i18n.defaultLocale = "de_DE.UTF-8";
 
-  services.displayManager = {
-    autoLogin.enable = true;
-	  autoLogin.user = "ltrost";
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/57da613e-9d97-4d47-a5fd-c0bd04b138a2";
+      fsType = "btrfs";
+      options = [ "subvol=root" "noatime" ];
+    };
+
+  boot.initrd.luks = {
+    devices = {
+      "encd1" = {
+        device = "/dev/disk/by-uuid/09552d12-5de1-4c5a-9f10-d723baa3395d";
+        allowDiscards = true;
+      };
+      "encs1" = {
+        device = "/dev/disk/by-uuid/aee276fd-88cd-445f-b2fc-dc9680317936";
+        allowDiscards = true;
+      };
+      "encd2" = {
+        device = "/dev/disk/by-uuid/14fcdf5d-9827-4fd7-90d4-d074e7ec8541";
+        allowDiscards = true;
+      };
+      "encs2" = {
+        device = "/dev/disk/by-uuid/65d588b8-cd6d-48a1-9a50-0414d8a1c066";
+        allowDiscards = true;
+      };
+    };
+    reusePassphrases = true;
   };
 
-  # TODO
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/57da613e-9d97-4d47-a5fd-c0bd04b138a2";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/57da613e-9d97-4d47-a5fd-c0bd04b138a2";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-uuid/57da613e-9d97-4d47-a5fd-c0bd04b138a2";
+      fsType = "btrfs";
+      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/var/lib" =
+    { device = "/dev/disk/by-uuid/57da613e-9d97-4d47-a5fd-c0bd04b138a2";
+      fsType = "btrfs";
+      options = [ "subvol=var-lib" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-uuid/57da613e-9d97-4d47-a5fd-c0bd04b138a2";
+      fsType = "btrfs";
+      options = [ "subvol=var-log" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/0256-E1E5";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  swapDevices =
+    [{ device = "/dev/disk/by-uuid/bb11e0fc-e87a-49b3-93b9-542abb2129e1"; }
+      { device = "/dev/disk/by-uuid/53e26fc6-f398-43fa-8a20-24e59baa5189"; }];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
