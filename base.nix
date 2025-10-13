@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.memtest86.enable = true;
-  boot.plymouth.enable = false;
+  boot.plymouth.enable = lib.mkDefault false;
   boot.supportedFilesystems = [ "btrfs" ];
   boot.swraid.enable = true;
 
