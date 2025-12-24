@@ -89,7 +89,6 @@
       kubernetes-helm
       kubeseal
       libreoffice-fresh
-      lutris
       meld
       minikube
       minio-client
@@ -154,10 +153,10 @@
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
-      python311
-      python311Packages.libvirt
-      python311Packages.pip
-      python311Packages.requests
+      python312
+      python312Packages.libvirt
+      python312Packages.pip
+      python312Packages.requests
       rustup
       talosctl
       terraform

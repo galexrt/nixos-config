@@ -15,12 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # WinBoat - Windows app runner
-    winboat = {
-      url = "github:TibixDev/winboat";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   nixConfig = {
@@ -34,7 +28,6 @@
     sops-nix,
     home-manager,
     nixos-hardware,
-    winboat,
     ...
   } @ inputs: {
     nixosConfigurations = {

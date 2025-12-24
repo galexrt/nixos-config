@@ -167,6 +167,7 @@ in
           "git.autofetch" = true;
           "git.confirmSync" = false;
           "git.enableCommitSigning" = true;
+          "go.diagnostic.vulncheck" = "Imports";
           "go.gopath" = "${config.home.homeDirectory or (builtins.getEnv "HOME")}/Projects/go";
           "go.toolsManagement.autoUpdate" = true;
           "gopls" = {

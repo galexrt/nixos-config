@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, options, system, ... }:
+{ config, inputs, lib, nixos-unstable, options, pkgs, system, ... }:
 
 {
   imports =
@@ -16,7 +16,7 @@
   boot.swraid.enable = true;
 
   # Linux kernel
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_16);
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_18);
 
   hardware = {
     enableAllFirmware = true;
@@ -204,7 +204,7 @@
     yq
 
     # WinBoat - Windows app runner
-    inputs.winboat.packages.x86_64-linux.winboat
+    nixos-unstable.winboat # Not yet in any release branch, only available on master branch
     freerdp3
   ];
 
