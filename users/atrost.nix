@@ -373,4 +373,14 @@
     rocmOverrideGfx = "11.0.0";
   };
 
+  services.scx = {
+    enable = true;
+
+    scheduler = "scx_lavd";
+
+    extraArgs = [
+      "--autopilot"
+    ];
+  };
+
 }

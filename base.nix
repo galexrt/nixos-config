@@ -122,8 +122,22 @@
   xdg = {
     portal = {
       enable = true;
+
+      xdgOpenUsePortal = true;
+
+      wlr = {
+        enable = true;
+
+        settings = {
+          screencast = {
+            max_fps = 60;
+            exec_before = "swaync-client -dn -sw";
+            exec_after = "swaync-client -df -sw";
+          };
+        };
+      };
+
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
       config.common.default = "*";
@@ -148,8 +162,8 @@
 
   services.earlyoom = {
     enable = true;
-    freeSwapThreshold = 2;
-    freeMemThreshold = 2;
+    freeSwapThreshold = 4;
+    freeMemThreshold = 4;
     extraArgs = [
         "-g"
         "--avoid" "'^(Xwayland|sway|swaync-client)$'"
