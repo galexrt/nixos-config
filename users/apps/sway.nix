@@ -544,11 +544,13 @@ in
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            adaptive_sync = "on";
           };
           eDP-2 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            adaptive_sync = "on";
           };
 
           # Reaper
@@ -558,6 +560,7 @@ in
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            adaptive_sync = "off";
           };
           DP-2 = {
             pos = "2560,0";
@@ -565,6 +568,7 @@ in
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            adaptive_sync = "off";
           };
           HDMI-A-1 = {
             pos = "5120,0";
@@ -572,6 +576,7 @@ in
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
             bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            adaptive_sync = "off";
           };
         };
 
