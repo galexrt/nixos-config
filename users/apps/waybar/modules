@@ -156,7 +156,7 @@
 	  "on-click-right": "swaymsg exec \\$once \\$term_float nmtui connect"
 	},
 	"power-profiles-daemon": {
-	  "format": "{icon} {}",
+	  "format": "{icon} {profile}",
 	  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 	  "tooltip": true,
 	  "format-icons": {
@@ -204,12 +204,12 @@
 	// This is a custom cava visualizer
 	"custom/cava_mviz": {
 	  "exec": "~/.config/waybar/scripts/cava.sh",
-	  "format": " {}"
+	  "format": " {text}"
 	},
 	"custom/swaync": {
 	  "tooltip": true,
 	  "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	  "format": "{icon} {}",
+	  "format": "{icon} {text}",
 	  "format-icons": {
 		"notification": "<span foreground='red'><sup></sup></span>",
 		"none": "",

@@ -125,13 +125,13 @@
 
         # Modules Center
         "sway/mode" = {
-          format = "<span style=\"italic\">{}</span>";
+          format = "<span style=\"italic\">{text}</span>";
           tooltip = false;
         };
 
         "custom/weather" = {
           icon-size = 42;
-          format = "{icon} {}";
+          format = "{icon} {text}";
           tooltip = true;
           interval = 3600;
           exec = "${config.xdg.configHome}/waybar/scripts/get_weather.sh";
@@ -204,8 +204,8 @@
 
         "clock" = {
           interval = 1;
-          format = " {:%H:%M:%S %d-%m-%Y}";
-          format-alt = " {:%H:%M:%S   %Y, %d %B, %A";
+          format = "{:%H:%M:%S %d-%m-%Y}";
+          format-alt = " {:%H:%M:%S   %Y, %d %B, %A";
           "format-alt-click" = "click-right";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
           calendar = {
@@ -216,7 +216,7 @@
             "format" = {
               "months" = "<span color='#ffead3'><b>{}</b></span>";
               "days" = "<span color='#ecc6d9'><b>{}</b></span>";
-              "weeks" = "<span color='#99ffdd'><b>W{}</b></span>";
+              "weeks" = "<span color='#99ffdd'><b>{}</b></span>";
               "weekdays" = "<span color='#ffcc66'><b>{}</b></span>";
               "today" = "<span color='#ff6699'><b><u>{}</u></b></span>";
             };
@@ -234,7 +234,7 @@
           interval = 1;
           exec = "echo \"$(cat /sys/class/hwmon/hwmon*/device/gpu_busy_percent)% $(echo $(( $(cat /sys/class/hwmon/hwmon*/device/mem_info_vram_total) - $(cat /sys/class/hwmon/hwmon*/device/mem_info_vram_used) )) | awk '{printf \"%.0fGB\", $1/1024/1024/1024}')\"";
           "return-type" = "";
-          format = "🖵 {}";
+          format = "🖵 {text}";
           on-click = "${pkgs.sway}/bin/swaymsg exec \\$once \\$term_float amdgpu_top";
           tooltip = true;
         };

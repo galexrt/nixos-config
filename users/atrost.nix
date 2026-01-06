@@ -161,7 +161,6 @@
       talosctl
       terraform
       terragrunt
-      yarn
       nixos-unstable.kubecolor
       # Temp
       vscodium-fhs

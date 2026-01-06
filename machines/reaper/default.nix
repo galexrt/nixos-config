@@ -31,17 +31,6 @@
     wantedBy = [ "multi-user.target" ];
   };
 
-  hardware = {
-    graphics = {
-      extraPackages = with pkgs; [
-        amdvlk
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
-    };
-  };
-
   # Papers Please!
   services.paperless = {
     enable = true;
