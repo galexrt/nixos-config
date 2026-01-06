@@ -35,6 +35,9 @@
         inherit pkgs;
       };
     };
+    permittedInsecurePackages = [
+      "qtwebengine-5.15.19" # For openshot-qt
+    ];
   };
 
   # Enable binfmt
@@ -186,7 +189,7 @@
     gnumake
     gparted
     gptfdisk
-    greetd.tuigreet
+    tuigreet
     htop
     iotop
     jq
@@ -220,7 +223,7 @@
 
     # WinBoat - Windows app runner
     nixos-unstable.winboat # Not yet in any release branch, only available on master branch
-    freerdp3
+    freerdp
   ];
 
   environment.etc = {
@@ -254,13 +257,13 @@
       hack-font
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       roboto
       font-awesome
       google-fonts
       # Microsoft Fonts
       corefonts
-      vistafonts
+      vista-fonts
     ];
     fontDir.enable = true;
     fontconfig.defaultFonts.monospace = [
@@ -317,13 +320,6 @@
         package = pkgs.qemu_kvm;
         runAsRoot = true;
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [(pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd];
-        };
       };
     };
   };

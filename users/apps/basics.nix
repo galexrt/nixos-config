@@ -70,11 +70,14 @@
   programs.git = {
     enable = true;
     # Additional options for the git program
-    package = pkgs.gitAndTools.gitFull; # Install git wiith all the optional extras
-    userName = "Alexander Trost";
-    userEmail = "galexrt@googlemail.com";
+    package = pkgs.gitFull; # Install git wiith all the optional extras
+    
+    settings = {
+      user = {
+        email = "galexrt@googlemail.com";
+        name = "Alexander Trost";
+      };
 
-    extraConfig = {
       core.editor = "vim";
       commit.gpgsign = true;
       user.signingkey = "5CF1D4600D4CBFDF";
@@ -119,11 +122,15 @@
   };
 
   programs.ssh = {
-    serverAliveInterval = 360;
-    compression = true;
-    controlMaster = "auto";
-    controlPersist = "yes";
-    controlPath = "~/.ssh/cons/%C";
+    matchBlocks = {
+      "*" = {
+        serverAliveInterval = 360;
+        compression = true;
+        controlMaster = "auto";
+        controlPersist = "yes";
+        controlPath = "~/.ssh/cons/%C";
+      };
+    };
 
     extraConfig = ''
       NoHostAuthenticationForLocalhost yes

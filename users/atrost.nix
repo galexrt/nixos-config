@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = lib.mkDefault "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
+        command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
         user = "atrost";
       };
     };
@@ -118,7 +118,7 @@
       sshpass
       stern
       tailscale-systray
-      teamspeak_client
+      teamspeak3
       temurin-bin
       termdown
       transmission_4-qt
@@ -153,10 +153,10 @@
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
-      python312
-      python312Packages.libvirt
-      python312Packages.pip
-      python312Packages.requests
+      python313
+      python313Packages.libvirt
+      python313Packages.pip
+      python313Packages.requests
       rustup
       talosctl
       terraform
@@ -268,6 +268,7 @@
       ./apps/browser.nix
       ./apps/thunderbird.nix
       ./apps/ide.nix
+      ./apps/dev_tools.nix
     ];
 
     gtk = {
@@ -293,22 +294,6 @@
       size = 24;
       gtk.enable = true;
     };
-
-    # Development Tools
-    programs.go = {
-      enable = true;
-      package = pkgs.go_1_24;
-      goPath = "Projects/go";
-    };
-
-    programs.vim = {
-      enable = true;
-      settings = {
-        history = 1000;
-      };
-      defaultEditor = true;
-    };
-
   };
 
   programs.streamdeck-ui = {
