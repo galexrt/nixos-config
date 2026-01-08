@@ -125,7 +125,7 @@
 
         # Modules Center
         "sway/mode" = {
-          format = "<span style=\"italic\">{text}</span>";
+          format = "<span style=\"italic\">{}</span>";
           tooltip = false;
         };
 

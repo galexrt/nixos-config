@@ -173,7 +173,7 @@ in
           "type:keyboard" = {
             xkb_options = "grp_led:caps";
             xkb_layout = "de(nodeadkeys)";
-            xkb_variant = ",";
+            xkb_variant = "nodeadkeys";
           };
         };
 
@@ -668,8 +668,8 @@ in
         # mouse button for dragging.
         floating_modifier $mod normal
 
-        titlebar_border_thickness 6
-        titlebar_padding 0
+        titlebar_border_thickness 2
+        titlebar_padding 2
       '';
 
       extraConfig = ''
