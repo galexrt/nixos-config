@@ -20,6 +20,8 @@
     ];
   };
 
+  programs.noisetorch.enable = true;
+
   home-manager.users.atrost = {
 
     # This value determines the Home Manager release that your
@@ -64,6 +66,7 @@
       exiftool
       ferdium
       ffmpeg
+      feishin
       file
       filezilla
       freecad
