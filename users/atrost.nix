@@ -349,7 +349,7 @@
   };
 
   services.ollama = {
-    enable = false;
+    enable = true;
     acceleration = "rocm";
     environmentVariables = {
       HCC_AMDGPU_TARGET = "gfx1100";
