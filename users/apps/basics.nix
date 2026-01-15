@@ -122,6 +122,7 @@
   };
 
   programs.ssh = {
+    startAgent = true;
     matchBlocks = {
       "*" = {
         serverAliveInterval = 360;

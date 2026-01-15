@@ -648,15 +648,18 @@ in
         set $screenshot_selection_file $grimshot --notify save window
 
         # laptop buttons
+        ## Brightness
+        $bindsym --locked XF86MonBrightnessUp exec $brightness_up
+        $bindsym --locked XF86MonBrightnessDown exec $brightness_down
+        ## Audio
+        $bindsym XF86AudioMicMute exec $mic_mute
         $bindsym --locked XF86AudioRaiseVolume exec $volume_up
         $bindsym --locked XF86AudioLowerVolume exec $volume_down
         $bindsym --locked XF86AudioMute exec $volume_mute
-        $bindsym XF86AudioMicMute exec $mic_mute
-        $bindsym --locked XF86MonBrightnessUp exec $brightness_up
-        $bindsym --locked XF86MonBrightnessDown exec $brightness_down
         $bindsym --locked XF86AudioPlay exec playerctl play-pause
         $bindsym XF86AudioNext exec playerctl next
         $bindsym XF86AudioPrev exec playerctl previous
+        ## Misc
         $bindsym XF86Search exec $menu
         $bindsym XF86PowerOff exec $shutdown
         $bindsym XF86TouchpadToggle input type:touchpad events toggle enabled disabled

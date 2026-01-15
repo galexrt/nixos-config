@@ -54,6 +54,7 @@
       bambu-studio
       orca-slicer
       nixos-unstable.bazecor
+      beets
       btop
       calc
       cava
