@@ -384,7 +384,8 @@ in
             }
             {
               criteria = {
-                app_id = "pamac-manager";
+                app_id = "pcmanfm";
+                name = "Confirm File Replacing";
               };
               command = "floating enable";
             }
@@ -419,12 +420,6 @@ in
                 app_id = "floating_shell";
               };
               command = "floating enable, border pixel 1, sticky enable";
-            }
-            {
-              criteria = {
-                app_id = "Manjaro.manjaro-settings-manager";
-              };
-              command = "floating enable";
             }
             {
               criteria = {

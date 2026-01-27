@@ -122,7 +122,6 @@
   };
 
   programs.ssh = {
-    startAgent = true;
     matchBlocks = {
       "*" = {
         serverAliveInterval = 360;
@@ -136,6 +135,12 @@
     extraConfig = ''
       NoHostAuthenticationForLocalhost yes
     '';
+  };
+
+  services.ssh-agent = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
 }
