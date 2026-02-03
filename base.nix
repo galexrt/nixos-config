@@ -1,10 +1,9 @@
-{ config, inputs, lib, nixos-unstable, options, pkgs, system, ... }:
+{ config, inputs, lib, nixos-unstable, options, pkgs, system, home-manager, ... }:
 
 {
   imports =
     [
       ./users.nix
-      ./home.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -45,15 +44,26 @@
     "aarch64-linux"
   ];
 
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    extraSpecialArgs = { inherit inputs; };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager = {
+    enable = true; # Easiest to use and most distros use this by default.
+    plugins = with pkgs; [ networkmanager-openvpn ];
+  };
+
   networking.timeServers = [ "0.de.pool.ntp.org" "1.de.pool.ntp.org" "2.de.pool.ntp.org" ] ++ options.networking.timeServers.default;
+
+  networking.extraHosts = ''
+  '';
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -65,31 +75,6 @@
   #  font = "Lat2-Terminus16";
     keyMap = "de";
   #  useXkbConfig = true; # use xkbOptions in tty.
-  };
-
-  # Enable CUPS to print documents.
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.hplipWithPlugin ];
-  };
-  services.avahi.enable = true;
-  services.avahi.nssmdns4 = true;
-  services.avahi.openFirewall = true;
-
-  # Enable sound via Pipewire
-  # rtkit is optional but recommended
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-
-    wireplumber = {
-      enable = true;
-    };
   };
 
   services.dbus.enable = true;
@@ -288,49 +273,7 @@
 
   services.power-profiles-daemon.enable = true;
 
-  # List services that you want to enable:
-  virtualisation = {
-    containers = {
-      enable = true;
-    };
-
-    docker = {
-      enable = true;
-      liveRestore = true;
-      storageDriver = "overlay2";
-    };
-
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = false;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-
-    virtualbox.host = {
-      enable = true;
-    };
-
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        runAsRoot = true;
-        swtpm.enable = true;
-      };
-    };
-  };
-
-  hardware.steam-hardware.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-  programs.gamemode.enable = true;
+  services.upower.enable = true;
 
   security.polkit.enable = true;
 

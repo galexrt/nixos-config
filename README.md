@@ -10,7 +10,7 @@ This list contains most repositories that I either copied or got inspired by:
 
 * [KooL-Dotfiles/ Hyprland-Dots by JaKooLit](https://github.com/JaKooLit/Hyprland-Dots)
 
-## `machines/` directory
+## `hosts/` directory
 
 Contains my per machine config.
 
@@ -20,4 +20,3 @@ Manual steps/things to do/import for other programs to fit the style of my confi
 
 * Firefox/Librewolf: https://addons.mozilla.org/en-US/firefox/addon/oled-dark/
 * Thunerbird: https://addons.thunderbird.net/en-US/thunderbird/addon/dark-black-theme/
-* Vesktop: https://luckfire.github.io/amoled-cord/src/amoled-cord.css

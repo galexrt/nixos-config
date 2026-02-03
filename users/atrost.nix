@@ -1,6 +1,15 @@
-{ config, lib, nixos-unstable, pkgs, ... }:
+{ inputs, config, lib, nixos-unstable, pkgs, ... }:
 
 {
+  imports = [
+    ./apps/audio.nix
+    ./apps/virtualization.nix
+    ./apps/printing.nix
+
+    ./apps/noctalia-shell.nix
+    ./apps/steam.nix
+  ];
+
   services.greetd = {
     enable = true;
     settings = {
@@ -128,7 +137,7 @@
       transmission_4-qt
       unrar
       #vagrant
-      vesktop
+      vhs
       vlc
       wallust
       waypipe
@@ -264,6 +273,8 @@
     };
 
     imports = [
+      inputs.nixcord.homeModules.nixcord
+
       ./apps/basics.nix
       ./apps/sway.nix
       ./apps/waybar.nix
@@ -272,6 +283,7 @@
       ./apps/thunderbird.nix
       ./apps/ide.nix
       ./apps/dev_tools.nix
+      ./apps/discord.nix
     ];
 
     gtk = {
@@ -354,11 +366,6 @@
 
   services.ollama = {
     enable = true;
-    acceleration = "rocm";
-    environmentVariables = {
-      HCC_AMDGPU_TARGET = "gfx1100";
-    };
-    rocmOverrideGfx = "11.0.0";
   };
 
   services.scx = {

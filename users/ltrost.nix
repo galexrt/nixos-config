@@ -2,7 +2,9 @@
 
 {
   imports = [
-    ../apps/kde.nix
+    ./apps/audio.nix
+    ./apps/printing.nix
+    ./apps/kde.nix
   ];
 
   users.users.ltrost = {

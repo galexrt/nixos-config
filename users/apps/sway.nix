@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixos-unstable, ... }:
 
 with lib;
 let
@@ -22,12 +22,12 @@ in
     # Wallpaper
     home.file."wallpapers-eva-notes.png" = {
       executable = true;
-      source = ../../common/wallpapers/eva-notes.png;
+      source = ../../assets/wallpapers/eva-notes.png;
       target = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png";
     };
     home.file."wallpapers-eva-notes-flipped.png" = {
       executable = true;
-      source = ../../common/wallpapers/eva-notes-flipped.png;
+      source = ../../assets/wallpapers/eva-notes-flipped.png;
       target = "${config.xdg.configHome}/sway/wallpapers/eva-notes-flipped.png";
     };
 
@@ -520,16 +520,19 @@ in
         };
 
         # Status bar(s)
-        bars = [{
-          id = "default";
-          command = "${pkgs.waybar}/bin/waybar";
-          position = "bottom";
-        }];
+        bars = [
+          {
+            id = "default";
+            command = "${pkgs.waybar}/bin/waybar";
+            position = "bottom";
+          }
+        ];
 
         startup = [
           { command = "joplin-desktop"; }
           { command = "sleep 4 && ferdium"; }
           { command = "sleep 2 && vesktop"; }
+          #{ command = "noctalia-shell"; } # TODO
         ];
 
         # Display device configuration

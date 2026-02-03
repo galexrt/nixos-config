@@ -15,6 +15,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -40,8 +50,9 @@
           sops-nix.nixosModules.sops
 
           ./base.nix
-          ./machines/finka
+          ./hosts/finka
         ];
+
         specialArgs = {
           inherit inputs nixos-hardware;
           nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
@@ -57,8 +68,9 @@
           sops-nix.nixosModules.sops
 
           ./base.nix
-          ./machines/moira
+          ./hosts/moira
         ];
+
         specialArgs = {
           inherit inputs nixos-hardware;
           nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
@@ -74,7 +86,7 @@
           sops-nix.nixosModules.sops
 
           ./base.nix
-          ./machines/reaper
+          ./hosts/reaper
         ];
 
         specialArgs = {
@@ -92,7 +104,7 @@
           sops-nix.nixosModules.sops
 
           ./base.nix
-          ./machines/ana
+          ./hosts/ana
         ];
 
         specialArgs = {
