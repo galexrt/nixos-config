@@ -4,7 +4,7 @@ let
 in
 {
     programs.wofi = {
-    enable = true;
+    enable = false;
     settings = {
       allow_images = true;
       image_size = 16;

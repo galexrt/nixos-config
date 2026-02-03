@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixos-unstable, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -103,7 +103,7 @@ in
         up = "k";
         right = "l";
         terminal = "${pkgs.wezterm}/bin/wezterm";
-        menu = "${pkgs.wofi}/bin/wofi --show drun";
+        menu = "${inputs.noctalia.packages.${pkgs.system}.default}/bin/noctalia-shell ipc call launcher toggle";
 
         fonts = {
           names = [ "Hack" "Noto Color Emoji" ];
@@ -195,7 +195,7 @@ in
           "${cfg.config.modifier}+Shift+q" = "kill";
           "${cfg.config.modifier}+Return" = "exec ${cfg.config.terminal} start --cwd '$(${pkgs.swaycwd}/bin/swaycwd 2>/dev/null || echo $HOME)'";
           "${cfg.config.modifier}+Shift+Return" = "exec ${cfg.config.terminal}";
-          "${cfg.config.modifier}+d" = "exec ${cfg.config.menu} --show drun";
+          "${cfg.config.modifier}+d" = "exec ${cfg.config.menu}";
 
           "${cfg.config.modifier}+Left" = "focus left";
           "${cfg.config.modifier}+Down" = "focus down";
@@ -521,18 +521,18 @@ in
 
         # Status bar(s)
         bars = [
-          {
-            id = "default";
-            command = "${pkgs.waybar}/bin/waybar";
-            position = "bottom";
-          }
+          #{
+          #  id = "default";
+          #  command = "${pkgs.waybar}/bin/waybar";
+          #  position = "bottom";
+          #}
         ];
 
         startup = [
           { command = "joplin-desktop"; }
           { command = "sleep 4 && ferdium"; }
           { command = "sleep 2 && vesktop"; }
-          #{ command = "noctalia-shell"; } # TODO
+          { command = "noctalia-shell"; }
         ];
 
         # Display device configuration
