@@ -59,6 +59,9 @@
     };
   };
 
+  # So /bin/bash is available
+  programs.bash.enable = true;
+
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;

@@ -51,7 +51,7 @@
   ];
 
   services.swaync = {
-    enable = true;
+    enable = false;
   };
 
   home.file."waybar-modules" = {
