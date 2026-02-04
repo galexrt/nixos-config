@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ inputs, config, lib, home-manager, pkgs, ... }:
 
 with lib;
 let
@@ -28,6 +28,12 @@ in
       executable = true;
       source = ../../assets/wallpapers/eva-notes-flipped.png;
       target = "${config.xdg.configHome}/sway/wallpapers/eva-notes-flipped.png";
+    };
+
+    home.file."wallpapers-eva-red-steel.jpg" = {
+      executable = true;
+      source = ../../assets/wallpapers/eva-red-steel.jpg;
+      target = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
     };
 
     # Sway Theme
@@ -535,13 +541,13 @@ in
           eDP-1 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "on";
           };
           eDP-2 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "on";
           };
 
@@ -551,7 +557,7 @@ in
             res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "off";
           };
           DP-2 = {
@@ -559,7 +565,7 @@ in
             res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "off";
           };
           HDMI-A-1 = {
@@ -567,7 +573,7 @@ in
             res = "2560x1440@143.991Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "~/.config/sway/wallpapers/eva-notes.png fill";
+            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "off";
           };
         };

@@ -145,7 +145,7 @@ in
       default = {
         enableUpdateCheck = false;
         userSettings = {
-          "clangd.path" = "/home/atrost/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/21.1.0/clangd_21.1.0/bin/clangd";
+          "clangd.path" = "${config.xdg.configHome}/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/21.1.0/clangd_21.1.0/bin/clangd";
           "debug.console.fontSize" = 10;
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.codeLensFontSize" = 8;

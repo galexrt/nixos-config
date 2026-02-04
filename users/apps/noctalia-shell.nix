@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   home-manager.users.atrost = {
@@ -11,13 +11,19 @@
       gpu-screen-recorder
     ];
 
-    # Configure wallpaper
+    # Configure profile picture and wallpaper
+    home.file."noctalia-face" = {
+      executable = true;
+      source = ../../assets/.face;
+      target = ".face";
+    };
+
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/wallhaven-rd2d6m.jpg";
+        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
         wallpapers = {
-          "eDP-1" = "/home/atrost/Pictures/Wallpapers/wallhaven-rd2d6m.jpg";
-          "eDP-2" = "/home/atrost/Pictures/Wallpapers/wallhaven-rd2d6m.jpg";
+          "eDP-1" = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
+          "eDP-2" = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
         };
       };
     };

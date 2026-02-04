@@ -67,7 +67,7 @@
 
     settings = {
       default = {
-        include = "~/.config/waybar/modules";
+        include = "${config.xdg.configHome}/waybar/modules";
         layer = "bottom";
         exclusive = true;
         ipc = true;
