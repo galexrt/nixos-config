@@ -657,6 +657,8 @@ in
         # Enable modes
         include ${config.xdg.configHome}/sway/modes/*
 
+        include ${config.xdg.configHome}/sway/noctalia
+
         exec --no-startup-id swaymsg workspace 1
       '';
 

@@ -23,6 +23,11 @@
         front_end = "OpenGL",
       }
 
+      config.keys = {
+        {key = 't', mods = 'CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment},
+      }
+
+      config.color_scheme = "Noctalia"
       return config
     '';
   };
