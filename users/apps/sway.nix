@@ -585,8 +585,7 @@ in
         # For user's convenience, the same for unbindsym
         set $unbindsym unbindsym --to-code
 
-        set $noctaliaShell ${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell
-        set $noctaliaIPCCall $noctaliaShell ipc call
+        set $noctaliaIPCCall ${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell ipc call
         set $sessionMenu $noctaliaIPCCall sessionMenu toggle
 
         # workspace names
@@ -636,7 +635,7 @@ in
         $bindsym XF86PowerOff exec $sessionMenu
         $bindsym XF86TouchpadToggle input type:touchpad events toggle enabled disabled
 
-        $bindsym Mod1+Ctrl+c $sessionMenu
+        $bindsym Mod1+Ctrl+c exec $sessionMenu
 
         # Drag floating windows by holding down $mod and left mouse button.
         # Resize them with right mouse button + $mod.
