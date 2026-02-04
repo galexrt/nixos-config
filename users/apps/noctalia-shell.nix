@@ -9,7 +9,16 @@
 
     home.packages = with pkgs; [
       gpu-screen-recorder
+      pywalfox-native
     ];
+
+    programs.pywal.enable = true;
+
+    home.file."cache-wal-sequences" = {
+      text = ''
+      '';
+      target = ".cache/wal/sequences";
+    };
 
     # Configure profile picture and wallpaper
     home.file."noctalia-face" = {

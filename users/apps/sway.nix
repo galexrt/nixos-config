@@ -533,6 +533,7 @@ in
           { command = "joplin-desktop"; }
           { command = "sleep 3 && ferdium"; }
           { command = "sleep 2 && vesktop"; }
+          { command = "pywalfox install --browser librewolf && pywalfox start"; }
         ];
 
         # Display device configuration
@@ -541,13 +542,11 @@ in
           eDP-1 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "on";
           };
           eDP-2 = {
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "on";
           };
 
@@ -557,7 +556,6 @@ in
             res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "off";
           };
           DP-2 = {
@@ -565,7 +563,6 @@ in
             res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "off";
           };
           HDMI-A-1 = {
@@ -573,7 +570,6 @@ in
             res = "2560x1440@143.991Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
-            bg = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png fill";
             adaptive_sync = "off";
           };
         };

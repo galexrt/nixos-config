@@ -194,7 +194,7 @@ in
           "volar.format.initialIndent" = {
             "html" = true;
           };
-          "workbench.colorTheme" = "Default High Contrast";
+          "workbench.colorTheme" = "NoctaliaTheme";
           "workbench.sideBar.location" = "left";
           "workbench.panel.defaultLocation" = "right";
           "workbench.startupEditor" = "none";
