@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home-manager.users.atrost = {
@@ -7,9 +7,44 @@
       inputs.noctalia.homeModules.default
     ];
 
+    home.packages = with pkgs; [
+      gpu-screen-recorder
+    ];
+
+    # Configure wallpaper
+    home.file.".cache/noctalia/wallpapers.json" = {
+      text = builtins.toJSON {
+        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/wallhaven-rd2d6m.jpg";
+        wallpapers = {
+          "eDP-1" = "/home/atrost/Pictures/Wallpapers/wallhaven-rd2d6m.jpg";
+          "eDP-2" = "/home/atrost/Pictures/Wallpapers/wallhaven-rd2d6m.jpg";
+        };
+      };
+    };
+
     # Configure options
     programs.noctalia-shell = {
       enable = true;
+
+      systemd.enable = false;
+
+      plugins = {
+        sources = [
+          {
+            enabled = true;
+            name = "Official Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+
+        states = {
+          screen-recorder = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+        };
+        version = 1;
+      };
 
       settings = {
         appLauncher = {
@@ -25,7 +60,9 @@
           enableWindowsSearch = true;
           iconMode = "tabler";
           ignoreMouseInput = false;
-          pinnedApps = [ ];
+          pinnedApps = [
+
+          ];
           position = "bottom_center";
           screenshotAnnotationTool = "";
           showCategories = true;
@@ -37,7 +74,9 @@
         };
         audio = {
           cavaFrameRate = 30;
-          mprisBlacklist = [ ];
+          mprisBlacklist = [
+
+          ];
           preferredPlayer = "";
           visualizerType = "linear";
           volumeFeedback = false;
@@ -47,9 +86,9 @@
         bar = {
           autoHideDelay = 500;
           autoShowDelay = 150;
-          backgroundOpacity = 0.93;
+          backgroundOpacity = 0.65;
           barType = "simple";
-          capsuleOpacity = 1;
+          capsuleOpacity = 0.95;
           density = "compact";
           displayMode = "always_visible";
           floating = false;
@@ -58,10 +97,14 @@
           hideOnOverview = false;
           marginHorizontal = 4;
           marginVertical = 4;
-          monitors = [ ];
+          monitors = [
+
+          ];
           outerCorners = true;
           position = "bottom";
-          screenOverrides = [ ];
+          screenOverrides = [
+
+          ];
           showCapsule = true;
           showOutline = false;
           useSeparateOpacity = false;
@@ -113,6 +156,9 @@
                 id = "Brightness";
               }
               {
+                id = "NightLight";
+              }
+              {
                 displayMode = "alwaysShow";
                 id = "PowerProfile";
               }
@@ -139,6 +185,24 @@
                 showVisualizer = false;
                 useFixedWidth = false;
                 visualizerType = "linear";
+              }
+              {
+                defaultSettings = {
+                  audioCodec = "opus";
+                  audioSource = "default_output";
+                  colorRange = "limited";
+                  copyToClipboard = false;
+                  directory = "";
+                  filenamePattern = "recording_yyyyMMdd_HHmmss";
+                  frameRate = "60";
+                  hideInactive = false;
+                  quality = "very_high";
+                  resolution = "original";
+                  showCursor = true;
+                  videoCodec = "h264";
+                  videoSource = "portal";
+                };
+                id = "plugin:screen-recorder";
               }
             ];
             right = [
@@ -176,6 +240,9 @@
                 warningThreshold = 30;
               }
               {
+                id = "KeepAwake";
+              }
+              {
                 displayMode = "onhover";
                 id = "Bluetooth";
               }
@@ -192,12 +259,16 @@
                 middleClickCommand = "pwvucontrol || pavucontrol";
               }
               {
-                blacklist = [ ];
+                blacklist = [
+
+                ];
                 colorizeIcons = false;
                 drawerEnabled = false;
                 hidePassive = false;
                 id = "Tray";
-                pinned = [ ];
+                pinned = [
+
+                ];
               }
               {
                 customFont = "";
@@ -207,6 +278,10 @@
                 tooltipFormat = "HH:mm ddd, MMM dd";
                 useCustomFont = false;
                 usePrimaryColor = false;
+              }
+              {
+                colorName = "error";
+                id = "SessionMenu";
               }
             ];
           };
@@ -285,6 +360,24 @@
               {
                 id = "NoctaliaPerformance";
               }
+              {
+                defaultSettings = {
+                  audioCodec = "opus";
+                  audioSource = "default_output";
+                  colorRange = "limited";
+                  copyToClipboard = false;
+                  directory = "";
+                  filenamePattern = "recording_yyyyMMdd_HHmmss";
+                  frameRate = "60";
+                  hideInactive = false;
+                  quality = "very_high";
+                  resolution = "original";
+                  showCursor = true;
+                  videoCodec = "h264";
+                  videoSource = "portal";
+                };
+                id = "plugin:screen-recorder";
+              }
             ];
             right = [
               {
@@ -305,7 +398,9 @@
         desktopWidgets = {
           enabled = false;
           gridSnap = false;
-          monitorWidgets = [ ];
+          monitorWidgets = [
+
+          ];
         };
         dock = {
           animationSpeed = 1;
@@ -316,9 +411,13 @@
           enabled = true;
           floatingRatio = 1;
           inactiveIndicators = false;
-          monitors = [ ];
+          monitors = [
+
+          ];
           onlySameOutput = true;
-          pinnedApps = [ ];
+          pinnedApps = [
+
+          ];
           pinnedStatic = false;
           position = "bottom";
           size = 1;
@@ -339,15 +438,15 @@
           iRadiusRatio = 1;
           language = "";
           lockOnSuspend = true;
-          lockScreenCountdownDuration = 10000;
+          lockScreenCountdownDuration = 3000;
           radiusRatio = 1;
           scaleRatio = 1;
           screenRadiusRatio = 1;
           shadowDirection = "bottom_right";
           shadowOffsetX = 2;
           shadowOffsetY = 3;
-          showChangelogOnStartup = true;
-          showHibernateOnLockScreen = false;
+          showChangelogOnStartup = false;
+          showHibernateOnLockScreen = true;
           showScreenCorners = false;
           showSessionButtonsOnLockScreen = true;
           telemetryEnabled = false;
@@ -368,10 +467,10 @@
           firstDayOfWeek = -1;
           hideWeatherCityName = false;
           hideWeatherTimezone = false;
-          name = "Tokyo";
+          name = "Karlsruhe, Germany";
           showCalendarEvents = true;
           showCalendarWeather = true;
-          showWeekNumberInCalendar = false;
+          showWeekNumberInCalendar = true;
           use12hourFormat = false;
           useFahrenheit = false;
           weatherEnabled = true;
@@ -388,7 +487,7 @@
         nightLight = {
           autoSchedule = true;
           dayTemp = "6500";
-          enabled = false;
+          enabled = true;
           forced = false;
           manualSunrise = "06:30";
           manualSunset = "18:30";
@@ -402,7 +501,9 @@
           enabled = true;
           location = "top_right";
           lowUrgencyDuration = 3;
-          monitors = [ ];
+          monitors = [
+
+          ];
           normalUrgencyDuration = 8;
           overlayLayer = true;
           respectExpireTimeout = false;
@@ -431,7 +532,9 @@
             2
           ];
           location = "top_right";
-          monitors = [ ];
+          monitors = [
+
+          ];
           overlayLayer = true;
         };
         sessionMenu = {
@@ -498,7 +601,9 @@
           warningColor = "";
         };
         templates = {
-          activeTemplates = [ ];
+          activeTemplates = [
+
+          ];
           enableUserTheming = false;
         };
         ui = {
@@ -510,7 +615,7 @@
           fontFixed = "monospace";
           fontFixedScale = 1;
           networkPanelView = "wifi";
-          panelBackgroundOpacity = 0.93;
+          panelBackgroundOpacity = 0.65;
           panelsAttachedToBar = true;
           settingsPanelMode = "attached";
           tooltipsEnabled = true;
@@ -518,13 +623,15 @@
         };
         wallpaper = {
           automationEnabled = false;
-          directory = "/home/atrost/.config/sway/wallpapers";
+          directory = "/home/atrost/Pictures/Wallpapers";
           enableMultiMonitorDirectories = false;
           enabled = true;
           fillColor = "#000000";
           fillMode = "crop";
           hideWallpaperFilenames = false;
-          monitorDirectories = [ ];
+          monitorDirectories = [
+
+          ];
           overviewEnabled = false;
           panelPosition = "follow_bar";
           randomIntervalSec = 300;
@@ -537,7 +644,7 @@
           transitionType = "random";
           useSolidColor = false;
           useWallhaven = false;
-          viewMode = "single";
+          viewMode = "recursive";
           wallhavenApiKey = "";
           wallhavenCategories = "111";
           wallhavenOrder = "desc";
@@ -548,7 +655,7 @@
           wallhavenResolutionMode = "atleast";
           wallhavenResolutionWidth = "";
           wallhavenSorting = "relevance";
-          wallpaperChangeMode = "random";
+          wallpaperChangeMode = "alphabetical";
         };
       };
     };

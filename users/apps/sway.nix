@@ -3,7 +3,6 @@
 with lib;
 let
   cfg = config.wayland.windowManager.sway;
-  lockCommand = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -F";
 in
 {
   options = {
@@ -47,11 +46,6 @@ in
       executable = true;
       source = ./sway/modes/screenshot;
       target = "${config.xdg.configHome}/sway/modes/screenshot";
-    };
-    home.file."sway-modes-shutdown" = {
-      executable = true;
-      source = ./sway/modes/shutdown;
-      target = "${config.xdg.configHome}/sway/modes/shutdown";
     };
 
     # Scripts
@@ -103,7 +97,7 @@ in
         up = "k";
         right = "l";
         terminal = "${pkgs.wezterm}/bin/wezterm";
-        menu = "${inputs.noctalia.packages.${pkgs.system}.default}/bin/noctalia-shell ipc call launcher toggle";
+        menu = "${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell ipc call launcher toggle";
 
         fonts = {
           names = [ "Hack" "Noto Color Emoji" ];
@@ -325,7 +319,7 @@ in
           "${cfg.config.modifier}+Mod1+0" = "workspace $ws20";
 
           # Lock screen
-          "Mod1+l" = "exec ${lockCommand}";
+          "Mod1+l" = "exec $noctaliaIPCCall lockScreen lock";
 
           # Make the currently focused window a scratchpad
           "${cfg.config.modifier}+Shift+plus" = "mark --add scratch_plus, move scratchpad";
@@ -529,10 +523,10 @@ in
         ];
 
         startup = [
-          { command = "joplin-desktop"; }
-          { command = "sleep 4 && ferdium"; }
-          { command = "sleep 2 && vesktop"; }
           { command = "noctalia-shell"; }
+          { command = "joplin-desktop"; }
+          { command = "sleep 3 && ferdium"; }
+          { command = "sleep 2 && vesktop"; }
         ];
 
         # Display device configuration
@@ -589,6 +583,10 @@ in
         # For user's convenience, the same for unbindsym
         set $unbindsym unbindsym --to-code
 
+        set $noctaliaShell ${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell
+        set $noctaliaIPCCall $noctaliaShell ipc call
+        set $sessionMenu $noctaliaIPCCall sessionMenu toggle
+
         # workspace names
         set $ws1 number 1
         set $ws2 number 2
@@ -619,24 +617,9 @@ in
         set $focus_after_move true
         set $focus_ws [ $focus_after_move == 'true' ] && swaymsg workspace
 
-        set $locking ${lockCommand}
+        set $locking $noctaliaIPCCall lockScreen lock
 
         set $onscreen_bar ${config.xdg.configHome}/sway/scripts/wob.sh "#bb88eb" "#ffffff"
-
-        set $bluetooth $once $term_float blueman-manager
-
-        # brightness control
-        set $brightness_step bash -c 'echo $(( $(light -Mr) / 100 * 5 < 1 ? 1 : $(( $(light -Mr) / 100 * 5 )) ))'
-        set $brightness_up light -r -A $($brightness_step) && $onscreen_bar $(light -G | cut -d'.' -f1)
-        set $brightness_down light -r -U $($brightness_step) && $onscreen_bar $(light -G | cut -d'.' -f1)
-
-        # audio control
-        set $sink_volume pactl get-sink-volume @DEFAULT_SINK@ | grep '^Volume:' | cut -d / -f 2 | tr -d ' ' | sed 's/%//'
-        set $source_volume pactl get-source-volume @DEFAULT_SOURCE@ | grep '^Volume:' | cut -d / -f 2 | tr -d ' ' | sed 's/%//'
-        set $volume_down $onscreen_bar $(pactl set-sink-volume @DEFAULT_SINK@ -5% && $sink_volume)
-        set $volume_up $onscreen_bar $(pactl set-sink-volume @DEFAULT_SINK@ +5% && $sink_volume)
-        set $volume_mute $onscreen_bar $(pactl set-sink-mute @DEFAULT_SINK@ toggle && pactl get-sink-mute @DEFAULT_SINK@ | sed -En "/no/ s/.*/$($sink_volume)/p; /yes/ s/.*/0/p")
-        set $mic_mute $onscreen_bar $(pactl set-source-mute @DEFAULT_SOURCE@ toggle && pactl get-source-mute @DEFAULT_SOURCE@ | sed -En "/no/ s/.*/$($source_volume)/p; /yes/ s/.*/0/p")
 
         # screenshot
         set $grimshot ${config.xdg.configHome}/sway/scripts/grimshot.sh
@@ -646,21 +629,12 @@ in
         set $screenshot_selection_file $grimshot --notify save window
 
         # laptop buttons
-        ## Brightness
-        $bindsym --locked XF86MonBrightnessUp exec $brightness_up
-        $bindsym --locked XF86MonBrightnessDown exec $brightness_down
-        ## Audio
-        $bindsym XF86AudioMicMute exec $mic_mute
-        $bindsym --locked XF86AudioRaiseVolume exec $volume_up
-        $bindsym --locked XF86AudioLowerVolume exec $volume_down
-        $bindsym --locked XF86AudioMute exec $volume_mute
-        $bindsym --locked XF86AudioPlay exec playerctl play-pause
-        $bindsym XF86AudioNext exec playerctl next
-        $bindsym XF86AudioPrev exec playerctl previous
         ## Misc
         $bindsym XF86Search exec $menu
-        $bindsym XF86PowerOff exec $shutdown
+        $bindsym XF86PowerOff exec $sessionMenu
         $bindsym XF86TouchpadToggle input type:touchpad events toggle enabled disabled
+
+        $bindsym Mod1+Ctrl+c $sessionMenu
 
         # Drag floating windows by holding down $mod and left mouse button.
         # Resize them with right mouse button + $mod.
@@ -699,34 +673,6 @@ in
         base = true;
         gtk = true;
       };
-    };
-
-    programs.swaylock = {
-      enable = true;
-      package = pkgs.swaylock-fancy;
-      settings = {
-        color = "000000";
-        font-size = 20;
-        indicator-idle-visible = false;
-        indicator-radius = 100;
-        line-color = "ffffff";
-        show-failed-attempts = true;
-      };
-    };
-
-    services.swayidle = {
-      enable = true;
-      events = [
-        { event = "before-sleep"; command = lockCommand; }
-        { event = "lock"; command = lockCommand; }
-      ];
-      timeouts = [
-        {
-          timeout = 290;
-          command = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds' -t 9000";
-        }
-        { timeout = 300; command = lockCommand; }
-      ];
     };
   };
 }
