@@ -60,18 +60,12 @@ in
       source = ./sway/scripts/grimshot.sh;
       target = "${config.xdg.configHome}/sway/scripts/grimshot.sh";
     };
-    home.file."sway-wob.sh" = {
-      executable = true;
-      source = ./sway/scripts/wob.sh;
-      target = "${config.xdg.configHome}/sway/scripts/wob.sh";
-    };
 
     home.packages = with pkgs; [
       grim
       libnotify
       slurp
       wl-clipboard
-      wob
       swaycwd
     ];
 
@@ -619,8 +613,6 @@ in
         set $focus_ws [ $focus_after_move == 'true' ] && swaymsg workspace
 
         set $locking $noctaliaIPCCall lockScreen lock
-
-        set $onscreen_bar ${config.xdg.configHome}/sway/scripts/wob.sh "#bb88eb" "#ffffff"
 
         # screenshot
         set $grimshot ${config.xdg.configHome}/sway/scripts/grimshot.sh
