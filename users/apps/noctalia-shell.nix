@@ -469,7 +469,7 @@
           compactLockScreen = false;
           dimmerOpacity = 0.2;
           enableLockScreenCountdown = true;
-          enableShadows = true;
+          enableShadows = false;
           forceBlackScreenCorners = false;
           iRadiusRatio = 1;
           language = "";
@@ -478,7 +478,7 @@
           radiusRatio = 1;
           scaleRatio = 1;
           screenRadiusRatio = 1;
-          shadowDirection = "bottom_right";
+          shadowDirection = "center";
           shadowOffsetX = 2;
           shadowOffsetY = 3;
           showChangelogOnStartup = false;
