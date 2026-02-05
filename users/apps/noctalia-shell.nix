@@ -53,6 +53,10 @@
         ];
 
         states = {
+          privacy-indicator = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
           screen-recorder = {
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
@@ -81,7 +85,7 @@
           position = "bottom_center";
           screenshotAnnotationTool = "";
           showCategories = true;
-          showIconBackground = false;
+          showIconBackground = true;
           sortByMostUsed = true;
           terminalCommand = "wezterm -e";
           useApp2Unit = false;
@@ -116,7 +120,7 @@
 
           ];
           outerCorners = true;
-          position = "bottom";
+          position = "top";
           screenOverrides = [
 
           ];
@@ -222,6 +226,10 @@
             ];
             right = [
               {
+                displayMode = "onhover";
+                id = "VPN";
+              }
+              {
                 displayMode = "alwaysShow";
                 id = "Network";
               }
@@ -267,6 +275,14 @@
                 id = "NotificationHistory";
                 showUnreadBadge = true;
                 unreadBadgeColor = "primary";
+              }
+              {
+                id = "plugin:privacy-indicator";
+              }
+              {
+                displayMode = "alwaysShow";
+                id = "Microphone";
+                middleClickCommand = "pwvucontrol || pavucontrol";
               }
               {
                 displayMode = "alwaysShow";
@@ -414,7 +430,12 @@
           enabled = false;
           gridSnap = false;
           monitorWidgets = [
+            {
+              name = "eDP-2";
+              widgets = [
 
+              ];
+            }
           ];
         };
         dock = {
@@ -423,7 +444,7 @@
           colorizeIcons = false;
           deadOpacity = 0.6;
           displayMode = "auto_hide";
-          enabled = true;
+          enabled = false;
           floatingRatio = 1;
           inactiveIndicators = false;
           monitors = [
@@ -521,7 +542,7 @@
           ];
           normalUrgencyDuration = 8;
           overlayLayer = true;
-          respectExpireTimeout = false;
+          respectExpireTimeout = true;
           saveToHistory = {
             critical = true;
             low = true;
@@ -553,7 +574,7 @@
           overlayLayer = true;
         };
         sessionMenu = {
-          countdownDuration = 10000;
+          countdownDuration = 3000;
           enableCountdown = true;
           largeButtonsLayout = "single-row";
           largeButtonsStyle = true;
@@ -561,26 +582,38 @@
           powerOptions = [
             {
               action = "lock";
+              command = "";
+              countdownEnabled = true;
               enabled = true;
             }
             {
               action = "suspend";
+              command = "";
+              countdownEnabled = true;
               enabled = true;
             }
             {
               action = "hibernate";
+              command = "";
+              countdownEnabled = true;
               enabled = true;
             }
             {
               action = "reboot";
+              command = "";
+              countdownEnabled = true;
               enabled = true;
             }
             {
               action = "logout";
+              command = "";
+              countdownEnabled = true;
               enabled = true;
             }
             {
               action = "shutdown";
+              command = "";
+              countdownEnabled = true;
               enabled = true;
             }
           ];
@@ -617,7 +650,34 @@
         };
         templates = {
           activeTemplates = [
-
+            {
+              enabled = true;
+              id = "qt";
+            }
+            {
+              enabled = true;
+              id = "code";
+            }
+            {
+              enabled = true;
+              id = "sway";
+            }
+            {
+              enabled = true;
+              id = "wezterm";
+            }
+            {
+              enabled = true;
+              id = "gtk";
+            }
+            {
+              enabled = true;
+              id = "btop";
+            }
+            {
+              enabled = true;
+              id = "pywalfox";
+            }
           ];
           enableUserTheming = false;
         };
@@ -673,6 +733,12 @@
           wallpaperChangeMode = "alphabetical";
         };
       };
+    };
+
+    # Color Scheme
+    home.file."noctalia-colorschemes-occult-umbral.json" = {
+      source = ../../assets/colorschemes/Occult_Umbra.json;
+      target = ".config/noctalia/colorschemes/Occult Umbral/Occult Umbral.json";
     };
   };
 }
