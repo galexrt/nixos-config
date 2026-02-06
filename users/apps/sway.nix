@@ -608,7 +608,15 @@ in
         set $screenshot_selection_clipboard $grimshot --notify copy window
         set $screenshot_selection_file $grimshot --notify save window
 
-        # laptop buttons
+        # Laptop/Media buttons
+        ## Audio
+        $bindsym XF86AudioMute exec $noctaliaIPCCall volume muteOutput
+        $bindsym XF86AudioLowerVolume exec $noctaliaIPCCall volume decrease
+        $bindsym XF86AudioRaiseVolume exec $noctaliaIPCCall volume increase
+        $bindsym XF86AudioMicMute exec $noctaliaIPCCall volume muteInput
+        ## Display
+        $bindsym XF86MonBrightnessUp exec $noctaliaIPCCall brightness increase
+        $bindsym XF86MonBrightnessDown exec $noctaliaIPCCall brightness decrease
         ## Misc
         $bindsym XF86Search exec $menu
         $bindsym XF86PowerOff exec $sessionMenu
