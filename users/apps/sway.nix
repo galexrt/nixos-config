@@ -503,24 +503,11 @@ in
               };
               command = "floating enable";
             }
-            # inhibit idle
-            {
-              criteria = {
-                app_id = "microsoft teams - preview";
-              };
-              command = "inhibit_idle fullscreen";
-            }
           ];
         };
 
-        # Status bar(s)
-        bars = [
-          #{
-          #  id = "default";
-          #  command = "${pkgs.waybar}/bin/waybar";
-          #  position = "bottom";
-          #}
-        ];
+        # Disable any bars, noctalia is used
+        bars = [];
 
         startup = [
           { command = "noctalia-shell"; }

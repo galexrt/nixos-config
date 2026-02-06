@@ -13,16 +13,4 @@
   ];
 
   networking.hostName = "moira";
-
-  home-manager.users.atrost = {
-    programs.waybar = {
-      settings = {
-        default = {
-          "temperature" = {
-            hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
-          };
-        };
-      };
-    };
-  };
 }

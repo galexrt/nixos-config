@@ -274,7 +274,6 @@
 
       ./apps/basics.nix
       ./apps/sway.nix
-      ./apps/waybar.nix
       ./apps/wofi.nix
       ./apps/browser.nix
       ./apps/thunderbird.nix

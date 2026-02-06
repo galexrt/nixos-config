@@ -62,15 +62,5 @@
     home.packages = with pkgs; [
       openrgb-with-all-plugins
     ];
-
-    programs.waybar = {
-      settings = {
-        default = {
-          "temperature" = {
-            hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
-          };
-        };
-      };
-    };
   };
 }
