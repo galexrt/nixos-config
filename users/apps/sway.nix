@@ -89,6 +89,7 @@ in
           };
         };
       };
+
       # Sway config
       config = rec {
         modifier = "Mod4";
@@ -511,8 +512,8 @@ in
 
         startup = [
           { command = "noctalia-shell"; }
-          { command = "joplin-desktop"; }
-          { command = "sleep 3 && ferdium"; }
+          { command = "sleep 1 && joplin-desktop"; }
+          { command = "sleep 2 && ferdium"; }
           { command = "sleep 2 && vesktop"; }
           { command = "pywalfox install --browser librewolf && pywalfox start"; }
         ];
