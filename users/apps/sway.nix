@@ -297,7 +297,7 @@ in
           "${cfg.config.modifier}+Mod1+Shift+9" = "move container to workspace $ws19, exec $focus_ws $ws19";
           "${cfg.config.modifier}+Mod1+Shift+0" = "move container to workspace $ws20, exec $focus_ws $ws20";
 
-          # switch to workspace
+          # Switch to workspace
           "${cfg.config.modifier}+1" = "workspace $ws1";
           "${cfg.config.modifier}+2" = "workspace $ws2";
           "${cfg.config.modifier}+3" = "workspace $ws3";
@@ -556,6 +556,29 @@ in
           };
         };
 
+        workspaceOutputAssign = [
+          {
+            workspace = "$ws1";
+            output = "DP-1";
+          };
+          {
+            workspace = "$ws1";
+            output = "eDP-1";
+          };
+          {
+            workspace = "$ws1";
+            output = "eDP-2";
+          };
+
+          {
+            workspace = "$ws2";
+            output = "DP-2";
+          };
+          {
+            workspace = "$ws20";
+            output = "HDMI-A-1";
+          };
+        ];
       };
 
       extraConfigEarly = ''
@@ -656,8 +679,7 @@ in
         export MOZ_ENABLE_WAYLAND=1
         export _JAVA_AWT_WM_NONREPARENTING=1
 
-        export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-        export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+        export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
       '';
 
       wrapperFeatures = {

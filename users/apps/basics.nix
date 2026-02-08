@@ -36,8 +36,7 @@
           exec sway
       fi
 
-      export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-      export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+      export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
     '';
 
     oh-my-zsh = {

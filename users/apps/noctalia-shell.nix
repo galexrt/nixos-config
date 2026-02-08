@@ -212,7 +212,7 @@
                   colorRange = "limited";
                   copyToClipboard = false;
                   directory = "";
-                  filenamePattern = "recording_yyyyMMdd_HHmmss";
+                  filenamePattern = "recording-yyyy-MM-dd-HHmmss";
                   frameRate = "60";
                   hideInactive = false;
                   quality = "very_high";
@@ -303,10 +303,10 @@
               }
               {
                 customFont = "";
-                formatHorizontal = "HH:mm ddd dd.MM.yyyy";
-                formatVertical = "HH mm - dd MM";
+                formatHorizontal = "HH:mm:ss ddd dd.MM.yyyy";
+                formatVertical = "HH mm:ss - dd MM";
                 id = "Clock";
-                tooltipFormat = "HH:mm ddd, MMM dd";
+                tooltipFormat = "HH:mm:ss ddd, MMM dd";
                 useCustomFont = false;
                 usePrimaryColor = false;
               }
