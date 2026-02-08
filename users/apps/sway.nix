@@ -560,24 +560,24 @@ in
           {
             workspace = "$ws1";
             output = "DP-1";
-          };
+          }
           {
             workspace = "$ws1";
             output = "eDP-1";
-          };
+          }
           {
             workspace = "$ws1";
             output = "eDP-2";
-          };
+          }
 
           {
             workspace = "$ws2";
             output = "DP-2";
-          };
+          }
           {
             workspace = "$ws20";
             output = "HDMI-A-1";
-          };
+          }
         ];
       };
 
