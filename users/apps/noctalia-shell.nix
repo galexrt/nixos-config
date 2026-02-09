@@ -29,10 +29,10 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
+        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
         wallpapers = {
-          "eDP-1" = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
-          "eDP-2" = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
+          "eDP-1" = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
+          "eDP-2" = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
         };
       };
     };

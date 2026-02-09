@@ -35,6 +35,11 @@ in
       source = ../../assets/wallpapers/eva-red-steel.jpg;
       target = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
     };
+    home.file."wallpapers-eva-red-steel-dark.jpg" = {
+      executable = true;
+      source = ../../assets/wallpapers/eva-red-steel-dark.jpg;
+      target = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
+    };
 
     # Sway Theme
     home.file."sway-theme-definitions" = {
