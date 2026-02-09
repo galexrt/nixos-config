@@ -58,22 +58,20 @@
       android-tools
       audacity
       bambu-studio
-      orca-slicer
-      nixos-unstable.bazecor
       beets
       btop
+      cabextract
       calc
       cava
-      cabextract
       dbeaver-bin
       dconf
       dnscontrol
       docker-compose
       ethtool
       exiftool
+      feishin
       ferdium
       ffmpeg
-      feishin
       file
       filezilla
       freecad
@@ -84,18 +82,14 @@
       gopass
       grafana-loki
       handbrake
-      simple-scan
-      nixos-unstable.hub
       hugo
       imhex
       inetutils
       ipcalc
-      nixos-unstable.joplin-desktop
       jpegoptim
       kind
       krew
       kubectl
-      nixos-unstable.kubelogin-oidc
       kubernetes-helm
       kubeseal
       libreoffice-fresh
@@ -108,11 +102,15 @@
       ncdu
       neofetch
       niv
+      nixos-unstable.bazecor
+      nixos-unstable.hub
+      nixos-unstable.joplin-desktop
+      nixos-unstable.kubelogin-oidc
       nodejs_22
-      openshot-qt
       openssl
       openvpn
       optipng
+      orca-slicer
       orca-slicer
       packer
       parsec-bin
@@ -123,6 +121,8 @@
       qemu-utils
       remmina
       s5cmd
+      shotcut
+      simple-scan
       slack
       sops
       sshpass
@@ -133,7 +133,6 @@
       termdown
       transmission_4-qt
       unrar
-      #vagrant
       vhs
       vlc
       wallust

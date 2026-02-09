@@ -34,9 +34,7 @@
         inherit pkgs;
       };
     };
-    permittedInsecurePackages = [
-      "qtwebengine-5.15.19" # For openshot-qt
-    ];
+    permittedInsecurePackages = [];
   };
 
   # Enable binfmt
