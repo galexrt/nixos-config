@@ -34,7 +34,9 @@
         inherit pkgs;
       };
     };
-    permittedInsecurePackages = [];
+    permittedInsecurePackages = [
+      "qtwebengine-5.15.19" # For teamspeak3
+    ];
   };
 
   # Enable binfmt
