@@ -29,11 +29,7 @@
 
     home.file.".cache/noctalia/wallpapers.json" = {
       text = builtins.toJSON {
-        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
-        wallpapers = {
-          "eDP-1" = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
-          "eDP-2" = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
-        };
+        defaultWallpaper = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
       };
     };
 
@@ -344,7 +340,7 @@
           manualSunrise = "06:30";
           manualSunset = "18:30";
           monitorForColors = "";
-          predefinedScheme = "Occult Umbral";
+          predefinedScheme = "Lilac AMOLED";
           schedulingMode = "off";
           useWallpaperColors = false;
         };
