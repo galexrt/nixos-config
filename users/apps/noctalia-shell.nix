@@ -69,10 +69,11 @@
           clipboardWrapText = true;
           customLaunchPrefix = "";
           customLaunchPrefixEnabled = false;
+          density = "compact";
           enableClipPreview = true;
           enableClipboardHistory = false;
           enableSettingsSearch = true;
-          enableWindowsSearch = true;
+          enableWindowsSearch = false;
           iconMode = "tabler";
           ignoreMouseInput = false;
           pinnedApps = [
