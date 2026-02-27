@@ -146,7 +146,7 @@ in
 
         assigns = {
           "$ws1" = [
-            { class = "YouTube Music"; }
+            { app_id = "com.github.th_ch.youtube_music"; }
           ];
           "$ws16" = [
             { app_id = "thunderbird"; }
@@ -155,10 +155,10 @@ in
             { class = "Steam"; }
           ];
           "$ws20" = [
-            { class = "discord"; }
-            { class = "vesktop"; }
-            { class = "Slack"; }
-            { class = "Ferdium"; }
+            { app_id = "discord"; }
+            { app_id = "vesktop"; }
+            { app_id = "Slack"; }
+            { app_id = "ferdium"; }
           ];
         };
         gaps = {
@@ -481,7 +481,7 @@ in
             }
             {
               criteria = {
-                class = "Joplin";
+                app_id = "@joplin/app-desktop";
               };
               command = "floating enable border pixel 2, mark -add Joplin, move scratchpad";
             }
@@ -505,7 +505,7 @@ in
             }
             {
               criteria = {
-                class = "YouTube Music";
+                app_id = "com.github.th_ch.youtube_music";
               };
               command = "floating enable";
             }
