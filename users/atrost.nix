@@ -75,6 +75,7 @@
       file
       filezilla
       freecad
+      gamescope
       geeqie
       gh
       gimp

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  services.arrpc.enable = true;
+
   programs.nixcord = {
     enable = true;
     discord.enable = false;
