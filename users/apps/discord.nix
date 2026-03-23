@@ -104,7 +104,6 @@
         noPendingCount.enable = true;
         noTypingAnimation.enable = true;
         noUnblockToJump.enable = true;
-        normalizeMessageLinks.enable = true;
         openInApp.enable = true;
         overrideForumDefaults.enable = true;
         permissionFreeWill.enable = true;
