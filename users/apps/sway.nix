@@ -559,6 +559,10 @@ in
             scale = lib.strings.floatToString config.services.sway.scale;
             adaptive_sync = "off";
           };
+          ## KVM
+          HDMI-A-3 = {
+            disable = "";
+          };
         };
 
         workspaceOutputAssign = [
