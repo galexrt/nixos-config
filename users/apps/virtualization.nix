@@ -23,7 +23,7 @@
     };
 
     virtualbox.host = {
-      enable = true;
+      enable = false;
     };
 
     libvirtd = {

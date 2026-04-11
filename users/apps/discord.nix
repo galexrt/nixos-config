@@ -85,7 +85,6 @@
         };
         messageLinkEmbeds.enable = true;
         messageLogger.enable = true;
-        messageTags.enable = true;
         # moreCommands.enable = true;
         # moreKaomoji.enable = true;
         # moreUserTags.enable = true;
