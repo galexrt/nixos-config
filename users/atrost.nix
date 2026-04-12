@@ -63,7 +63,13 @@
       cabextract
       calc
       cava
-      inputs.chiri.packages.${stdenv.hostPlatform.system}.default
+      (inputs.chiri.packages.${stdenv.hostPlatform.system}.bin.overrideAttrs (final: prev: {
+        postInstall = (prev.postInstall or "") + ''
+          if [ -x "$out/bin/Chiri" ] && [ ! -e "$out/bin/chiri" ]; then
+            ln -s "$out/bin/Chiri" "$out/bin/chiri"
+          fi
+        '';
+      }))
       dbeaver-bin
       dconf
       dnscontrol
