@@ -150,6 +150,7 @@ in
           ];
           "$ws16" = [
             { app_id = "thunderbird"; }
+            { app_id = "Chiri"; }
           ];
           "$ws18" = [
             { class = "Steam"; }
@@ -518,8 +519,9 @@ in
         startup = [
           { command = "noctalia-shell"; }
           { command = "sleep 1 && joplin-desktop"; }
-          { command = "sleep 2 && ferdium"; }
           { command = "sleep 2 && vesktop"; }
+          { command = "sleep 2 && thunderbird"; }
+          { command = "sleep 2 && Chiri"; }
           { command = "pywalfox install --browser librewolf && pywalfox start"; }
         ];
 
