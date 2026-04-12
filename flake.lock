@@ -9,11 +9,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1775584051,
-        "narHash": "sha256-KI9pln3BTp7eMgTIJECT86RFgLH4ziW0K6gmfAphWLQ=",
+        "lastModified": 1776017831,
+        "narHash": "sha256-s+e+HKPxSmQRw7NNYLrxLqlp+4Mvn2znduYv03LOMho=",
         "owner": "SapphoSys",
         "repo": "chiri",
-        "rev": "0969bc52bc6ab9b3295a429072a924c5bbb8c4f8",
+        "rev": "b2df578a849b8138cd522bce240ed03e81519de2",
         "type": "github"
       },
       "original": {
