@@ -17,6 +17,9 @@
 
   services.greetd.settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
 
+  # The used Nvidia driver version isn't compatible with the latest Linux kernel yet
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_18);
+
   hardware.nvidia = {
     modesetting.enable = true;
 

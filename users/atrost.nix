@@ -63,6 +63,7 @@
       cabextract
       calc
       cava
+      inputs.chiri.packages.${stdenv.hostPlatform.system}.default
       dbeaver-bin
       dconf
       dnscontrol

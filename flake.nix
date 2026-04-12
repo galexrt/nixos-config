@@ -6,6 +6,7 @@
     nixos-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,15 +15,22 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # Nixcord
     nixcord = {
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Noctalia Shell
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Chiri
+    chiri = {
+      url = "github:SapphoSys/chiri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -35,9 +43,10 @@
     self,
     nixpkgs,
     nixos-unstable,
+    nixos-hardware,
     sops-nix,
     home-manager,
-    nixos-hardware,
+    chiri,
     ...
   } @ inputs: {
     nixosConfigurations = {
