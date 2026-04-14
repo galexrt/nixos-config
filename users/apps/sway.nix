@@ -568,10 +568,7 @@ in
         };
 
         workspaceOutputAssign = [
-          {
-            workspace = "1";
-            output = "DP-1";
-          }
+          # Laptops
           {
             workspace = "1";
             output = "eDP-1";
@@ -580,10 +577,18 @@ in
             workspace = "1";
             output = "eDP-2";
           }
-
+          # Workstation
+          {
+            workspace = "1";
+            output = "DP-1";
+          }
           {
             workspace = "2";
             output = "DP-2";
+          }
+          {
+            workspace = "16";
+            output = "HDMI-A-1";
           }
           {
             workspace = "20";
