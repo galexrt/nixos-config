@@ -148,6 +148,7 @@
       youtube-music
       yt-dlp
       zip
+      zotero
       # Development
       ansible_2_16
       buf
