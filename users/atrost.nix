@@ -309,9 +309,8 @@
     };
   };
 
-  programs.streamdeck-ui = {
+  programs.streamcontroller = {
     enable = true;
-    autoStart = true;
   };
 
   services.tailscale = {
