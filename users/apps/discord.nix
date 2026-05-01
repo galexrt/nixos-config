@@ -14,8 +14,10 @@
       themeLinks = [
         "https://luckfire.github.io/amoled-cord/src/amoled-cord.css"
       ];
+
       frameless = true;
       disableMinSize = true;
+
       plugins = {
         accountPanelServerProfile.enable = true;
         alwaysExpandRoles.enable = true;

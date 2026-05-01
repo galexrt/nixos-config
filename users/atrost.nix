@@ -130,7 +130,7 @@
       sshpass
       stern
       tailscale-systray
-      teamspeak3
+      #teamspeak3
       temurin-bin
       termdown
       transmission_4-qt
