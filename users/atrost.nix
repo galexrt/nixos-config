@@ -299,6 +299,17 @@
         name = "Flat-Remix-Blue-Dark";
         package = pkgs.flat-remix-icon-theme;
       };
+
+      gtk3 = {
+        extraCss = ''
+          @import url("noctalia.css");
+        '';
+      };
+      gtk4 = {
+        extraCss = ''
+          @import url("noctalia.css");
+        '';
+      };
     };
 
     home.pointerCursor = {
