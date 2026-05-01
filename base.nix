@@ -15,7 +15,7 @@
   boot.swraid.enable = true;
 
   # Linux kernel
-  boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_19));
+  boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_7_0));
 
   hardware = {
     enableAllFirmware = true;
@@ -179,7 +179,7 @@
     iotop
     jq
     lact
-    linuxKernel.packages.linux_6_18.cpupower
+    (config.boot.kernelPackages).cpupower
     lm_sensors
     lsof
     mtr
