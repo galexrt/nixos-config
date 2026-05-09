@@ -141,6 +141,7 @@
       waypipe
       wdisplays
       woeusb
+      wshowkeys
       xarchiver
       xfce.mousepad
       xournalpp
