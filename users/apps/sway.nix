@@ -174,7 +174,7 @@ in
           "type:keyboard" = {
             xkb_options = "grp_led:caps";
             xkb_layout = "de(nodeadkeys)";
-            xkb_variant = "nodeadkeys";
+            #xkb_variant = "nodeadkeys";
           };
         };
 
@@ -386,7 +386,7 @@ in
             {
               criteria = {
                 app_id = "pcmanfm";
-                name = "Confirm File Replacing";
+                title = "Confirm File Replacing";
               };
               command = "floating enable";
             }
