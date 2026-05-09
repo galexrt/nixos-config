@@ -31,6 +31,8 @@
 
   programs.noisetorch.enable = true;
 
+  programs.wshowkeys.enable = true;
+
   home-manager.users.atrost = {
 
     # This value determines the Home Manager release that your
@@ -141,7 +143,6 @@
       waypipe
       wdisplays
       woeusb
-      wshowkeys
       xarchiver
       xfce.mousepad
       xournalpp
