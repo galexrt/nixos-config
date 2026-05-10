@@ -16,7 +16,7 @@
 
   boot.kernelParams = [
     "amdgpu.ppfeaturemask=0xffffffff"
-    "video=HDMI-A-1:1920x1080@60"
+    "video=HDMI-A-1:2560x1440@60"
   ];
 
   fileSystems."/" =
@@ -47,9 +47,6 @@
       # Data
       "data1" = {
         device = "/dev/disk/by-uuid/88697004-5812-405a-8c6a-b102194aed25";
-      };
-      "data2" = {
-        device = "/dev/disk/by-uuid/a0cc958f-8ba8-40d9-aa6f-87f9b4174fa0";
       };
     };
     reusePassphrases = true;

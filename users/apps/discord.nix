@@ -25,7 +25,6 @@
         anonymiseFileNames.enable = true;
         betterGifAltText.enable = true;
         betterGifPicker.enable = true;
-        betterNotesBox.enable = true;
         betterRoleContext.enable = true;
         betterRoleDot.enable = true;
         betterSessions.enable = false;
