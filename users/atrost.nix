@@ -59,7 +59,6 @@
       amdgpu_top
       android-tools
       audacity
-      bambu-studio
       beets
       btop
       cabextract

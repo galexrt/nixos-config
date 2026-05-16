@@ -33,6 +33,12 @@
       url = "github:SapphoSys/chiri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Antec Flux Pro Display
+    antec-flux-pro-display = {
+      url = "github:galexrt/antec-flux-pro-display/feat/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -47,6 +53,7 @@
     sops-nix,
     home-manager,
     chiri,
+    antec-flux-pro-display,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -93,6 +100,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
+          inputs.antec-flux-pro-display.nixosModules.default
 
           ./base.nix
           ./hosts/reaper

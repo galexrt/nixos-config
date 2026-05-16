@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "antec-flux-pro-display": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778851075,
+        "narHash": "sha256-E1jBI/q2T/PHArkMtdzmTVoQ1IAh5wHSxAXJyAfCg0w=",
+        "owner": "galexrt",
+        "repo": "antec-flux-pro-display",
+        "rev": "0d5b6ea72650d38a73dc23b288907b24cfb8f952",
+        "type": "github"
+      },
+      "original": {
+        "owner": "galexrt",
+        "ref": "feat/nix",
+        "repo": "antec-flux-pro-display",
+        "type": "github"
+      }
+    },
     "chiri": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -241,6 +262,7 @@
     },
     "root": {
       "inputs": {
+        "antec-flux-pro-display": "antec-flux-pro-display",
         "chiri": "chiri",
         "home-manager": "home-manager",
         "nixcord": "nixcord",

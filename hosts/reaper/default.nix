@@ -13,14 +13,6 @@
 
   networking.hostName = "reaper";
 
-  services.nfs.server = {
-    enable = true;
-    exports = ''
-      /data/DATA/topsecret/Music 172.16.1.102(rw,fsid=0,no_subtree_check)
-      /data/DATA/topsecret/Music 172.16.1.222(rw,fsid=0,no_subtree_check)
-    '';
-  };
-
   systemd.services.lactd = {
     description = "AMDGPU Control Daemon";
     enable = true;
@@ -73,6 +65,17 @@
       HCC_AMDGPU_TARGET = "gfx1100";
     };
     rocmOverrideGfx = "11.0.0";
+  };
+
+  services.antec-flux-pro-display = {
+    enable = true;
+    settings = {
+      cpu_device = "coretemp";
+      cpu_temp_type = "Package id 0";
+      gpu_device = "amdgpu";
+      gpu_temp_type = "edge";
+      update_interval = 1000;
+    };
   };
 
 }

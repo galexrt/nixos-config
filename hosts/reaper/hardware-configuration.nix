@@ -44,10 +44,6 @@
         device = "/dev/disk/by-uuid/6dc2dd62-777c-48c7-8bfd-f86325ffca0e";
         allowDiscards = true;
       };
-      # Data
-      "data1" = {
-        device = "/dev/disk/by-uuid/88697004-5812-405a-8c6a-b102194aed25";
-      };
     };
     reusePassphrases = true;
   };
@@ -94,13 +90,6 @@
       device = "/dev/disk/by-uuid/C53C-21D3";
       fsType = "vfat";
       options= [ "fmask=0077" "dmask=0077" ];
-    };
-
-  fileSystems."/data/DATA" =
-    {
-      device = "/dev/disk/by-uuid/7c21899a-e25e-4a9d-bdd8-ff13f2798423";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" ];
     };
 
   swapDevices = [ ];
