@@ -161,6 +161,7 @@
       graphviz
       lua
       mysql80
+      nixd
       php83
       php83Packages.composer
       protobuf
