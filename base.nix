@@ -12,7 +12,7 @@
   boot.loader.grub.memtest86.enable = true;
   boot.plymouth.enable = lib.mkDefault false;
   boot.supportedFilesystems = [ "btrfs" ];
-  boot.swraid.enable = true;
+  boot.swraid.enable = false;
 
   # Linux kernel
   boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_7_0));
