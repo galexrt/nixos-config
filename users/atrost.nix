@@ -319,6 +319,7 @@
 
   programs.streamcontroller = {
     enable = true;
+    package = nixos-unstable.streamcontroller;
   };
 
   services.tailscale = {

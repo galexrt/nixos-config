@@ -523,6 +523,7 @@ in
           { command = "sleep 2 && thunderbird"; }
           { command = "sleep 2 && Chiri"; }
           { command = "pywalfox install --browser librewolf && pywalfox start"; }
+          { command = "sleep 1 && streamcontroller -b"; }
         ];
 
         # Display device configuration
