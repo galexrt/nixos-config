@@ -1,4 +1,4 @@
-{ config, inputs, lib, nixos-unstable, options, pkgs, system, home-manager, ... }:
+{ config, inputs, lib, nixos-unstable, nixpkgs-master, options, pkgs, system, home-manager, ... }:
 
 {
   imports =
@@ -47,7 +47,9 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs nixos-unstable nixpkgs-master;
+    };
   };
 
   # Set your time zone.

@@ -1,4 +1,4 @@
-{ inputs, config, lib, nixos-unstable, pkgs, ... }:
+{ inputs, lib, nixos-unstable, nixpkgs-master, pkgs, ... }:
 
 {
   imports = [
@@ -12,12 +12,18 @@
 
   services.greetd = {
     enable = true;
+    useTextGreeter = true;
+
     settings = {
       default_session = {
-        command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --cmd ${pkgs.sway}/bin/sway";
+        command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --cmd ${nixpkgs-master.sway}/bin/sway";
         user = "atrost";
       };
     };
+  };
+
+  systemd.services.greetd.environment = {
+    WLR_RENDERER = "vulkan";
   };
 
   users.users.atrost = {

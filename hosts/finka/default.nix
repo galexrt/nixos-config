@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixos-hardware, ... }:
+{ config, pkgs, nixos-hardware, nixpkgs-master, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.greetd.settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
+  services.greetd.settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd '${nixpkgs-master}/bin/sway --unsupported-gpu'";
 
   hardware.nvidia = {
     modesetting.enable = true;

@@ -1,4 +1,4 @@
-{ inputs, config, lib, home-manager, pkgs, ... }:
+{ inputs, config, lib, nixos-unstable, nixpkgs-master, pkgs, ... }:
 
 with lib;
 let
@@ -76,6 +76,8 @@ in
 
     wayland.windowManager.sway = {
       enable = true;
+      package = nixpkgs-master.sway;
+
       checkConfig = false;
       swaynag = {
         enable = true;
@@ -96,7 +98,7 @@ in
       };
 
       # Sway config
-      config = rec {
+      config = {
         modifier = "Mod4";
         left = "h";
         down = "j";
@@ -546,21 +548,39 @@ in
             res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
+            scale_filter = "nearest";
+
+            transform = "normal";#
             adaptive_sync = "off";
+            power = "on";
+            render_bit_depth = "10";
+            hdr = "off";
           };
           DP-2 = {
             pos = "2560,0";
             res = "2560x1440@239.970Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
+            scale_filter = "nearest";
+
+            transform = "normal";#
             adaptive_sync = "off";
+            power = "on";
+            render_bit_depth = "10";
+            hdr = "off";
           };
           HDMI-A-1 = {
             pos = "5120,0";
             res = "2560x1440@143.991Hz";
             # Set HIDP scale (pixel integer scaling)
             scale = lib.strings.floatToString config.services.sway.scale;
+            scale_filter = "nearest";
+
+            transform = "normal";#
             adaptive_sync = "off";
+            power = "on";
+            render_bit_depth = "10";
+            hdr = "off";
           };
           ## KVM
           HDMI-A-3 = {

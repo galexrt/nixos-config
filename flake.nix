@@ -6,6 +6,9 @@
     nixos-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    nixpkgs-master = {
+      url = "github:NixOS/nixpkgs/master";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -50,6 +53,7 @@
     nixpkgs,
     nixos-unstable,
     nixos-hardware,
+    nixpkgs-master,
     sops-nix,
     home-manager,
     chiri,
@@ -109,6 +113,7 @@
         specialArgs = {
           inherit inputs nixos-hardware;
           nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+          nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
         };
       };
 
