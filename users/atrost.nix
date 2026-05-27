@@ -1,4 +1,4 @@
-{ inputs, lib, nixos-unstable, nixpkgs-master, pkgs, ... }:
+{ inputs, lib, nixos-unstable, pkgs, ... }:
 
 {
   imports = [
@@ -16,14 +16,10 @@
 
     settings = {
       default_session = {
-        command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --cmd ${nixpkgs-master.sway}/bin/sway";
+        command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --cmd '/home/atrost/.local/bin/sway-session.sh'";
         user = "atrost";
       };
     };
-  };
-
-  systemd.services.greetd.environment = {
-    WLR_RENDERER = "vulkan";
   };
 
   users.users.atrost = {
@@ -168,6 +164,7 @@
       lua
       mysql80
       nixd
+      nixfmt
       php83
       php83Packages.composer
       protobuf

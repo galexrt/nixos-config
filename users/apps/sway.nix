@@ -1,4 +1,4 @@
-{ inputs, config, lib, nixos-unstable, nixpkgs-master, pkgs, ... }:
+{ config, inputs, lib, nixpkgs-master, pkgs, ... }:
 
 with lib;
 let
@@ -18,25 +18,33 @@ in
   };
 
   config = {
+    home.file."sway-session.sh" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env sh
+        if [ "$${1:-false}" = "true" ]; then
+          export WLR_RENDERER="vulkan"
+        fi
+        exec ${nixpkgs-master.sway}/bin/sway
+      '';
+      target = "${config.home.homeDirectory}/.local/bin/sway-session.sh";
+    };
+
     # Wallpaper
     home.file."wallpapers-eva-notes.png" = {
-      executable = true;
       source = ../../assets/wallpapers/eva-notes.png;
       target = "${config.xdg.configHome}/sway/wallpapers/eva-notes.png";
     };
     home.file."wallpapers-eva-notes-flipped.png" = {
-      executable = true;
       source = ../../assets/wallpapers/eva-notes-flipped.png;
       target = "${config.xdg.configHome}/sway/wallpapers/eva-notes-flipped.png";
     };
 
     home.file."wallpapers-eva-red-steel.jpg" = {
-      executable = true;
       source = ../../assets/wallpapers/eva-red-steel.jpg;
       target = "/home/atrost/Pictures/Wallpapers/eva-red-steel.jpg";
     };
     home.file."wallpapers-eva-red-steel-dark.jpg" = {
-      executable = true;
       source = ../../assets/wallpapers/eva-red-steel-dark.jpg;
       target = "/home/atrost/Pictures/Wallpapers/eva-red-steel-dark.jpg";
     };
@@ -348,15 +356,15 @@ in
           commands = [
             # Window Transparency
             {
-              command = "opacity 0.96";
+              command = "opacity 0.985";
               criteria = {
-                app_id = ".*";
+                class = ".*";
               };
             }
             {
-              command = "opacity 0.96";
+              command = "opacity 0.985";
               criteria = {
-                class = ".*";
+                app_id = ".*";
               };
             }
             {
@@ -484,7 +492,7 @@ in
             }
             {
               criteria = {
-                app_id = "@joplin/app-desktop";
+                app_id = "joplin-app-desktop";
               };
               command = "floating enable border pixel 2, mark -add Joplin, move scratchpad";
             }
@@ -550,11 +558,11 @@ in
             scale = lib.strings.floatToString config.services.sway.scale;
             scale_filter = "nearest";
 
-            transform = "normal";#
+            transform = "normal";
             adaptive_sync = "off";
             power = "on";
             render_bit_depth = "10";
-            hdr = "off";
+            hdr = "on";
           };
           DP-2 = {
             pos = "2560,0";
@@ -563,11 +571,11 @@ in
             scale = lib.strings.floatToString config.services.sway.scale;
             scale_filter = "nearest";
 
-            transform = "normal";#
+            transform = "normal";
             adaptive_sync = "off";
             power = "on";
             render_bit_depth = "10";
-            hdr = "off";
+            hdr = "on";
           };
           HDMI-A-1 = {
             pos = "5120,0";
@@ -576,11 +584,11 @@ in
             scale = lib.strings.floatToString config.services.sway.scale;
             scale_filter = "nearest";
 
-            transform = "normal";#
+            transform = "normal";
             adaptive_sync = "off";
             power = "on";
             render_bit_depth = "10";
-            hdr = "off";
+            hdr = "on";
           };
           ## KVM
           HDMI-A-3 = {

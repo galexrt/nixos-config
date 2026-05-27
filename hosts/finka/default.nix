@@ -1,4 +1,4 @@
-{ config, pkgs, nixos-hardware, nixpkgs-master, ... }:
+{ config, pkgs, nixos-hardware, ... }:
 
 {
   imports = [
@@ -14,6 +14,8 @@
   networking.hostName = "finka";
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.greetd.settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd '/home/atrost/.local/bin/sway-session.sh true'";
 
   hardware.nvidia = {
     modesetting.enable = true;
