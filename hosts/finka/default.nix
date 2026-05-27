@@ -1,4 +1,9 @@
-{ config, pkgs, nixos-hardware, ... }:
+{
+  config,
+  pkgs,
+  nixos-hardware,
+  ...
+}:
 
 {
   imports = [
@@ -15,17 +20,18 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.greetd.settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd '/home/atrost/.local/bin/sway-session.sh true'";
+  services.greetd.settings.default_session.command =
+    "${pkgs.tuigreet}/bin/tuigreet --cmd '/home/atrost/.local/bin/sway-session.sh true'";
 
   hardware.nvidia = {
     modesetting.enable = true;
 
     prime = {
       /*
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
       */
       sync.enable = true;
 

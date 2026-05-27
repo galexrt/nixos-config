@@ -3,7 +3,7 @@
 {
   imports = [
     nixos-hardware.nixosModules.common-pc-ssd
-  
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -16,6 +16,6 @@
 
   services.displayManager = {
     autoLogin.enable = true;
-	  autoLogin.user = "ltrost";
+    autoLogin.user = "ltrost";
   };
 }

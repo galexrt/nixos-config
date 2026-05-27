@@ -1,4 +1,10 @@
-{ inputs, lib, nixos-unstable, pkgs, ... }:
+{
+  inputs,
+  lib,
+  nixos-unstable,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -25,7 +31,21 @@
   users.users.atrost = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "video" "networkmanager" "rfkill" "power" "lp" "uucp" "network" "docker" "scanner" "dialout" "libvirtd" "gamemode" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "video"
+      "networkmanager"
+      "rfkill"
+      "power"
+      "lp"
+      "uucp"
+      "network"
+      "docker"
+      "scanner"
+      "dialout"
+      "libvirtd"
+      "gamemode"
+    ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIACcqbQlcdBFswQafVSTt0OvMkBLwXjTSLhBsqAdo5Gf atrost@debwrk01"
     ];
@@ -337,24 +357,24 @@
   };
 
   /*
-  programs.joplin-desktop = {
-    enable = true;
-    extraConfig = {
-      "dateFormat" = "YYYY-MM-DD";
-      "theme" = 22;
-      "style.editor.fontSize" = 10;
-      "editor.beta" = true;
-      "spellChecker.languages" = [
-        "en-US"
-        "de"
-      ];
+    programs.joplin-desktop = {
+      enable = true;
+      extraConfig = {
+        "dateFormat" = "YYYY-MM-DD";
+        "theme" = 22;
+        "style.editor.fontSize" = 10;
+        "editor.beta" = true;
+        "spellChecker.languages" = [
+          "en-US"
+          "de"
+        ];
+      };
+      package = nixos-unstable.joplin-desktop;
+      sync = {
+        interval = "5m";
+        target = "nextcloud";
+      };
     };
-    package = nixos-unstable.joplin-desktop;
-    sync = {
-      interval = "5m";
-      target = "nextcloud";
-    };
-  };
   */
 
   /*

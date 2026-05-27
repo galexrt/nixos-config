@@ -1,10 +1,20 @@
-{ config, inputs, lib, nixos-unstable, nixpkgs-master, options, pkgs, system, home-manager, ... }:
+{
+  config,
+  inputs,
+  lib,
+  nixos-unstable,
+  nixpkgs-master,
+  options,
+  pkgs,
+  system,
+  home-manager,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./users.nix
-    ];
+  imports = [
+    ./users.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -62,7 +72,12 @@
     plugins = with pkgs; [ networkmanager-openvpn ];
   };
 
-  networking.timeServers = [ "0.de.pool.ntp.org" "1.de.pool.ntp.org" "2.de.pool.ntp.org" ] ++ options.networking.timeServers.default;
+  networking.timeServers = [
+    "0.de.pool.ntp.org"
+    "1.de.pool.ntp.org"
+    "2.de.pool.ntp.org"
+  ]
+  ++ options.networking.timeServers.default;
 
   networking.extraHosts = ''
   '';
@@ -74,9 +89,9 @@
   # Select internationalisation properties.
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   console = {
-  #  font = "Lat2-Terminus16";
+    # font = "Lat2-Terminus16";
     keyMap = "de";
-  #  useXkbConfig = true; # use xkbOptions in tty.
+    # useXkbConfig = true; # use xkbOptions in tty.
   };
 
   services.dbus.enable = true;
@@ -97,10 +112,12 @@
   # LD Fix
   programs.nix-ld = {
     enable = true;
-    libraries = (with pkgs; [
-      stdenv.cc.cc.lib
-    ]) ++ options.programs.nix-ld.libraries.default
-    ++ (pkgs.steam-run.args.multiPkgs pkgs);
+    libraries =
+      (with pkgs; [
+        stdenv.cc.cc.lib
+      ])
+      ++ options.programs.nix-ld.libraries.default
+      ++ (pkgs.steam-run.args.multiPkgs pkgs);
   };
 
   security.pam.services.swaylock.text = ''
@@ -156,9 +173,11 @@
     freeSwapThreshold = 4;
     freeMemThreshold = 4;
     extraArgs = [
-        "-g"
-        "--avoid" "'^(Xwayland|sway|swaync-client)$'"
-        "--prefer" "'^(electron|libreoffice|gimp|__debug_bin.*)$'"
+      "-g"
+      "--avoid"
+      "'^(Xwayland|sway|swaync-client)$'"
+      "--prefer"
+      "'^(electron|libreoffice|gimp|__debug_bin.*)$'"
     ];
     enableNotifications = true;
   };
@@ -232,9 +251,9 @@
   };
 
   boot.kernel.sysctl = {
-    "fs.inotify.max_user_watches"   = 1048576;   # default:  8192
-    "fs.inotify.max_user_instances" =    1024;   # default:   128
-    "fs.inotify.max_queued_events"  =   32768;   # default: 16384
+    "fs.inotify.max_user_watches" = 1048576; # default:  8192
+    "fs.inotify.max_user_instances" = 1024; # default:   128
+    "fs.inotify.max_queued_events" = 32768; # default: 16384
   };
 
   # Fonts

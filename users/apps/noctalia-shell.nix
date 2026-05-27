@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   home-manager.users.atrost = {
@@ -15,8 +20,7 @@
     programs.pywal.enable = true;
 
     home.file."cache-wal-sequences" = {
-      text = ''
-      '';
+      text = "";
       target = ".cache/wal/sequences";
     };
 

@@ -1,4 +1,11 @@
-{ config, inputs, lib, nixpkgs-master, pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  nixpkgs-master,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -113,10 +120,15 @@ in
         up = "k";
         right = "l";
         terminal = "${pkgs.wezterm}/bin/wezterm";
-        menu = "${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell ipc call launcher toggle";
+        menu = "${
+          inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+        }/bin/noctalia-shell ipc call launcher toggle";
 
         fonts = {
-          names = [ "Hack" "Noto Color Emoji" ];
+          names = [
+            "Hack"
+            "Noto Color Emoji"
+          ];
           size = 8.0;
           style = "Normal";
         };
@@ -201,10 +213,12 @@ in
 
         keybindings = {
           "${cfg.config.modifier}+Mod1+c" = "reload";
-          "${cfg.config.modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+          "${cfg.config.modifier}+Shift+e" =
+            "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
 
           "${cfg.config.modifier}+Shift+q" = "kill";
-          "${cfg.config.modifier}+Return" = "exec ${cfg.config.terminal} start --cwd '$(${pkgs.swaycwd}/bin/swaycwd 2>/dev/null || echo $HOME)'";
+          "${cfg.config.modifier}+Return" =
+            "exec ${cfg.config.terminal} start --cwd '$(${pkgs.swaycwd}/bin/swaycwd 2>/dev/null || echo $HOME)'";
           "${cfg.config.modifier}+Shift+Return" = "exec ${cfg.config.terminal}";
           "${cfg.config.modifier}+d" = "exec ${cfg.config.menu}";
 
@@ -247,11 +261,13 @@ in
           "${cfg.config.modifier}+Ctrl+m" = "exec ${pkgs.easyeffects}/bin/easyeffects";
           ## Joplin
           "${cfg.config.modifier}+F5" = "[con_mark=\"Joplin\"] scratchpad show";
-          "${cfg.config.modifier}+Shift+F5" = "[app_id=\"@joplin/app-desktop\"] mark -add Joplin, move scratchpad";
+          "${cfg.config.modifier}+Shift+F5" =
+            "[app_id=\"@joplin/app-desktop\"] mark -add Joplin, move scratchpad";
 
           # workspace back and forth (with/without active container)
           "${cfg.config.modifier}+b" = "workspace back_and_forth";
-          "${cfg.config.modifier}+Shift+b" = "move container to workspace back_and_forth; workspace back_and_forth";
+          "${cfg.config.modifier}+Shift+b" =
+            "move container to workspace back_and_forth; workspace back_and_forth";
 
           # whole workspace to other desktop
           "${cfg.config.modifier}+shift+n" = "move workspace to output up";
@@ -524,7 +540,7 @@ in
         };
 
         # Disable any bars, noctalia is used
-        bars = [];
+        bars = [ ];
 
         startup = [
           { command = "noctalia-shell"; }
@@ -635,7 +651,9 @@ in
         # For user's convenience, the same for unbindsym
         set $unbindsym unbindsym --to-code
 
-        set $noctaliaIPCCall ${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell ipc call
+        set $noctaliaIPCCall ${
+          inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+        }/bin/noctalia-shell ipc call
         set $sessionMenu $noctaliaIPCCall sessionMenu toggle
 
         # workspace names

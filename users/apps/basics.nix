@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
     ./wezterm.nix
   ];
@@ -41,7 +42,15 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "systemd" "common-aliases" "golang" "kubectl" "rsync" "kube-ps1" ];
+      plugins = [
+        "git"
+        "systemd"
+        "common-aliases"
+        "golang"
+        "kubectl"
+        "rsync"
+        "kube-ps1"
+      ];
       custom = "$HOME/.oh-my-zsh/custom";
       theme = "rkj-repos-custom";
       extraConfig = ''
@@ -73,7 +82,7 @@
     enable = true;
     # Additional options for the git program
     package = pkgs.gitFull; # Install git wiith all the optional extras
-    
+
     settings = {
       user = {
         email = "galexrt@googlemail.com";
@@ -116,9 +125,9 @@
 
   home.file."libvirt-qemu-conf" = {
     text = ''
-    # Adapted from /var/lib/libvirt/qemu.conf
-    # Note that AAVMF and OVMF are for Aarch64 and x86 respectively
-    nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
+      # Adapted from /var/lib/libvirt/qemu.conf
+      # Note that AAVMF and OVMF are for Aarch64 and x86 respectively
+      nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
     '';
     target = "${config.xdg.configHome}/libvirt/qemu.conf";
   };

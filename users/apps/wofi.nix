@@ -3,7 +3,7 @@ let
   cfg = config.wayland.windowManager.sway;
 in
 {
-    programs.wofi = {
+  programs.wofi = {
     enable = false;
     settings = {
       allow_images = true;

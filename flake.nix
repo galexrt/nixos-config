@@ -1,5 +1,13 @@
 {
   inputs = {
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    systems = {
+      url = "github:nix-systems/default";
+    };
+
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-25.11";
     };
@@ -48,93 +56,110 @@
     allowUnfree = true;
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-unstable,
-    nixos-hardware,
-    nixpkgs-master,
-    sops-nix,
-    home-manager,
-    chiri,
-    antec-flux-pro-display,
-    ...
-  } @ inputs: {
-    nixosConfigurations = {
-      # Laptop
-      finka = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      systems,
+      treefmt-nix,
+      nixos-unstable,
+      nixos-hardware,
+      nixpkgs-master,
+      sops-nix,
+      home-manager,
+      chiri,
+      antec-flux-pro-display,
+      ...
+    }@inputs:
+    let
+      # Small tool to iterate over each systems
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+      # Eval the treefmt modules from ./treefmt.nix
+      treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    in
+    {
+      # for `nix fmt`
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      # for `nix flake check`
+      checks = eachSystem (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
 
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
+      nixosConfigurations = {
+        # Laptop
+        finka = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-          ./base.nix
-          ./hosts/finka
-        ];
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
 
-        specialArgs = {
-          inherit inputs nixos-hardware;
-          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
-          nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
+            ./base.nix
+            ./hosts/finka
+          ];
+
+          specialArgs = {
+            inherit inputs nixos-hardware;
+            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+            nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
+          };
         };
-      };
 
-      # Workstation
-      reaper = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        # Workstation
+        reaper = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-          inputs.antec-flux-pro-display.nixosModules.default
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            inputs.antec-flux-pro-display.nixosModules.default
 
-          ./base.nix
-          ./hosts/reaper
-        ];
+            ./base.nix
+            ./hosts/reaper
+          ];
 
-        specialArgs = {
-          inherit inputs nixos-hardware;
-          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
-          nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
+          specialArgs = {
+            inherit inputs nixos-hardware;
+            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+            nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
+          };
         };
-      };
 
-      # Laptop
-      moira = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        # Laptop
+        moira = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
 
-          ./base.nix
-          ./hosts/moira
-        ];
+            ./base.nix
+            ./hosts/moira
+          ];
 
-        specialArgs = {
-          inherit inputs nixos-hardware;
-          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+          specialArgs = {
+            inherit inputs nixos-hardware;
+            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+          };
         };
-      };
 
-      # Desktop
-      ana = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        # Desktop
+        ana = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
 
-          ./base.nix
-          ./hosts/ana
-        ];
+            ./base.nix
+            ./hosts/ana
+          ];
 
-        specialArgs = {
-          inherit inputs nixos-hardware;
-          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+          specialArgs = {
+            inherit inputs nixos-hardware;
+            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+          };
         };
       };
     };
-  };
 }
