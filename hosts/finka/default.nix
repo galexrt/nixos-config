@@ -15,8 +15,6 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.greetd.settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd '${nixpkgs-master}/bin/sway --unsupported-gpu'";
-
   hardware.nvidia = {
     modesetting.enable = true;
 

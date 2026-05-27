@@ -76,24 +76,7 @@
         specialArgs = {
           inherit inputs nixos-hardware;
           nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
-        };
-      };
-
-      # Laptop
-      moira = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-
-          ./base.nix
-          ./hosts/moira
-        ];
-
-        specialArgs = {
-          inherit inputs nixos-hardware;
-          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+          nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
         };
       };
 
@@ -114,6 +97,24 @@
           inherit inputs nixos-hardware;
           nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
           nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
+        };
+      };
+
+      # Laptop
+      moira = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+
+          ./base.nix
+          ./hosts/moira
+        ];
+
+        specialArgs = {
+          inherit inputs nixos-hardware;
+          nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
         };
       };
 
