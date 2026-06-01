@@ -136,7 +136,6 @@
       openvpn
       optipng
       orca-slicer
-      orca-slicer
       packer
       parsec-bin
       pcmanfm
