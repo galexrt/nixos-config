@@ -21,6 +21,12 @@
     nixpkgs-master = {
       url = "github:NixOS/nixpkgs/master";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -70,6 +76,7 @@
       nixos-unstable,
       nixos-hardware,
       nixpkgs-master,
+      nur,
       sops-nix,
       home-manager,
       chiri,
@@ -97,6 +104,7 @@
 
           modules = [
             disko.nixosModules.disko
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
 
@@ -117,6 +125,7 @@
 
           modules = [
             disko.nixosModules.disko
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             inputs.antec-flux-pro-display.nixosModules.default
@@ -137,6 +146,8 @@
           system = "x86_64-linux";
 
           modules = [
+            disko.nixosModules.disko
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
 
@@ -155,6 +166,8 @@
           system = "x86_64-linux";
 
           modules = [
+            disko.nixosModules.disko
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
 

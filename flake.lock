@@ -95,6 +95,27 @@
         "type": "github"
       }
     },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nur",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733312601,
+        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -204,11 +225,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1780515872,
-        "narHash": "sha256-fZQSHRMUV6yI+x0D4gXxXhbDd5LEkc7e66N1Rhr4slM=",
+        "lastModified": 1780518964,
+        "narHash": "sha256-IF14lSeudO0YPixFHGcry7AMdIMJ+udbDfevHHKvObk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "035852e376bf071bbcc3817a09683c3b5c033a10",
+        "rev": "966e1c63ec1911fe411778834bb60ae875cfe66a",
         "type": "github"
       },
       "original": {
@@ -294,6 +315,27 @@
         "type": "github"
       }
     },
+    "nur": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780519290,
+        "narHash": "sha256-RHMyKD3Ylv/vdnudEHNp8DD/9SAU/1OZJj63juc7xFM=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "ef93e5df4fabab66e78a633a8b98a5825d7ec43c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "antec-flux-pro-display": "antec-flux-pro-display",
@@ -306,6 +348,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
         "noctalia": "noctalia",
+        "nur": "nur",
         "sops-nix": "sops-nix",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix_2"

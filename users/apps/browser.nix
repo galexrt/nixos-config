@@ -29,9 +29,49 @@
         name = "Default";
         isDefault = true;
 
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ctrl-number-to-switch-tabs
+          darkreader
+          pywalfox
+          dictionary-german
+
+          bitwarden
+          passbolt
+
+          enhancer-for-youtube
+          enhancer-for-nebula
+
+          floccus
+          refined-github
+
+          kagi-search
+
+          augmented-steam
+          steam-database
+        ];
+
         settings = {
           # Disable quick find ("/"-hotkey)
           "accessibility.typeaheadfind.manual" = false;
+
+          "browser.startup.page" = 3;
+
+          "font.size.variable.x-western" = 14;
+
+          "places.history.enabled" = true;
+          "browser.formfill.enable" = true;
+          "privacy.sanitize.sanitizeOnShutdown" = false;
+          # Disable password save dialog
+          "signon.rememberSignons" = false;
+
+          # Hide menu bar by default
+          "ui.key.menuAccessKeyFocuses" = true;
+
+          # Hide bookmarks bar
+          "browser.toolbars.bookmarks.visibility" = "never";
+
+          # Auto enable extensions
+          "extensions.autoDisableScopes" = 0;
         };
       };
     };
@@ -48,18 +88,14 @@
         name = "Default";
         isDefault = true;
 
-        #extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        #  bitwarden
-        #  darkreader
-        #  enhancer-for-youtube
-        #  floccus
-        #  grammarly
-        #  onepassword-password-manager
-        #  refined-github
-        #  steam-database
-        #  ublock-origin
-        #  vue-js-devtools
-        #];
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ctrl-number-to-switch-tabs
+          dictionary-german
+          darkreader
+          pywalfox
+
+          bitwarden
+        ];
 
         settings = {
           "browser.aboutConfig.showWarning" = false;
@@ -78,7 +114,7 @@
           "toolkit.telemetry.shutdownPingSender.enabled" = false;
           "toolkit.telemetry.unified" = false;
           "toolkit.telemetry.updatePing.enabled" = false;
-          # As well as Firefox 'experiments'
+          # Disable Firefox 'experiments'
           "experiments.activeExperiment" = false;
           "experiments.enabled" = false;
           "experiments.supported" = false;
@@ -94,6 +130,14 @@
           "signon.rememberSignons" = false;
           # Disable quick find ("/"-hotkey)
           "accessibility.typeaheadfind.manual" = false;
+
+          # Hide menu bar by default
+          "ui.key.menuAccessKeyFocuses" = true;
+          # Hide bookmarks bar
+          "browser.toolbars.bookmarks.visibility" = "never";
+
+          # Auto enable extensions
+          "extensions.autoDisableScopes" = 0;
         };
 
         userChrome = ''

@@ -378,6 +378,10 @@
   xdg.mime = {
     enable = true;
     defaultApplications = {
+      # Vesktop
+      "x-scheme-handler/discord" = "vesktop.desktop";
+
+      # Browser
       "text/html" = "librewolf.desktop";
       "x-scheme-handler/http" = "librewolf.desktop";
       "x-scheme-handler/https" = "librewolf.desktop";
