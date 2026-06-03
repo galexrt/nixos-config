@@ -11,10 +11,7 @@
           'Noto Color Emoji',
         },
         font_size = 8.0,
-        color_scheme = "Solarized Dark Higher Contrast (Gogh)",
-        colors = {
-          background = '#222436',
-        },
+        color_scheme = "Cai (Gogh)", -- "Colors (base16)" or "deep"
         enable_tab_bar = false,
         window_background_opacity = 1.0,
         enable_scroll_bar = true,
@@ -28,7 +25,6 @@
         {key = 't', mods = 'CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment},
       }
 
-      config.color_scheme = "Noctalia"
       return config
     '';
   };

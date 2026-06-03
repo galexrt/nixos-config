@@ -96,6 +96,7 @@
           system = "x86_64-linux";
 
           modules = [
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
 
