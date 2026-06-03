@@ -10,6 +10,8 @@
     nixos-hardware.nixosModules.common-pc-laptop
     nixos-hardware.nixosModules.common-pc-ssd
 
+    ./disko-config.nix
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 

@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.librewolf = {
     enable = true;
+
     settings = {
       # Enable WebGL
       "webgl.disabled" = false;
+      "librewolf.webgl.prompt" = true;
       "privacy.resistFingerprinting" = false;
 
       # Preserve browsing and download history
@@ -20,29 +22,45 @@
       "media.gmp-gmpopenh264.enabled" = true;
       "media.webrtc.simulcast.vp9.enabled" = true;
     };
-  };
-
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox;
 
     profiles = {
       alex = {
         id = 0;
         name = "Default";
         isDefault = true;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          #bitwarden
-          #darkreader
-          #enhancer-for-youtube
-          #floccus
-          #grammarly
-          #onepassword-password-manager
-          #refined-github
-          #steam-database
-          #ublock-origin
-          #vue-js-devtools
-        ];
+
+        settings = {
+          # Disable quick find ("/"-hotkey)
+          "accessibility.typeaheadfind.manual" = false;
+        };
+      };
+    };
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    configPath = ".mozilla/firefox";
+
+    profiles = {
+      alex = {
+        id = 0;
+        name = "Default";
+        isDefault = true;
+
+        #extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        #  bitwarden
+        #  darkreader
+        #  enhancer-for-youtube
+        #  floccus
+        #  grammarly
+        #  onepassword-password-manager
+        #  refined-github
+        #  steam-database
+        #  ublock-origin
+        #  vue-js-devtools
+        #];
+
         settings = {
           "browser.aboutConfig.showWarning" = false;
 
@@ -74,6 +92,8 @@
           "extensions.pocket.site" = "";
           # Disable password save dialog
           "signon.rememberSignons" = false;
+          # Disable quick find ("/"-hotkey)
+          "accessibility.typeaheadfind.manual" = false;
         };
 
         userChrome = ''

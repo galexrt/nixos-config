@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -18,8 +17,9 @@
     "xhci_pci"
     "ahci"
     "nvme"
+    "usbhid"
     "usb_storage"
-    "sd_mod"
+    "sr_mod"
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [
@@ -32,100 +32,11 @@
     "amdgpu.ppfeaturemask=0xffffffff"
     "video=HDMI-A-1:2560x1440@60"
   ];
+  boot.loader.systemd-boot.consoleMode = "max";
+  boot.loader.systemd-boot.configurationLimit = 10;
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/964c189b-54c1-49cd-8771-bea26cc4f618";
-    fsType = "btrfs";
-    options = [
-      "subvol=root"
-      "noatime"
-    ];
-  };
-
-  boot.initrd.luks = {
-    devices = {
-      "encs0" = {
-        device = "/dev/disk/by-uuid/735b3d25-bb09-4883-aacb-1de8726cf222";
-        allowDiscards = true;
-      };
-      "encs1" = {
-        device = "/dev/disk/by-uuid/a8df07ff-e0df-4cc3-bb31-65672090a712";
-        allowDiscards = true;
-      };
-      "encs2" = {
-        device = "/dev/disk/by-uuid/3fc58292-e116-4462-b430-d28ee6944789";
-        allowDiscards = true;
-      };
-      "encs3" = {
-        device = "/dev/disk/by-uuid/6dc2dd62-777c-48c7-8bfd-f86325ffca0e";
-        allowDiscards = true;
-      };
-    };
-    reusePassphrases = true;
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/964c189b-54c1-49cd-8771-bea26cc4f618";
-    fsType = "btrfs";
-    options = [
-      "subvol=home"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/964c189b-54c1-49cd-8771-bea26cc4f618";
-    fsType = "btrfs";
-    options = [
-      "subvol=nix"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/964c189b-54c1-49cd-8771-bea26cc4f618";
-    fsType = "btrfs";
-    options = [
-      "subvol=persist"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/var/lib" = {
-    device = "/dev/disk/by-uuid/964c189b-54c1-49cd-8771-bea26cc4f618";
-    fsType = "btrfs";
-    options = [
-      "subvol=var-lib"
-      "compress=zstd"
-      "noatime"
-    ];
-    neededForBoot = true;
-  };
-
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/964c189b-54c1-49cd-8771-bea26cc4f618";
-    fsType = "btrfs";
-    options = [
-      "subvol=var-log"
-      "compress=zstd"
-      "noatime"
-    ];
-    neededForBoot = true;
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C53C-21D3";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  };
-
-  swapDevices = [ ];
+  boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.emergencyAccess = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -134,6 +45,5 @@
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  #powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

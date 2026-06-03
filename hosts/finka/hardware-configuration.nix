@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -56,7 +55,6 @@
         allowDiscards = true;
       };
     };
-    reusePassphrases = true;
   };
 
   fileSystems."/home" = {

@@ -1,5 +1,9 @@
 {
   inputs = {
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,6 +63,7 @@
   outputs =
     {
       self,
+      disko,
       nixpkgs,
       systems,
       treefmt-nix,
@@ -110,6 +115,7 @@
           system = "x86_64-linux";
 
           modules = [
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             inputs.antec-flux-pro-display.nixosModules.default

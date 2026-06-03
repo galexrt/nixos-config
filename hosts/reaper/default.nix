@@ -5,6 +5,8 @@
     nixos-hardware.nixosModules.common-pc
     nixos-hardware.nixosModules.common-pc-ssd
 
+    ./disko-config.nix
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -60,7 +62,7 @@
   };
 
   services.ollama = {
-    acceleration = "rocm";
+    package = pkgs.ollama-rocm;
     environmentVariables = {
       HCC_AMDGPU_TARGET = "gfx1100";
     };

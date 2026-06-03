@@ -65,7 +65,7 @@
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    home.stateVersion = "25.05";
+    home.stateVersion = "26.05";
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
@@ -74,6 +74,7 @@
 
     xdg.userDirs = {
       enable = true;
+      setSessionVariables = true;
       createDirectories = true;
     };
 
@@ -93,6 +94,7 @@
       docker-compose
       ethtool
       exiftool
+      fastfetch
       feishin
       ferdium
       ffmpeg
@@ -125,13 +127,12 @@
       mumble
       natscli
       ncdu
-      neofetch
       niv
       nixos-unstable.bazecor
       nixos-unstable.hub
       nixos-unstable.joplin-desktop
       nixos-unstable.kubelogin-oidc
-      nodejs_22
+      nodejs_24
       openssl
       openvpn
       optipng
@@ -139,7 +140,8 @@
       packer
       parsec-bin
       pcmanfm
-      perl538Packages.AppClusterSSH
+      perl5Packages.AppClusterSSH
+      prismlauncher
       projectm-sdl-cpp
       protonup-qt
       qemu-utils
@@ -152,7 +154,7 @@
       sshpass
       stern
       tailscale-systray
-      teamspeak3
+      teamspeak6-client
       temurin-bin
       termdown
       transmission_4-qt
@@ -164,24 +166,22 @@
       wdisplays
       woeusb
       xarchiver
-      xfce.mousepad
+      mousepad
       xournalpp
       xterm
-      youtube-music
+      pear-desktop
       yt-dlp
       zip
       zotero
       # Development
-      ansible_2_16
-      buf
+      ansible
       chromium
-      corepack_latest
       delve
       gcc
       gdal
       graphviz
       lua
-      mysql80
+      mysql84
       nixd
       nixfmt
       php83
@@ -198,8 +198,6 @@
       terraform
       terragrunt
       nixos-unstable.kubecolor
-      # Temp
-      vscodium-fhs
       # AI
       rocmPackages.rocm-runtime
       rocmPackages.rocminfo
@@ -325,6 +323,7 @@
         '';
       };
       gtk4 = {
+        theme = null;
         extraCss = ''
           @import url("noctalia.css");
         '';

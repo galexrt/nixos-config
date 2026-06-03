@@ -51,7 +51,7 @@
         "rsync"
         "kube-ps1"
       ];
-      custom = "$HOME/.oh-my-zsh/custom";
+      custom = "${config.home.homeDirectory}/.oh-my-zsh/custom";
       theme = "rkj-repos-custom";
       extraConfig = ''
         COMPLETION_WAITING_DOTS="true"
@@ -150,8 +150,6 @@
 
   services.ssh-agent = {
     enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
   };
 
 }

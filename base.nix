@@ -6,8 +6,6 @@
   nixpkgs-master,
   options,
   pkgs,
-  system,
-  home-manager,
   ...
 }:
 
@@ -30,6 +28,10 @@
   hardware = {
     enableAllFirmware = true;
 
+    acpilight = {
+      enable = true;
+    };
+
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -44,9 +46,6 @@
         inherit pkgs;
       };
     };
-    permittedInsecurePackages = [
-      "qtwebengine-5.15.19" # For teamspeak3
-    ];
   };
 
   # Enable binfmt
@@ -166,6 +165,8 @@
     extraBackends = [ pkgs.hplipWithPlugin ];
   };
 
+  services.fwupd.enable = true;
+
   services.blueman.enable = true;
 
   services.earlyoom = {
@@ -187,6 +188,7 @@
   environment.systemPackages = with pkgs; [
     appimage-run
     bridge-utils
+    brightnessctl
     curl
     dig
     evince
@@ -223,7 +225,7 @@
     usbutils
     vim
     wget
-    wineWowPackages.stable
+    wineWow64Packages.stable
     wireguard-tools
     xdg-utils
     yq
@@ -289,8 +291,6 @@
 
   programs.dconf.enable = true;
 
-  programs.light.enable = true;
-
   services.power-profiles-daemon.enable = true;
 
   services.upower.enable = true;
@@ -333,6 +333,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 
 }
