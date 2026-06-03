@@ -32,6 +32,7 @@
     '';
 
     loginExtra = ''
+      export DEFAULT_BROWSER=librewolf
       export BROWSER=librewolf
       if [[ -z "$DISPLAY" ]] && [[ $(tty) = "/dev/tty1" ]]; then
           exec sway
