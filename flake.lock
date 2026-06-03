@@ -29,16 +29,37 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1780411493,
-        "narHash": "sha256-hGatVQYgiECRY2o53rvRdgOd9xnQn6cD6I5PD8/dneg=",
-        "owner": "SapphoSys",
+        "lastModified": 1780516060,
+        "narHash": "sha256-fb2rjrHl9b78vqarEHjFykD4+WOErr6u+Gvksfg6KgM=",
+        "owner": "galexrt",
         "repo": "chiri",
-        "rev": "bffda2826209cc309760ac37c6d563d704c3dad6",
+        "rev": "ca35dba500290c091831425357095a1831b14af6",
         "type": "github"
       },
       "original": {
-        "owner": "SapphoSys",
+        "owner": "galexrt",
         "repo": "chiri",
+        "type": "github"
+      }
+    },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768920986,
+        "narHash": "sha256-CNzzBsRhq7gg4BMBuTDObiWDH/rFYHEuDRVOwCcwXw4=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "de5708739256238fb912c62f03988815db89ec9a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "latest",
+        "repo": "disko",
         "type": "github"
       }
     },
@@ -105,11 +126,11 @@
         "nixpkgs-nixcord": "nixpkgs-nixcord"
       },
       "locked": {
-        "lastModified": 1780393349,
-        "narHash": "sha256-eCFJN1XLUPci+0+9VXLuXn3LVgugLMM/YQVPcq5aC4Y=",
+        "lastModified": 1780509217,
+        "narHash": "sha256-CAes5A7+1S8v0Hb/MyZOs1JXF5RZbgUQ/rpXDEBoc2c=",
         "owner": "FlameFlag",
         "repo": "nixcord",
-        "rev": "2bdf40a608e5e630b58d8546438d7c11a801510c",
+        "rev": "585248a6299df3f0dd6b84fcd8ea1e5f74b32062",
         "type": "github"
       },
       "original": {
@@ -183,11 +204,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1780410347,
-        "narHash": "sha256-HPooyfrFCpOU9ISmK6qTQOG3zNbqk+Gup/+qexpTnoM=",
+        "lastModified": 1780515872,
+        "narHash": "sha256-fZQSHRMUV6yI+x0D4gXxXhbDd5LEkc7e66N1Rhr4slM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c0535795e79a5d936539230ef418c03f5c586b7f",
+        "rev": "035852e376bf071bbcc3817a09683c3b5c033a10",
         "type": "github"
       },
       "original": {
@@ -277,6 +298,7 @@
       "inputs": {
         "antec-flux-pro-display": "antec-flux-pro-display",
         "chiri": "chiri",
+        "disko": "disko",
         "home-manager": "home-manager",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
@@ -297,11 +319,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779765539,
-        "narHash": "sha256-2QxuD5gJcfCFsnqv54LGEHQKvd+K+DW/ecERwAvuA7w=",
+        "lastModified": 1780456895,
+        "narHash": "sha256-CvRZn3Ut0scqLJ1xwQFkZwKGVBUUNBPrFVXRTMZpbfU=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "09889992e640378f7008c3302b9d4892579df610",
+        "rev": "7cc96a6a3fd6613cafd633250a3934483479b9a1",
         "type": "github"
       },
       "original": {

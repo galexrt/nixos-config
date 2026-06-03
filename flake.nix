@@ -45,7 +45,7 @@
 
     # Chiri
     chiri = {
-      url = "github:SapphoSys/chiri";
+      url = "github:galexrt/chiri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
