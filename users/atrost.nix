@@ -88,7 +88,6 @@
       calc
       cava
       inputs.chiri.packages.${stdenv.hostPlatform.system}.default
-      dbeaver-bin
       dconf
       dnscontrol
       docker-compose
@@ -406,6 +405,14 @@
     extraArgs = [
       "--autopilot"
     ];
+  };
+
+  programs.dbeaver = {
+    enable = true;
+
+    settings = {
+      "ui.auto.update.check" = false;
+    };
   };
 
 }
