@@ -335,6 +335,19 @@
       size = 24;
       gtk.enable = true;
     };
+
+    programs.dbeaver = {
+      enable = true;
+
+      settings = {
+        "org.jkiss.dbeaver.core" = {
+          "connection.closeOnSleep" = "true";
+          "tipOfTheDayInitializer.notFirstRun" = "true";
+          "ui.auto.update.check" = "false";
+          "ui.show.tip.of.the.day.on.startup" = "false";
+        };
+      };
+    };
   };
 
   programs.streamcontroller = {
@@ -405,14 +418,6 @@
     extraArgs = [
       "--autopilot"
     ];
-  };
-
-  programs.dbeaver = {
-    enable = true;
-
-    settings = {
-      "ui.auto.update.check" = false;
-    };
   };
 
 }

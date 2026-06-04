@@ -217,6 +217,7 @@
     qemu
     restic
     rsync
+    sbctl
     screen
     smartmontools
     traceroute
