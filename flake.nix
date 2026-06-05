@@ -10,9 +10,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    systems = {
-      url = "github:nix-systems/default";
-    };
 
     # Nixpkgs
     nixpkgs = {
@@ -57,7 +54,7 @@
 
     # Chiri
     chiri = {
-      url = "github:galexrt/chiri";
+      url = "github:galexrt/chiri/fixed";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -77,7 +74,6 @@
       self,
       disko,
       nixpkgs,
-      systems,
       treefmt-nix,
       nixos-unstable,
       nixos-hardware,
@@ -90,8 +86,9 @@
       ...
     }@inputs:
     let
-      # Small tool to iterate over each systems
-      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+      supportedSystems = [ "x86_64-linux" ];
+      # Small tool to iterate over each supported system
+      eachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
       # Eval the treefmt modules from ./treefmt.nix
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
