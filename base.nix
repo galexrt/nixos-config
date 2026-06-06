@@ -138,6 +138,8 @@
             max_fps = 60;
             exec_before = "swaync-client -dn -sw";
             exec_after = "swaync-client -df -sw";
+            chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
+            chooser_type = "simple";
           };
         };
       };

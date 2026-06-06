@@ -84,7 +84,7 @@ in
     home.packages = with pkgs; [
       grim
       libnotify
-      slurp
+      slurp # Also required for xdg-desktop-portal-wlr
       wl-clipboard
       swaycwd
     ];
