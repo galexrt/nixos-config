@@ -136,8 +136,6 @@
         settings = {
           screencast = {
             max_fps = 60;
-            exec_before = "swaync-client -dn -sw";
-            exec_after = "swaync-client -df -sw";
             chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
             chooser_type = "simple";
           };
@@ -177,7 +175,7 @@
     extraArgs = [
       "-g"
       "--avoid"
-      "'^(Xwayland|sway|swaync-client)$'"
+      "'^(Xwayland|sway|quickshell|noctalia-shell)$'"
       "--prefer"
       "'^(electron|libreoffice|gimp|__debug_bin.*)$'"
     ];
