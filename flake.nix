@@ -1,16 +1,5 @@
 {
   inputs = {
-    # Disko
-    disko = {
-      url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # Treefmt
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nixpkgs
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -27,13 +16,36 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Disko
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Lanzaboote
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Treefmt
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # NixOS Hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # SOPS
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Home-Manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -72,15 +84,18 @@
   outputs =
     {
       self,
-      disko,
       nixpkgs,
-      treefmt-nix,
       nixos-unstable,
       nixos-hardware,
       nixpkgs-master,
       nur,
+      disko,
+      lanzaboote,
+      treefmt-nix,
       sops-nix,
       home-manager,
+      nixcord,
+      noctalia,
       chiri,
       antec-flux-pro-display,
       ...
@@ -107,6 +122,7 @@
 
           modules = [
             disko.nixosModules.disko
+            lanzaboote.nixosModules.lanzaboote
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
@@ -128,6 +144,7 @@
 
           modules = [
             disko.nixosModules.disko
+            lanzaboote.nixosModules.lanzaboote
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
@@ -150,6 +167,7 @@
 
           modules = [
             disko.nixosModules.disko
+            lanzaboote.nixosModules.lanzaboote
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops

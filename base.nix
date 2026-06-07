@@ -16,7 +16,7 @@
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkDefault true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.memtest86.enable = true;
   boot.plymouth.enable = lib.mkDefault false;
@@ -170,14 +170,14 @@
 
   services.earlyoom = {
     enable = true;
-    freeSwapThreshold = 4;
-    freeMemThreshold = 4;
+    freeSwapThreshold = 6;
+    freeMemThreshold = 6;
     extraArgs = [
       "-g"
       "--avoid"
       "'^(Xwayland|sway|quickshell|noctalia-shell)$'"
       "--prefer"
-      "'^(electron|libreoffice|gimp|__debug_bin.*)$'"
+      "'(^|/)(electron|libreoffice|gimp|__debug_bin.*|java|chromium)$'"
     ];
     enableNotifications = true;
   };

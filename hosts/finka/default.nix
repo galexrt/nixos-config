@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   nixos-hardware,
   ...
@@ -16,9 +17,12 @@
     ./hardware-configuration.nix
 
     ../../users/atrost.nix
+    ../../options/lanzaboote.nix
   ];
 
   networking.hostName = "finka";
+
+  myConfig.lanzaboote.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 

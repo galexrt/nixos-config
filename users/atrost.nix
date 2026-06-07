@@ -107,6 +107,7 @@
       git-crypt
       gopass
       grafana-loki
+      grayjay
       handbrake
       hugo
       imhex
@@ -126,7 +127,6 @@
       mumble
       natscli
       ncdu
-      niv
       nixos-unstable.bazecor
       nixos-unstable.hub
       nixos-unstable.joplin-desktop
@@ -387,18 +387,20 @@
     };
   */
 
-  xdg.mime = {
-    enable = true;
-    defaultApplications = {
-      # Vesktop
-      "x-scheme-handler/discord" = "vesktop.desktop";
+  xdg = {
+    mime = {
+      enable = true;
+      defaultApplications = {
+        # Vesktop
+        "x-scheme-handler/discord" = "vesktop.desktop";
 
-      # Browser
-      "text/html" = "librewolf.desktop";
-      "x-scheme-handler/http" = "librewolf.desktop";
-      "x-scheme-handler/https" = "librewolf.desktop";
-      "x-scheme-handler/about" = "librewolf.desktop";
-      "x-scheme-handler/unknown" = "librewolf.desktop";
+        # Browser
+        "text/html" = "librewolf.desktop";
+        "x-scheme-handler/http" = "librewolf.desktop";
+        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/about" = "librewolf.desktop";
+        "x-scheme-handler/unknown" = "librewolf.desktop";
+      };
     };
   };
 
