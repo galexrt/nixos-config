@@ -164,8 +164,6 @@
     extraBackends = [ pkgs.hplipWithPlugin ];
   };
 
-  services.fwupd.enable = true;
-
   services.blueman.enable = true;
 
   services.earlyoom = {

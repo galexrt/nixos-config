@@ -543,13 +543,11 @@ in
         bars = [ ];
 
         startup = [
-          { command = "noctalia-shell"; }
           { command = "sleep 1 && joplin-desktop"; }
           { command = "sleep 2 && vesktop"; }
           { command = "sleep 2 && thunderbird"; }
-          { command = "sleep 2 && Chiri"; }
-          { command = "pywalfox install --browser librewolf && pywalfox start"; }
-          { command = "sleep 1 && streamcontroller -b"; }
+          { command = "sleep 2 && chiri"; }
+          { command = "sleep 2 && streamcontroller -b"; }
         ];
 
         # Display device configuration

@@ -14,7 +14,6 @@
 
     home.packages = with pkgs; [
       gpu-screen-recorder
-      pywalfox-native
     ];
 
     programs.pywal.enable = true;
@@ -41,7 +40,7 @@
     programs.noctalia-shell = {
       enable = true;
 
-      systemd.enable = false;
+      systemd.enable = true;
 
       plugins = {
         sources = [
@@ -783,27 +782,11 @@
             }
             {
               enabled = true;
-              id = "code";
-            }
-            {
-              enabled = true;
               id = "sway";
             }
             {
               enabled = true;
-              id = "wezterm";
-            }
-            {
-              enabled = true;
               id = "gtk";
-            }
-            {
-              enabled = true;
-              id = "btop";
-            }
-            {
-              enabled = true;
-              id = "pywalfox";
             }
           ];
           enableUserTheming = false;

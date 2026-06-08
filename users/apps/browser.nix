@@ -32,7 +32,6 @@
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ctrl-number-to-switch-tabs
           darkreader
-          pywalfox
           dictionary-german
 
           bitwarden
@@ -92,7 +91,6 @@
           ctrl-number-to-switch-tabs
           dictionary-german
           darkreader
-          pywalfox
 
           bitwarden
         ];

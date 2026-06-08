@@ -12,7 +12,6 @@
         extensions = with pkgs.nur.repos.rycee.thunderbird-addons; [
           send-later
           dictionary-german
-          pkgs.nur.repos.rycee.firefox-addons.pywalfox
         ];
 
         settings = {
