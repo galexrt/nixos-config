@@ -29,11 +29,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1780930799,
-        "narHash": "sha256-rkkyp36EIfvD0DXq0Tn+uLS/cBtgGk4x4sVkppTDaLg=",
+        "lastModified": 1780936355,
+        "narHash": "sha256-WRHGjvaa5nlvnWyxTYGde+semOEAMsxgjXk0V4LE68g=",
         "owner": "chiriapp",
         "repo": "chiri",
-        "rev": "eb11ef5d1dcbd24a132ed912a019384626849c8c",
+        "rev": "8de8476d73ec33cd29993f8352c26d5ad57c49e9",
         "type": "github"
       },
       "original": {
