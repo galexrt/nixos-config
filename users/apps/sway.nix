@@ -543,6 +543,7 @@ in
         bars = [ ];
 
         startup = [
+          { command = ""; }
           { command = "sleep 1 && joplin-desktop"; }
           { command = "sleep 2 && vesktop"; }
           { command = "sleep 2 && thunderbird"; }
@@ -699,7 +700,7 @@ in
         $bindsym XF86AudioLowerVolume exec $noctaliaIPCCall volume decrease
         $bindsym XF86AudioRaiseVolume exec $noctaliaIPCCall volume increase
         $bindsym XF86AudioMicMute exec $noctaliaIPCCall volume muteInput
-        ## Display
+        ## Brightness
         $bindsym XF86MonBrightnessUp exec $noctaliaIPCCall brightness increase
         $bindsym XF86MonBrightnessDown exec $noctaliaIPCCall brightness decrease
         ## Misc
@@ -727,6 +728,7 @@ in
         include ${config.xdg.configHome}/sway/noctalia
 
         exec --no-startup-id swaymsg workspace 1
+        exec noctalia-shell
       '';
 
       extraSessionCommands = ''

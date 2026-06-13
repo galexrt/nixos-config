@@ -38,7 +38,9 @@
     };
 
     # NixOS Hardware
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
 
     # SOPS
     sops-nix = {
@@ -60,7 +62,7 @@
 
     # Noctalia Shell
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

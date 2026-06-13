@@ -31,19 +31,19 @@
         betterSettings.enable = true;
         betterUploadButton.enable = true;
         biggerStreamPreview.enable = true;
-        BlurNSFW.enable = true;
+        blurNsfw.enable = true;
         callTimer = {
           enable = true;
           format = "human";
         };
-        ClearURLs.enable = true;
+        clearUrls.enable = true;
         colorSighted.enable = true;
         consoleJanitor.enable = true;
         consoleShortcuts.enable = true;
         copyEmojiMarkdown.enable = true;
         copyFileContents.enable = true;
-        CopyUserURLs.enable = true;
-        CustomRPC = {
+        copyUserUrls.enable = true;
+        customRpc = {
           enable = false;
         };
         dearrow.enable = true;
@@ -89,7 +89,7 @@
         # moreCommands.enable = true;
         # moreKaomoji.enable = true;
         # moreUserTags.enable = true;
-        MutualGroupDMs.enable = true;
+        mutualGroupDms.enable = true;
         newGuildSettings = {
           enable = true;
           # Values: 0 = All messages, 1 = Only @mentions, 2 = Nothing, 3 = Server default'';
@@ -110,7 +110,7 @@
         permissionsViewer.enable = true;
         petpet.enable = true;
         pictureInPicture.enable = true;
-        PinDMs.enable = true;
+        pinDms.enable = true;
         platformIndicators.enable = true;
         previewMessage.enable = true;
         quickMention.enable = true;
