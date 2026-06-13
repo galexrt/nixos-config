@@ -200,6 +200,7 @@
       # AI
       rocmPackages.rocm-runtime
       rocmPackages.rocminfo
+      opencode
     ];
 
     home.sessionPath = [
@@ -269,13 +270,6 @@
         obs-pipewire-audio-capture
         obs-teleport
       ];
-    };
-
-    services.syncthing = {
-      enable = true;
-      tray = {
-        enable = false;
-      };
     };
 
     dconf = {

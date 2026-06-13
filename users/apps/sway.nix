@@ -172,7 +172,7 @@ in
           ];
           "$ws16" = [
             { app_id = "thunderbird"; }
-            { app_id = "Chiri"; }
+            { app_id = "chiri"; }
           ];
           "$ws18" = [
             { class = "Steam"; }

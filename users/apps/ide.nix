@@ -258,6 +258,9 @@ in
           "[lua]" = {
             "editor.defaultFormatter" = "sumneko.lua";
           };
+
+          "gitblame.inlineMessageEnabled" = true;
+          "gitblame.extendedHoverInformation" = "inline";
         };
       };
     };
