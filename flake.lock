@@ -29,15 +29,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1781717378,
-        "narHash": "sha256-ezY5W9D/46/f7siXJ1nuCMzhw7gjfY1K3qvXNgWS1ss=",
+        "lastModified": 1781364785,
+        "narHash": "sha256-zBv/egEvmsZXklhKtN5fd2DOKH+UWcaGUUkFxz0G+JI=",
         "owner": "chiriapp",
         "repo": "chiri",
-        "rev": "49120af97a0d394ee4c9efaf1ce8bed529fd4d20",
+        "rev": "b3a1ff96101d37a868f4feaaf6987d314a2a614b",
         "type": "github"
       },
       "original": {
         "owner": "chiriapp",
+        "ref": "app-v0.9.2",
         "repo": "chiri",
         "type": "github"
       }
@@ -463,11 +464,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781580018,
-        "narHash": "sha256-BlTedbM77FmesD2ZqR73vhFy+y77UrhefV7IYw1pDsk=",
+        "lastModified": 1781234414,
+        "narHash": "sha256-HdA+P4fKRGOomkewnI/Tww5Wz4xK1O7+hDO90YAsPB4=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "8bceba21a1ebea535c27c4dc723a0d5a4db9e386",
+        "rev": "1d18bfe3de6244c641ca4e8011186d0981b81d76",
         "type": "github"
       },
       "original": {
