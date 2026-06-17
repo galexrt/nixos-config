@@ -47,6 +47,8 @@
 
           augmented-steam
           steam-database
+
+          redirector
         ];
 
         settings = {
@@ -93,6 +95,7 @@
           darkreader
 
           bitwarden
+          redirector
         ];
 
         settings = {
