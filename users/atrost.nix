@@ -149,7 +149,7 @@
       remmina
       s5cmd
       shotcut
-      simple-scan
+      naps2
       slack
       sops
       sshpass

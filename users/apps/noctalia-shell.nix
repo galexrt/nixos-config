@@ -78,18 +78,18 @@
           enableSessionSearch = true;
           enableSettingsSearch = true;
           enableWindowsSearch = false;
-          iconMode = "tabler";
+          iconMode = "native";
           ignoreMouseInput = false;
           overviewLayer = false;
           pinnedApps = [
 
           ];
-          position = "bottom_center";
+          position = "center";
           screenshotAnnotationTool = "";
           showCategories = true;
-          showIconBackground = true;
+          showIconBackground = false;
           sortByMostUsed = true;
-          terminalCommand = "wezterm -e";
+          terminalCommand = "${pkgs.wezterm}/bin/wezterm -e";
           viewMode = "list";
         };
         audio = {
@@ -825,7 +825,7 @@
           randomIntervalSec = 300;
           setWallpaperOnAllMonitors = true;
           showHiddenFiles = false;
-          skipStartupTransition = false;
+          skipStartupTransition = true;
           solidColor = "#1a1a2e";
           sortOrder = "name";
           transitionDuration = 1500;
