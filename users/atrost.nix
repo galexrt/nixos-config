@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   nixos-unstable,
@@ -56,7 +57,6 @@
   programs.wshowkeys.enable = true;
 
   home-manager.users.atrost = {
-
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new Home Manager release introduces backwards
@@ -139,6 +139,8 @@
       packer
       parsec-bin
       pcmanfm
+      lxmenu-data # for pcmanfm to show "Installed applications"
+      shared-mime-info # for pcmanfm to recognise different file types
       perl5Packages.AppClusterSSH
       prismlauncher
       projectm-sdl-cpp
@@ -292,6 +294,7 @@
       ./apps/ide.nix
       ./apps/dev_tools.nix
       ./apps/discord.nix
+      ./apps/pcmanfm.nix
     ];
 
     gtk = {

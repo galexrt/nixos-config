@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  services.arrpc.enable = true;
-
   programs.nixcord = {
     enable = true;
     discord.enable = false;
@@ -167,7 +165,7 @@
     vesktopConfig = {
       plugins = {
         webKeybinds.enable = true;
-        webRichPresence.enable = true;
+        webRichPresence.enable = false;
         webScreenShareFixes.enable = true;
       };
     };
