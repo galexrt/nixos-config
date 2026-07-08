@@ -24,7 +24,7 @@
   boot.swraid.enable = false;
 
   # Linux kernel
-  boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_7_0));
+  boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_7_1));
 
   hardware = {
     enableAllFirmware = true;
