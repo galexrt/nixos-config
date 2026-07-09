@@ -16,8 +16,6 @@
       gpu-screen-recorder
     ];
 
-    programs.pywal.enable = true;
-
     home.file."cache-wal-sequences" = {
       text = "";
       target = ".cache/wal/sequences";

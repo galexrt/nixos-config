@@ -62,7 +62,6 @@
         fixYoutubeEmbeds.enable = true;
         forceOwnerCrown.enable = true;
         friendInvites.enable = true;
-        friendsSince.enable = true;
         fullSearchContext.enable = true;
         gameActivityToggle.enable = true;
         gifPaste.enable = true;
