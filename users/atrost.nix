@@ -174,6 +174,9 @@
       yt-dlp
       zip
       zotero
+      # PDF
+      pdfgrep
+      ocrmypdf
       # Development
       ansible
       chromium
