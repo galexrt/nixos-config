@@ -55,7 +55,6 @@
         f8Break.enable = false;
         fakeProfileThemes.enable = true;
         favoriteEmojiFirst.enable = true;
-        favoriteGifSearch.enable = true;
         fixCodeblockGap.enable = true;
         fixImagesQuality.enable = true;
         fixSpotifyEmbeds.enable = true;

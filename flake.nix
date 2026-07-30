@@ -106,6 +106,15 @@
       supportedSystems = [ "x86_64-linux" ];
       # Small tool to iterate over each supported system
       eachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      nixosUnstablePkgs = import nixos-unstable {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "electron-40.10.5"
+          ];
+        };
+      };
       # Eval the treefmt modules from ./treefmt.nix
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
@@ -135,7 +144,7 @@
 
           specialArgs = {
             inherit inputs nixos-hardware;
-            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+            nixos-unstable = nixosUnstablePkgs;
             nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
           };
         };
@@ -158,7 +167,7 @@
 
           specialArgs = {
             inherit inputs nixos-hardware;
-            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+            nixos-unstable = nixosUnstablePkgs;
             nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
           };
         };
@@ -180,7 +189,7 @@
 
           specialArgs = {
             inherit inputs nixos-hardware;
-            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+            nixos-unstable = nixosUnstablePkgs;
           };
         };
 
@@ -200,7 +209,7 @@
 
           specialArgs = {
             inherit inputs nixos-hardware;
-            nixos-unstable = inputs.nixos-unstable.legacyPackages.x86_64-linux;
+            nixos-unstable = nixosUnstablePkgs;
           };
         };
       };
