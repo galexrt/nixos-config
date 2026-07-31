@@ -543,7 +543,6 @@ in
         bars = [ ];
 
         startup = [
-          { command = ""; }
           { command = "sleep 1 && joplin-desktop"; }
           { command = "sleep 2 && vesktop"; }
           { command = "sleep 2 && thunderbird"; }
