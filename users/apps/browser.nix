@@ -30,25 +30,25 @@
         isDefault = true;
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          ctrl-number-to-switch-tabs
-          darkreader
+          # Base functionality
           dictionary-german
+          ctrl-number-to-switch-tabs
 
+          kagi-search
+          darkreader
+
+          # Password managers
           bitwarden
           passbolt
 
           enhancer-for-youtube
-          enhancer-for-nebula
-
           floccus
+          redirector
           refined-github
 
-          kagi-search
-
+          # Steam
           augmented-steam
           steam-database
-
-          redirector
         ];
 
         settings = {
