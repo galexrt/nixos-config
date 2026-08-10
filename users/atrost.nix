@@ -10,7 +10,7 @@
 {
   imports = [
     ./apps/audio.nix
-    ./apps/virtualization.nix
+    ./apps/virtualisation.nix
     ./apps/printing.nix
 
     ./apps/noctalia-shell.nix
