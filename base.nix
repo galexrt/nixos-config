@@ -224,6 +224,7 @@
     vim
     wget
     wineWow64Packages.stable
+    bottles
     wireguard-tools
     xdg-utils
     yq
