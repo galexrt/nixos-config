@@ -214,6 +214,7 @@
     qemu
     restic
     rsync
+    rustdesk
     sbctl
     screen
     smartmontools
