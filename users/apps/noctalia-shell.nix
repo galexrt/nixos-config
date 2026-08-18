@@ -87,7 +87,7 @@
           showCategories = true;
           showIconBackground = false;
           sortByMostUsed = true;
-          terminalCommand = "${pkgs.wezterm}/bin/wezterm -e";
+          terminalCommand = "${pkgs.alacritty}/bin/alacritty --command";
           viewMode = "list";
         };
         audio = {

@@ -119,7 +119,7 @@ in
         down = "j";
         up = "k";
         right = "l";
-        terminal = "${pkgs.wezterm}/bin/wezterm";
+        terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
         }/bin/noctalia-shell ipc call launcher toggle";
@@ -218,7 +218,7 @@ in
 
           "${cfg.config.modifier}+Shift+q" = "kill";
           "${cfg.config.modifier}+Return" =
-            "exec ${cfg.config.terminal} start --cwd '$(${pkgs.swaycwd}/bin/swaycwd 2>/dev/null || echo $HOME)'";
+            "exec ${cfg.config.terminal} --working-directory \"$(${pkgs.swaycwd}/bin/swaycwd 2>/dev/null || echo $HOME)\"";
           "${cfg.config.modifier}+Shift+Return" = "exec ${cfg.config.terminal}";
           "${cfg.config.modifier}+d" = "exec ${cfg.config.menu}";
 
@@ -680,7 +680,7 @@ in
         include ${config.xdg.configHome}/sway/theme-definitions
 
         # Definitions
-        set $term_float ${pkgs.wezterm}/bin/wezterm start --class floating_shell
+        set $term_float ${pkgs.alacritty}/bin/alacritty --class floating_shell
         set $focus_after_move true
         set $focus_ws [ $focus_after_move == 'true' ] && swaymsg workspace
 

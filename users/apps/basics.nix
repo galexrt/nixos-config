@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./wezterm.nix
+    ./alacritty.nix
   ];
 
   home.file."rkj-repos-custom.zsh-theme" = {
