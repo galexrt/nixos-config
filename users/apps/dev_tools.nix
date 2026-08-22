@@ -4,7 +4,7 @@
   # Development Tools
   programs.go = {
     enable = true;
-    package = pkgs.go_1_25;
+    package = pkgs.go_1_26;
     env = {
       GOPATH = "${config.home.homeDirectory}/Projects/go";
     };
