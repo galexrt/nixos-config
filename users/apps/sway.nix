@@ -172,7 +172,7 @@ in
           ];
           "$ws16" = [
             { app_id = "thunderbird"; }
-            { app_id = "chiri"; }
+            { app_id = "Chiri"; }
           ];
           "$ws18" = [
             { class = "Steam"; }
@@ -546,8 +546,8 @@ in
           { command = "sleep 1 && joplin-desktop"; }
           { command = "sleep 2 && vesktop"; }
           { command = "sleep 2 && thunderbird"; }
-          { command = "sleep 2 && chiri"; }
-          { command = "sleep 2 && streamcontroller -b"; }
+          { command = "sleep 2 && Chiri"; }
+          { command = "sleep 2 && opendeck"; }
         ];
 
         # Display device configuration

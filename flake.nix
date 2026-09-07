@@ -77,6 +77,10 @@
       url = "github:galexrt/antec-flux-pro-display/feat/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    opendeck-nix = {
+      url = "github:Kitt3120/opendeck-nix";
+    };
   };
 
   nixConfig = {
@@ -160,6 +164,7 @@
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             inputs.antec-flux-pro-display.nixosModules.default
+            inputs.opendeck-nix.nixosModules.default
 
             ./base.nix
             ./hosts/reaper
