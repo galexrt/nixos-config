@@ -68,7 +68,7 @@
 
     # Chiri
     chiri = {
-      url = "github:chiriapp/chiri/app-v0.9.2";
+      url = "github:chiriapp/chiri/app-v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
