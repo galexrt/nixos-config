@@ -6,6 +6,7 @@
 {
   home.file."pcmanfm-settings.conf" = {
     target = "${config.home.homeDirectory}/.config/pcmanfm/default/pcmanfm.conf";
+    force = true;
     text = ''
       [config]
       bm_open_method=0
@@ -18,13 +19,13 @@
       [ui]
       always_show_tabs=0
       max_tab_chars=32
-      win_width=2560
-      win_height=1416
+      win_width=1337
+      win_height=838
       splitter_pos=200
       media_in_new_tab=0
       desktop_folder_new_win=0
       change_tab_on_drop=1
-      close_on_unmount=1
+      close_on_unmount=0
       focus_previous=0
       side_pane_mode=places
       view_mode=list
