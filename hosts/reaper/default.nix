@@ -52,4 +52,6 @@
     };
   };
 
+  programs.opendeck.enable = true;
+
 }

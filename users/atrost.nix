@@ -57,8 +57,6 @@
 
   programs.wshowkeys.enable = true;
 
-  programs.opendeck.enable = true;
-
   home-manager.users.atrost = {
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
