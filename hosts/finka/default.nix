@@ -75,4 +75,10 @@
       openrgb-with-all-plugins
     ];
   };
+
+  services.logind = {
+    lidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
 }

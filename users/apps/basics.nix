@@ -53,6 +53,8 @@
         "kubectl"
         "rsync"
         "kube-ps1"
+        "docker"
+        "podman"
       ];
       custom = "${config.home.homeDirectory}/.oh-my-zsh/custom";
       theme = "rkj-repos-custom";
