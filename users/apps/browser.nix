@@ -41,10 +41,12 @@
           bitwarden
           passbolt
 
+          # Enhancers and Privacy
           enhancer-for-youtube
           floccus
           redirector
           refined-github
+          sponsorblock
 
           # Steam
           augmented-steam
