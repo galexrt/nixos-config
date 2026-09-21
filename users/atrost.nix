@@ -344,6 +344,7 @@
       settings = {
         "org.jkiss.dbeaver.core" = {
           "connection.closeOnSleep" = "true";
+          "dialog.default.folder" = "/home/atrost";
           "tipOfTheDayInitializer.notFirstRun" = "true";
           "ui.auto.update.check" = "false";
           "ui.show.tip.of.the.day.on.startup" = "false";

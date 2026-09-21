@@ -214,7 +214,6 @@
     qemu
     restic
     rsync
-    rustdesk
     sbctl
     screen
     smartmontools
@@ -234,6 +233,8 @@
     nixos-unstable.winboat # Not yet in any release branch, only available on master branch
     freerdp
   ];
+
+  services.rustdesk.enable = true;
 
   environment.etc = {
     "xdg/gtk-2.0/gtkrc".text = ''

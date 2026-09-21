@@ -78,8 +78,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # OpenDeck
     opendeck-nix = {
       url = "github:Kitt3120/opendeck-nix";
+    };
+
+    # RustDesk
+    rustdesk-nix = {
+      url = "github:Fadouse/rustdesk-nix";
     };
   };
 
@@ -104,6 +110,7 @@
       noctalia,
       chiri,
       antec-flux-pro-display,
+      rustdesk-nix,
       ...
     }@inputs:
     let
@@ -141,6 +148,7 @@
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            rustdesk-nix.nixosModules.default
 
             ./base.nix
             ./hosts/finka
@@ -165,6 +173,7 @@
             sops-nix.nixosModules.sops
             inputs.antec-flux-pro-display.nixosModules.default
             inputs.opendeck-nix.nixosModules.default
+            rustdesk-nix.nixosModules.default
 
             ./base.nix
             ./hosts/reaper
@@ -187,6 +196,7 @@
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            rustdesk-nix.nixosModules.default
 
             ./base.nix
             ./hosts/moira
@@ -207,6 +217,7 @@
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            rustdesk-nix.nixosModules.default
 
             ./base.nix
             ./hosts/ana
