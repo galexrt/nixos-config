@@ -24,7 +24,7 @@
   boot.swraid.enable = false;
 
   # Linux kernel
-  boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_7_1));
+  boot.kernelPackages = lib.mkDefault (pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_7_2));
 
   hardware = {
     enableAllFirmware = true;
@@ -146,7 +146,10 @@
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
-      config.common.default = "*";
+      config.common = {
+        default = "*";
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+      };
     };
   };
 
@@ -214,6 +217,7 @@
     qemu
     restic
     rsync
+    nixos-unstable.rustdesk-flutter
     sbctl
     screen
     smartmontools
@@ -233,8 +237,6 @@
     nixos-unstable.winboat # Not yet in any release branch, only available on master branch
     freerdp
   ];
-
-  services.rustdesk.enable = true;
 
   environment.etc = {
     "xdg/gtk-2.0/gtkrc".text = ''

@@ -119,7 +119,6 @@
         revealAllSpoilers.enable = true;
         reverseImageSearch.enable = true;
         roleColorEverywhere.enable = true;
-        summaries.enable = true;
         sendTimestamps.enable = true;
         serverInfo.enable = true;
         shikiCodeblocks.enable = true;
