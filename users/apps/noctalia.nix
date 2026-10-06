@@ -4,7 +4,7 @@
   home-manager.users.atrost = {
     imports = [ inputs.noctalia.homeModules.default ];
     home.packages = [ pkgs.gpu-screen-recorder ];
-    home.file."cache-wal-sequences" = { text = ""; target = ".cache/wal/sequences"; };
+
     home.file."noctalia-face" = {
       executable = true;
       source = ../../assets/.face;
@@ -14,20 +14,21 @@
     programs.noctalia = {
       enable = true;
       settings = {
-        accessibility = { high_contrast = true; ui_scale = 1.0; };
+        accessibility = { high_contrast = true; ui_scale = 0.9; };
         bar.main = {
           background_opacity = 0.65;
           capsule = true;
           capsule_opacity = 0.95;
           center = [ "workspaces" ];
-          end = [ "network" "sysmon-network" "sysmon-network" "battery" "caffeine" "bluetooth" "notifications" "privacy" "volume" "tray" "clock" "session" ];
-          margin_edge = 4;
-          margin_ends = 4;
+          end = [ "network" "sysmon-network-rx" "sysmon-network-tx" "battery" "caffeine" "bluetooth" "notifications" "privacy" "volume" "tray" "clock" "session" ];
+          margin_edge = 0;
+          margin_ends = 0;
           padding = 2;
           position = "top";
           radius = 12;
           start = [ "sysmon-cpu" "temp" "ram" "brightness" "nightlight" "power_profile" "audio_visualizer" "media" "weather" ];
           widget_spacing = 6;
+          thickness = 24;
         };
         brightness.enable_ddcutil = false;
         desktop_widgets.enabled = false;
@@ -100,7 +101,7 @@
         shell = {
           avatar_path = "/home/atrost/.face";
           clipboard_enabled = false;
-          font_family = "DM Sans";
+          font_family = "Hack";
           telemetry_enabled = false;
           animation.enabled = false;
           launcher = {
@@ -148,13 +149,18 @@
         };
         weather = { effects = true; enabled = true; unit = "celsius"; };
         widget = {
-          audio_visualizer.width = 125;
+          audio_visualizer = {
+            width = 125;
+            show_when_idle = true;
+          };
           battery.warning_threshold = 30;
           clock = { format = "{:%H:%M:%S %a %d.%m.%Y}"; tooltip_format = "{:%H:%M:%S %a, %b %d}"; };
           media = { max_width = 145; show_album_art = true; show_progress_ring = true; };
           recorder.type = "noctalia/screen_recorder:recorder";
           "sysmon-cpu" = { metric = "cpu"; type = "sysmon"; };
-          "sysmon-network" = { metric = "network"; stat = "net_rx"; type = "sysmon"; };
+          "sysmon-network-rx" = { metric = "network"; stat = "net_rx"; type = "sysmon"; };
+          "sysmon-network-tx" = { metric = "network"; stat = "net_tx"; type = "sysmon"; };
+          workspaces = { active_pill_size = 1.0; };
         };
       };
     };
