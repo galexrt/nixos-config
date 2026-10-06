@@ -122,7 +122,7 @@ in
         terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-        }/bin/noctalia-shell ipc call launcher toggle";
+        }/bin/noctalia msg panel-toggle launcher";
 
         fonts = {
           names = [
@@ -352,7 +352,7 @@ in
           "${cfg.config.modifier}+Mod1+0" = "workspace $ws20";
 
           # Lock screen
-          "Mod1+l" = "exec $noctaliaIPCCall lockScreen lock";
+          "Mod1+l" = "exec $noctaliaMsg session lock";
 
           # Make the currently focused window a scratchpad
           "${cfg.config.modifier}+Shift+plus" = "mark --add scratch_plus, move scratchpad";
@@ -649,10 +649,10 @@ in
         # For user's convenience, the same for unbindsym
         set $unbindsym unbindsym --to-code
 
-        set $noctaliaIPCCall ${
+        set $noctaliaMsg ${
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-        }/bin/noctalia-shell ipc call
-        set $sessionMenu $noctaliaIPCCall sessionMenu toggle
+        }/bin/noctalia msg
+        set $sessionMenu $noctaliaMsg panel-toggle session
 
         # workspace names
         set $ws1 number 1
@@ -684,7 +684,7 @@ in
         set $focus_after_move true
         set $focus_ws [ $focus_after_move == 'true' ] && swaymsg workspace
 
-        set $locking $noctaliaIPCCall lockScreen lock
+        set $locking $noctaliaMsg session lock
 
         # screenshot
         set $grimshot ${config.xdg.configHome}/sway/scripts/grimshot.sh
@@ -695,13 +695,13 @@ in
 
         # Laptop/Media buttons
         ## Audio
-        $bindsym XF86AudioMute exec $noctaliaIPCCall volume muteOutput
-        $bindsym XF86AudioLowerVolume exec $noctaliaIPCCall volume decrease
-        $bindsym XF86AudioRaiseVolume exec $noctaliaIPCCall volume increase
-        $bindsym XF86AudioMicMute exec $noctaliaIPCCall volume muteInput
+        $bindsym XF86AudioMute exec $noctaliaMsg volume-mute
+        $bindsym XF86AudioLowerVolume exec $noctaliaMsg volume-down
+        $bindsym XF86AudioRaiseVolume exec $noctaliaMsg volume-up
+        $bindsym XF86AudioMicMute exec $noctaliaMsg mic-mute
         ## Brightness
-        $bindsym XF86MonBrightnessUp exec $noctaliaIPCCall brightness increase
-        $bindsym XF86MonBrightnessDown exec $noctaliaIPCCall brightness decrease
+        $bindsym XF86MonBrightnessUp exec $noctaliaMsg brightness-up
+        $bindsym XF86MonBrightnessDown exec $noctaliaMsg brightness-down
         ## Misc
         $bindsym XF86Search exec $menu
         $bindsym XF86PowerOff exec $sessionMenu
@@ -727,7 +727,7 @@ in
         include ${config.xdg.configHome}/sway/noctalia
 
         exec --no-startup-id swaymsg workspace 1
-        exec noctalia-shell
+        exec noctalia
       '';
 
       extraSessionCommands = ''

@@ -176,7 +176,7 @@
     extraArgs = [
       "-g"
       "--avoid"
-      "'^(Xwayland|sway|quickshell|noctalia-shell)$'"
+      "'^(Xwayland|sway|quickshell|noctalia.*)$'"
       "--prefer"
       "'(^|/)(electron|libreoffice|gimp|__debug_bin.*|java|chromium)$'"
     ];
@@ -197,7 +197,6 @@
     gnumake
     gparted
     gptfdisk
-    tuigreet
     htop
     iotop
     jq
@@ -318,6 +317,9 @@
     auto-optimise-store = true
     experimental-features = nix-command flakes
   '';
+
+  # Allow remote build & push
+  nix.settings.trusted-users = [ "atrost" ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

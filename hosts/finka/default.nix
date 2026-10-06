@@ -26,8 +26,18 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.greetd.settings.default_session.command =
-    "${pkgs.tuigreet}/bin/tuigreet --cmd '/home/atrost/.local/bin/sway-session.sh true'";
+  services.displayManager.noctalia-greeter.settings.session.default = "Sway (NVIDIA)";
+
+  services.displayManager.sessionPackages = [
+    ((pkgs.writeTextDir "share/wayland-sessions/sway-nvidia.desktop" ''
+        [Desktop Entry]
+        Name=Sway (NVIDIA)
+        Comment=Sway session using the Vulkan renderer
+        Exec=/home/atrost/.local/bin/sway-session.sh true
+        Type=Application
+        DesktopNames=sway
+      '').overrideAttrs (_: { passthru.providedSessions = [ "sway-nvidia" ]; }))
+  ];
 
   hardware.nvidia = {
     modesetting.enable = true;

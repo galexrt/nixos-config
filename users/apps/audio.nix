@@ -12,6 +12,16 @@
     pulse.enable = true;
     jack.enable = true;
 
+    extraConfig = {
+      pipewire = {
+        "10-clock-rate" = {
+          context.properties = {
+            default.clock.rate = 48000;
+          };
+        };
+      };
+    };
+
     wireplumber = {
       enable = true;
     };

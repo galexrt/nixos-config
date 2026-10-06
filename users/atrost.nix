@@ -13,21 +13,37 @@
     ./apps/virtualisation.nix
     ./apps/printing.nix
 
-    ./apps/noctalia-shell.nix
+    ./apps/noctalia.nix
     ./apps/steam.nix
   ];
 
-  services.greetd = {
-    enable = true;
-    useTextGreeter = true;
+  services.greetd.settings.default_session.user = "greeter";
 
+  services.displayManager.noctalia-greeter = {
+    enable = true;
+    passwordless-sync-users = [ "atrost" ];
     settings = {
-      default_session = {
-        command = lib.mkDefault "${pkgs.tuigreet}/bin/tuigreet --cmd '/home/atrost/.local/bin/sway-session.sh'";
-        user = "atrost";
+      appearance = { scheme = "Synced"; theme_mode = "dark"; };
+      appearance.wallpaper = {
+        path = "${../assets/wallpapers/eva-red-steel.jpg}";
+        fill_mode = "crop";
       };
+      keyboard.layout = "de";
+      session.default = lib.mkDefault "Sway";
+      user.default = "atrost";
     };
   };
+
+  services.displayManager.sessionPackages = [
+    ((pkgs.writeTextDir "share/wayland-sessions/sway.desktop" ''
+        [Desktop Entry]
+        Name=Sway
+        Comment=An i3-compatible Wayland compositor
+        Exec=/home/atrost/.local/bin/sway-session.sh
+        Type=Application
+        DesktopNames=sway
+      '').overrideAttrs (_: { passthru.providedSessions = [ "sway" ]; }))
+  ];
 
   users.users.atrost = {
     isNormalUser = true;

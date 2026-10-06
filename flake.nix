@@ -62,7 +62,11 @@
 
     # Noctalia Shell
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
+      url = "github:noctalia-dev/noctalia/v5.2.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -103,6 +107,7 @@
       home-manager,
       nixcord,
       noctalia,
+      noctalia-greeter,
       chiri,
       antec-flux-pro-display,
       ...
@@ -142,6 +147,7 @@
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            noctalia-greeter.nixosModules.default
 
             ./base.nix
             ./hosts/finka
@@ -164,6 +170,7 @@
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            noctalia-greeter.nixosModules.default
             inputs.antec-flux-pro-display.nixosModules.default
             inputs.opendeck-nix.nixosModules.default
 
@@ -188,6 +195,7 @@
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            noctalia-greeter.nixosModules.default
 
             ./base.nix
             ./hosts/moira
@@ -196,6 +204,7 @@
           specialArgs = {
             inherit inputs nixos-hardware;
             nixos-unstable = nixosUnstablePkgs;
+            nixpkgs-master = inputs.nixpkgs-master.legacyPackages.x86_64-linux;
           };
         };
 
