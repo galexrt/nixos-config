@@ -20,7 +20,7 @@
           capsule = true;
           capsule_opacity = 0.95;
           center = [ "taskbar" ];
-          end = [ "network" "sysmon-network-rx" "sysmon-network-tx" "battery" "caffeine" "bluetooth" "notifications" "privacy" "input_volume" "output_volume" "tray" "clock" "session" ];
+          end = [ "network" "network-vpn" "sysmon-network-rx" "sysmon-network-tx" "battery" "caffeine" "bluetooth" "notifications" "privacy" "input_volume" "output_volume" "tray" "clock" "session" ];
           margin_edge = 0;
           margin_ends = 0;
           padding = 2;
@@ -157,6 +157,20 @@
           clock = { format = "{:%H:%M:%S %a %d.%m.%Y}"; tooltip_format = "{:%H:%M:%S %a, %b %d}"; };
           media = { max_width = 145; show_album_art = true; show_progress_ring = true; };
           recorder.type = "noctalia/screen_recorder:recorder";
+          network = {
+            show_label = false;
+            vpn_status = "hidden";
+            actions = {
+              right = "none";
+            };
+          };
+          "network-vpn" = {
+            show_vpn_label = true;
+            type = "network";
+            actions = {
+              right = "none";
+            };
+          };
           "sysmon-cpu" = { metric = "cpu"; type = "sysmon"; };
           "sysmon-network-rx" = { metric = "network"; stat = "net_rx"; type = "sysmon"; };
           "sysmon-network-tx" = { metric = "network"; stat = "net_tx"; type = "sysmon"; };
