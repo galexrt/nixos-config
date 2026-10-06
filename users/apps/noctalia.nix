@@ -19,7 +19,7 @@
           background_opacity = 0.65;
           capsule = true;
           capsule_opacity = 0.95;
-          center = [ "workspaces" ];
+          center = [ "taskbar" ];
           end = [ "network" "sysmon-network-rx" "sysmon-network-tx" "battery" "caffeine" "bluetooth" "notifications" "privacy" "input_volume" "output_volume" "tray" "clock" "session" ];
           margin_edge = 0;
           margin_ends = 0;
@@ -160,6 +160,10 @@
           "sysmon-cpu" = { metric = "cpu"; type = "sysmon"; };
           "sysmon-network-rx" = { metric = "network"; stat = "net_rx"; type = "sysmon"; };
           "sysmon-network-tx" = { metric = "network"; stat = "net_tx"; type = "sysmon"; };
+          taskbar = {
+            group_by_workspace = true;
+            hide_empty_workspaces = true;
+          };
           workspaces = { active_pill_size = 1.0; };
         };
       };
