@@ -361,6 +361,8 @@
         "org.jkiss.dbeaver.core" = {
           "connection.closeOnSleep" = "true";
           "dialog.default.folder" = "/home/atrost";
+          "eclipse.preferences.version" = "1";
+          "navigator.settings.default.preset" = "advanced";
           "tipOfTheDayInitializer.notFirstRun" = "true";
           "ui.auto.update.check" = "false";
           "ui.show.tip.of.the.day.on.startup" = "false";
