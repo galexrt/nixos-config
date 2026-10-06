@@ -24,7 +24,6 @@
           capsule_opacity = 0.95;
           center = [ "taskbar" ];
           end = [
-            "network-vpn"
             "network"
             "sysmon-network-rx"
             "sysmon-network-tx"
@@ -295,15 +294,8 @@
           };
           recorder.type = "noctalia/screen_recorder:recorder";
           network = {
-            show_label = false;
-            vpn_status = "hidden";
-            actions = {
-              right = "none";
-            };
-          };
-          "network-vpn" = {
+            show_label = true;
             show_vpn_label = true;
-            type = "network";
             actions = {
               right = "none";
             };
