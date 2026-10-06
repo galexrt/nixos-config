@@ -20,7 +20,7 @@
           capsule = true;
           capsule_opacity = 0.95;
           center = [ "workspaces" ];
-          end = [ "network" "sysmon-network-rx" "sysmon-network-tx" "battery" "caffeine" "bluetooth" "notifications" "privacy" "volume" "tray" "clock" "session" ];
+          end = [ "network" "sysmon-network-rx" "sysmon-network-tx" "battery" "caffeine" "bluetooth" "notifications" "privacy" "input_volume" "output_volume" "tray" "clock" "session" ];
           margin_edge = 0;
           margin_ends = 0;
           padding = 2;
