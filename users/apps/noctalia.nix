@@ -300,23 +300,38 @@
               right = "none";
             };
           };
+          ram = {
+            label_min_width = 32;
+            stat = "ram_pct";
+            visualization = "none";
+          };
           "sysmon-cpu" = {
+            label_min_width = 32;
             metric = "cpu";
             type = "sysmon";
+            visualization = "none";
           };
           "sysmon-network-rx" = {
+            label_min_width = 72;
             metric = "network";
             stat = "net_rx";
             type = "sysmon";
+            visualization = "none";
           };
           "sysmon-network-tx" = {
+            label_min_width = 72;
             metric = "network";
             stat = "net_tx";
             type = "sysmon";
+            visualization = "none";
           };
           taskbar = {
             group_by_workspace = true;
             hide_empty_workspaces = true;
+          };
+          temp = {
+            label_min_width = 32;
+            visualization = "none";
           };
           workspaces = {
             active_pill_size = 1.0;
