@@ -25,8 +25,8 @@
           center = [ "taskbar" ];
           end = [
             "network"
-            "sysmon-network-rx"
-            "sysmon-network-tx"
+            "sysmon_network_rx"
+            "sysmon_network_tx"
             "battery"
             "caffeine"
             "bluetooth"
@@ -40,13 +40,17 @@
           ];
           margin_edge = 0;
           margin_ends = 0;
+          radius_top_left = 0;
+          radius_top_right = 0;
           padding = 2;
           position = "top";
-          radius = 12;
+          radius = 10;
           start = [
-            "sysmon-cpu"
+            "sysmon_cpu"
+            "sysmon_cpu_freq"
             "temp"
             "ram"
+            "sysmon_disk"
             "brightness"
             "nightlight"
             "power_profile"
@@ -54,7 +58,7 @@
             "media"
             "weather"
           ];
-          widget_spacing = 6;
+          widget_spacing = 4;
           thickness = 24;
         };
         brightness.enable_ddcutil = false;
@@ -79,7 +83,7 @@
             };
             "screen-off" = {
               action = "screen_off";
-              enabled = false;
+              enabled = true;
               timeout = 660.0;
             };
           };
@@ -209,6 +213,9 @@
           font_family = "Hack";
           telemetry_enabled = false;
           animation.enabled = false;
+          greeter_sync = {
+            auto_sync = true;
+          };
           launcher = {
             app_grid = false;
             auto_paste = "off";
@@ -291,6 +298,11 @@
             max_width = 145;
             show_album_art = true;
             show_progress_ring = true;
+            artist_first = true;
+            hide_when_no_media = true;
+            max_length = 200;
+            show_progress = true;
+            title_scroll = "on_hover";
           };
           recorder.type = "noctalia/screen_recorder:recorder";
           network = {
@@ -305,20 +317,32 @@
             stat = "ram_pct";
             visualization = "none";
           };
-          "sysmon-cpu" = {
+          "sysmon_cpu" = {
             label_min_width = 32;
             metric = "cpu";
             type = "sysmon";
             visualization = "none";
           };
-          "sysmon-network-rx" = {
+          "sysmon_cpu_freq" = {
+            label_min_width = 58;
+            stat = "cpu_freq";
+            type = "sysmon";
+            visualization = "none";
+          };
+          "sysmon_disk" = {
+            label_min_width = 64;
+            stat = "disk_free";
+            type = "sysmon";
+            visualization = "none";
+          };
+          "sysmon_network_rx" = {
             label_min_width = 72;
             metric = "network";
             stat = "net_rx";
             type = "sysmon";
             visualization = "none";
           };
-          "sysmon-network-tx" = {
+          "sysmon_network_tx" = {
             label_min_width = 72;
             metric = "network";
             stat = "net_tx";
