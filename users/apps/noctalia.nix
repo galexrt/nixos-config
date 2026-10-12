@@ -263,6 +263,7 @@
                 action = "lock_and_suspend";
                 countdown_seconds = 5.0;
                 enabled = true;
+                shortcut = "3";
                 variant = "default";
               }
               {
