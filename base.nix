@@ -171,8 +171,8 @@
 
   services.earlyoom = {
     enable = true;
-    freeSwapThreshold = 6;
-    freeMemThreshold = 6;
+    freeSwapThreshold = 5;
+    freeMemThreshold = 5;
     extraArgs = [
       "-g"
       "--avoid"

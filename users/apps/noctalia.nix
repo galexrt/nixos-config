@@ -70,6 +70,7 @@
             "screen-off"
             "lock-and-suspend"
           ];
+          pre_action_fade_seconds = 3;
           behavior = {
             lock = {
               action = "lock";
@@ -84,7 +85,7 @@
             "screen-off" = {
               action = "screen_off";
               enabled = true;
-              timeout = 660.0;
+              timeout = 600.0;
             };
           };
         };
@@ -242,6 +243,44 @@
             remember_last_region = true;
           };
           shadow.alpha = 0.0;
+          session = {
+            actions = [
+              {
+                action = "lock";
+                countdown_seconds = 0.0;
+                enabled = true;
+                shortcut = "1";
+                variant = "default";
+              }
+              {
+                action = "logout";
+                countdown_seconds = 5.0;
+                enabled = true;
+                shortcut = "2";
+                variant = "default";
+              }
+              {
+                action = "lock_and_suspend";
+                countdown_seconds = 5.0;
+                enabled = true;
+                variant = "default";
+              }
+              {
+                action = "reboot";
+                countdown_seconds = 5.0;
+                enabled = true;
+                shortcut = "4";
+                variant = "default";
+              }
+              {
+                action = "shutdown";
+                countdown_seconds = 5.0;
+                enabled = true;
+                shortcut = "5";
+                variant = "destructive";
+              }
+            ];
+          };
         };
         theme = {
           builtin = "Catppuccin";
