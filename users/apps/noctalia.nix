@@ -268,10 +268,11 @@
               }
               {
                 action = "command";
-                glyph = "hibernate";
-                label = "Lock & Hibernate";
+                command = "systemctl hibernate";
                 countdown_seconds = 5.0;
                 enabled = true;
+                glyph = "hibernate";
+                label = "Lock & Hibernate";
                 shortcut = "4";
                 variant = "default";
               }
