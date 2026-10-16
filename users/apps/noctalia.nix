@@ -267,17 +267,26 @@
                 variant = "default";
               }
               {
-                action = "reboot";
+                action = "lock_and_hibernate";
+                glyph = "hibernate";
+                label = "Lock & Hibernate";
                 countdown_seconds = 5.0;
                 enabled = true;
                 shortcut = "4";
                 variant = "default";
               }
               {
-                action = "shutdown";
+                action = "reboot";
                 countdown_seconds = 5.0;
                 enabled = true;
                 shortcut = "5";
+                variant = "default";
+              }
+              {
+                action = "shutdown";
+                countdown_seconds = 5.0;
+                enabled = true;
+                shortcut = "6";
                 variant = "destructive";
               }
             ];
@@ -285,7 +294,7 @@
         };
         theme = {
           builtin = "Catppuccin";
-          community_palette = "Seoul256 Hard";
+          community_palette = "Occult Umbral"; # or "Seoul256 Hard"
           mode = "dark";
           pure_black_dark = true;
           shell_mode = "dark";
@@ -392,6 +401,7 @@
           taskbar = {
             group_by_workspace = true;
             hide_empty_workspaces = true;
+            focused_output_only = true;
           };
           temp = {
             label_min_width = 32;
