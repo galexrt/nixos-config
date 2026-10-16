@@ -267,7 +267,7 @@
                 variant = "default";
               }
               {
-                action = "lock_and_hibernate";
+                action = "command";
                 glyph = "hibernate";
                 label = "Lock & Hibernate";
                 countdown_seconds = 5.0;
