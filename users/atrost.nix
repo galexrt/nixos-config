@@ -99,7 +99,7 @@
       amdgpu_top
       android-tools
       audacity
-      nixos-unstable.beets
+      #nixos-unstable.beets
       btop
       cabextract
       calc
