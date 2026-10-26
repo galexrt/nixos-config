@@ -140,6 +140,7 @@
       meld
       minikube
       minio-client
+      moonlight-qt
       mullvad-vpn
       mumble
       natscli
@@ -161,10 +162,12 @@
       perl5Packages.AppClusterSSH
       prismlauncher
       projectm-sdl-cpp
+      protontricks
       protonup-qt
       qemu-utils
       remmina
       s5cmd
+      sniffnet
       shotcut
       naps2
       slack
@@ -182,6 +185,7 @@
       wallust
       waypipe
       wdisplays
+      winetricks
       woeusb
       xarchiver
       mousepad
@@ -222,7 +226,7 @@
       # AI
       rocmPackages.rocm-runtime
       rocmPackages.rocminfo
-      opencode
+      nixos-unstable.opencode
     ];
 
     home.sessionPath = [

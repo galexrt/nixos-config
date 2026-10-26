@@ -43,6 +43,7 @@
     allowUnfree = true;
     allowUnfreePredicate = (_: true);
     packageOverrides = pkgs: {
+      bottles = pkgs.bottles.override { removeWarningPopup = true; };
       nur = nur;
     };
   };
