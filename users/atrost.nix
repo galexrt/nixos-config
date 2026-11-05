@@ -3,6 +3,7 @@
   inputs,
   lib,
   nixos-unstable,
+  nixpkgs-master,
   pkgs,
   ...
 }:
@@ -226,7 +227,7 @@
       # AI
       rocmPackages.rocm-runtime
       rocmPackages.rocminfo
-      nixos-unstable.opencode
+      nixpkgs-master.opencode
     ];
 
     home.sessionPath = [
