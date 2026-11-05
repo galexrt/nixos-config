@@ -64,7 +64,7 @@
 
     nvidiaSettings = true;
 
-    # Pin specific driver version
+    # Pin specific driver version - <https://github.com/NixOS/nixpkgs/blob/master/pkgs/os-specific/linux/nvidia-x11/default.nix#L73>
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
       version = "615.71.09";
       sha256_64bit = "sha256-zc7tIrvrYSSNGm3qvCWWZz46ZQFpjucayNL9wo87cP4=";
