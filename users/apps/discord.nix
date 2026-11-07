@@ -9,6 +9,10 @@
     vesktop.useSystemVencord = false;
 
     config = {
+      autoUpdate = true;
+      autoUpdateNotification = true;
+      notifyAboutUpdates = false;
+
       themeLinks = [
         "https://luckfire.github.io/amoled-cord/src/amoled-cord.css"
       ];
