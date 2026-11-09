@@ -40,5 +40,5 @@
 
   spiceUSBRedirection = {
     enable = true;
-  }
+  };
 }
