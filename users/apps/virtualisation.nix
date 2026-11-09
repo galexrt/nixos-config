@@ -37,4 +37,8 @@
   };
 
   programs.virt-manager.enable = true;
+
+  spiceUSBRedirection = {
+    enable = true;
+  }
 }
