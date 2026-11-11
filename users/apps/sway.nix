@@ -547,7 +547,6 @@ in
           { command = "sleep 2 && vesktop"; }
           { command = "sleep 2 && thunderbird"; }
           { command = "sleep 2 && Chiri"; }
-          { command = "sleep 2 && opendeck"; }
         ];
 
         # Display device configuration

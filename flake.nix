@@ -81,11 +81,6 @@
       url = "github:galexrt/antec-flux-pro-display/feat/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # OpenDeck
-    opendeck-nix = {
-      url = "github:Kitt3120/opendeck-nix";
-    };
   };
 
   nixConfig = {
@@ -172,7 +167,6 @@
             sops-nix.nixosModules.sops
             noctalia-greeter.nixosModules.default
             inputs.antec-flux-pro-display.nixosModules.default
-            inputs.opendeck-nix.nixosModules.default
 
             ./base.nix
             ./hosts/reaper

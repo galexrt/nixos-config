@@ -217,7 +217,7 @@
     qemu
     restic
     rsync
-    nixos-unstable.rustdesk-flutter
+    #nixos-unstable.rustdesk-flutter
     sbctl
     screen
     smartmontools

@@ -99,7 +99,14 @@ in
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhs;
+    package = (pkgs.vscode.overrideAttrs (old: {
+      # rm: cannot remove 'resources/app/node_modules/@vscode/ripgrep/bin/rg': No such file or directory
+      postPatch =
+        builtins.replaceStrings
+          [ "resources/app/node_modules/@vscode/ripgrep/bin/rg" ]
+          [ "resources/app/node_modules/@vscode/ripgrep-universal/bin/linux-x64/rg" ]
+          old.postPatch;
+    })).fhs;
     mutableExtensionsDir = true;
 
     #extensions = with pkgs.vscode-extensions; [

@@ -315,11 +315,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1794393712,
-        "narHash": "sha256-3zrh/c/aFHlyCQpwx4InzdFGay1aBR6usCzKyca35+U=",
+        "lastModified": 1794397954,
+        "narHash": "sha256-G2dCecfB3gRjDl5gfhYucpdQE9m9uop4AaM4tl2RHXc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "78498bbb9aa26b822fb1011a913da2067bc18cb2",
+        "rev": "e7b217598d1919455d62863619e4c8bf251e53f0",
         "type": "github"
       },
       "original": {
@@ -358,22 +358,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1785692966,
-        "narHash": "sha256-vUfIeBEfpbAfZ5zjgIkYk7eHBeVfCYVjLbWnMkseYnk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "643809054d65fdd466a63e3155b8c498cb483c04",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -402,11 +386,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794393747,
-        "narHash": "sha256-XMU2pbUWdCwl3ZoS6DFyayRVn6ASxQoazp1bsnGgDqs=",
+        "lastModified": 1794397985,
+        "narHash": "sha256-gqWwuiL/AUgrAr69GrJuxq71t+wL5uILXxsOSTxKVGw=",
         "owner": "noctalia-dev",
         "repo": "noctalia-greeter",
-        "rev": "a9249c6cb74a17717b66233976c3c8a61fdbd5ac",
+        "rev": "47dcb5d80c3c7243812186d988724ac1d6d1f5f9",
         "type": "github"
       },
       "original": {
@@ -423,34 +407,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1794393949,
-        "narHash": "sha256-V+iMLz8eXCsHS4tCZ1a4cst9xTk2CRbJKrgkT6Sra+E=",
+        "lastModified": 1794398769,
+        "narHash": "sha256-IR0pbNSAmZp2ks4OI4FqlaybD361zyk7NCOvN2In4Uk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "e22689e5a74256eb8d24f535d83da51b4fef4590",
+        "rev": "187599a3870795bbdcff6357f76bc9a92fa92dd6",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "NUR",
-        "type": "github"
-      }
-    },
-    "opendeck-nix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1785764453,
-        "narHash": "sha256-q2Sjdts8zY+WvpjtnUbnakrgDHzi0DmlDjQMfyu3hWg=",
-        "owner": "Kitt3120",
-        "repo": "opendeck-nix",
-        "rev": "32160fa0ae01bf227a691c54a162809b14b8641b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Kitt3120",
-        "repo": "opendeck-nix",
         "type": "github"
       }
     },
@@ -492,7 +458,6 @@
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
         "nur": "nur",
-        "opendeck-nix": "opendeck-nix",
         "sops-nix": "sops-nix",
         "treefmt-nix": "treefmt-nix_2"
       }
