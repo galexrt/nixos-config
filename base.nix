@@ -300,6 +300,8 @@
 
   security.polkit.enable = true;
 
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # Allow sudo without password
   security.sudo.wheelNeedsPassword = false;
 
