@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, prev, ... }:
 let
   inherit (pkgs) vscode-utils;
 
@@ -99,14 +99,26 @@ in
 {
   programs.vscode = {
     enable = true;
-    package = (pkgs.vscode.overrideAttrs (old: {
-      # rm: cannot remove 'resources/app/node_modules/@vscode/ripgrep/bin/rg': No such file or directory
-      postPatch =
-        builtins.replaceStrings
-          [ "resources/app/node_modules/@vscode/ripgrep/bin/rg" ]
-          [ "resources/app/node_modules/@vscode/ripgrep-universal/bin/linux-x64/rg" ]
-          old.postPatch;
-    })).fhs;
+    package =
+      (pkgs.vscode.overrideAttrs (
+        oldAttrs:
+        let
+          originalPostPatch = oldAttrs.postPatch or "";
+          patchedPostPatch =
+            builtins.replaceStrings
+              [ "@vscode/ripgrep/bin/rg" ]
+              [ "@vscode/ripgrep-universal/bin/linux-x64/rg" ]
+              originalPostPatch;
+        in
+        if patchedPostPatch == originalPostPatch then
+          prev.lib.warn
+            "VS Code ripgrep workaround no longer applies: the old path is gone. Remove the workaround overlay from configuration.nix and rebuild to verify."
+            { }
+        else
+          {
+            postPatch = patchedPostPatch + "\nchmod +x resources/app/node_modules/@vscode/vsce-sign/bin/vsce-sign";
+          }
+      )).fhs;
     mutableExtensionsDir = true;
 
     #extensions = with pkgs.vscode-extensions; [
