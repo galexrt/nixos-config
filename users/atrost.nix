@@ -137,10 +137,10 @@
       kubectl
       kubernetes-helm
       kubeseal
-      libreoffice-fresh
+      libreoffice
       meld
-      minikube
-      minio-client
+      # Causes "duplicate" kubectl, see PR <https://github.com/NixOS/nixpkgs/pull/555289>
+      #minikube
       moonlight-qt
       mullvad-vpn
       mumble
@@ -195,7 +195,6 @@
       pear-desktop
       yt-dlp
       zip
-      zotero
       # PDF
       pdfgrep
       ocrmypdf
@@ -265,7 +264,7 @@
       maxCacheTtlSsh = 34560000;
       defaultCacheTtlSsh = 34560000;
       pinentry = {
-        package = pkgs.pinentry-gtk2;
+        package = pkgs.pinentry-gnome3;
       };
     };
     programs.gpg = {
@@ -438,14 +437,22 @@
     enable = true;
   };
 
-  services.scx = {
+  services.scx-loader = {
     enable = true;
 
-    scheduler = "scx_lavd";
+    config = {
+      default_sched = "scx_lavd";
 
-    extraArgs = [
-      "--autopilot"
-    ];
+      scheds = {
+        scx_lavd = {
+          auto_mode = ["--autopilot" "--pinned-slice-us" "500"];
+          gaming_mode = ["--performance" "--pinned-slice-us" "500"];
+          lowlatency_mode = ["--performance" "--pinned-slice-us" "500"];
+          powersave_mode = ["--powersave" "--pinned-slice-us" "500"];
+          server_mode = ["--performance" "--slice-min-us" "3000" "--slice-max-us" "10000" "--pinned-slice-us" "3000"];
+        };
+      };
+    };
   };
 
 }

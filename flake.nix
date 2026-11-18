@@ -2,7 +2,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-26.05";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     nixos-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -25,7 +25,7 @@
 
     # Lanzaboote
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.1.0";
+      url = "github:nix-community/lanzaboote/v1.2.0";
 
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +50,7 @@
 
     # Home-Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -62,11 +62,11 @@
 
     # Noctalia Shell
     noctalia = {
-      url = "github:noctalia-dev/noctalia/v5.2.1";
+      url = "github:noctalia-dev/noctalia/v5.5.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia-greeter = {
-      url = "github:noctalia-dev/noctalia-greeter";
+      url = "github:noctalia-dev/noctalia-greeter/v1.7.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
