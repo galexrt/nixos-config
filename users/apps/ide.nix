@@ -1,4 +1,10 @@
-{ config, pkgs, prev, ... }:
+{
+  config,
+  nixos-unstable,
+  pkgs,
+  prev,
+  ...
+}:
 let
   inherit (pkgs) vscode-utils;
 
@@ -99,26 +105,7 @@ in
 {
   programs.vscode = {
     enable = true;
-    package =
-      (pkgs.vscode.overrideAttrs (
-        oldAttrs:
-        let
-          originalPostPatch = oldAttrs.postPatch or "";
-          patchedPostPatch =
-            builtins.replaceStrings
-              [ "@vscode/ripgrep/bin/rg" ]
-              [ "@vscode/ripgrep-universal/bin/linux-x64/rg" ]
-              originalPostPatch;
-        in
-        if patchedPostPatch == originalPostPatch then
-          prev.lib.warn
-            "VS Code ripgrep workaround no longer applies: the old path is gone. Remove the workaround overlay from configuration.nix and rebuild to verify."
-            { }
-        else
-          {
-            postPatch = patchedPostPatch + "\nchmod +x resources/app/node_modules/@vscode/vsce-sign/bin/vsce-sign";
-          }
-      )).fhs;
+    package = nixos-unstable.vscode.fhs;
     mutableExtensionsDir = true;
 
     #extensions = with pkgs.vscode-extensions; [
