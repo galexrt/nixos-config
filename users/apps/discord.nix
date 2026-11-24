@@ -62,7 +62,6 @@
         fixCodeblockGap.enable = true;
         fixImagesQuality.enable = true;
         fixSpotifyEmbeds.enable = true;
-        fixYoutubeEmbeds.enable = true;
         forceOwnerCrown.enable = true;
         friendInvites.enable = true;
         fullSearchContext.enable = true;
@@ -159,7 +158,7 @@
         voiceDownload.enable = true;
         voiceMessages.enable = true;
         volumeBooster.enable = true;
-        youtubeAdblock.enable = true;
+        betterYouTubeEmbeds.enable = true;
       };
     };
 
