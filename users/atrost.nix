@@ -193,7 +193,7 @@
       xournalpp
       xterm
       pear-desktop
-      yt-dlp
+      nixpkgs-master.yt-dlp
       zip
       # PDF
       pdfgrep
