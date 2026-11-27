@@ -1,0 +1,5 @@
+diff --git a/scan/sane/http.c b/scan/sane/http.c
+--- a/scan/sane/http.c
++++ b/scan/sane/http.c
+@@ -498 +497,0 @@
+-            *bytes_read += len;

@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   nixos-hardware,
   ...
@@ -23,6 +22,14 @@
   networking.hostName = "finka";
 
   myConfig.lanzaboote.enable = true;
+  myConfig.virtualisation.enable = true;
+  myConfig.binfmt.enable = true;
+  myConfig.vpnTools.enable = true;
+  myConfig.desktop.sway.enable = true;
+  myConfig.gaming.enable = true;
+  myConfig.bluetooth.enable = true;
+  myConfig.printing.enable = true;
+  myConfig.windowsApps.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -38,6 +45,25 @@
         DesktopNames=sway
       '').overrideAttrs (_: { passthru.providedSessions = [ "sway-nvidia" ]; }))
   ];
+
+  home-manager.users.atrost.wayland.windowManager.sway.config = {
+    output = {
+      eDP-1 = {
+        scale = "1";
+        adaptive_sync = "on";
+        hdr = "on";
+        render_bit_depth = "10";
+        allow_tearing = "yes";
+        max_render_time = "off";
+      };
+    };
+    workspaceOutputAssign = [
+      {
+        workspace = "1";
+        output = "eDP-1";
+      }
+    ];
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;

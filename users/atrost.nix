@@ -11,11 +11,7 @@
 {
   imports = [
     ./apps/audio.nix
-    ./apps/virtualisation.nix
-    ./apps/printing.nix
-
     ./apps/noctalia.nix
-    ./apps/steam.nix
   ];
 
   services.greetd.settings.default_session.user = "greeter";
@@ -166,7 +162,6 @@
       protontricks
       protonup-qt
       qemu-utils
-      remmina
       s5cmd
       sniffnet
       shotcut
@@ -312,7 +307,6 @@
 
       ./apps/basics.nix
       ./apps/sway.nix
-      ./apps/wofi.nix
       ./apps/browser.nix
       ./apps/thunderbird.nix
       ./apps/ide.nix
@@ -380,17 +374,6 @@
     package = nixos-unstable.streamcontroller;
   };
 
-  services.tailscale = {
-    enable = true;
-    extraUpFlags = [
-      "--operator=atrost"
-    ];
-  };
-
-  services.mullvad-vpn = {
-    enable = true;
-  };
-
   /*
     programs.joplin-desktop = {
       enable = true;
@@ -430,10 +413,6 @@
   };
 
   programs.kubeswitch = {
-    enable = true;
-  };
-
-  services.ollama = {
     enable = true;
   };
 

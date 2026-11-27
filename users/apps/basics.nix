@@ -34,12 +34,8 @@
     loginExtra = ''
       export DEFAULT_BROWSER=librewolf
       export BROWSER=librewolf
-      if [[ -z "$DISPLAY" ]] && [[ $(tty) = "/dev/tty1" ]]; then
-          exec sway
-      fi
 
       export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
-
       export GOPATH="${config.home.homeDirectory}/Projects/go"
     '';
 
@@ -126,15 +122,6 @@
   home.file."ssh-cons" = {
     text = "";
     target = "${config.home.homeDirectory}/.ssh/cons/.keep";
-  };
-
-  home.file."libvirt-qemu-conf" = {
-    text = ''
-      # Adapted from /var/lib/libvirt/qemu.conf
-      # Note that AAVMF and OVMF are for Aarch64 and x86 respectively
-      nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
-    '';
-    target = "${config.xdg.configHome}/libvirt/qemu.conf";
   };
 
   programs.ssh = {

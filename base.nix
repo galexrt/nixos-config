@@ -12,13 +12,20 @@
 
 {
   imports = [
-    ./users.nix
+    ./options/ai.nix
+    ./options/binfmt.nix
+    ./options/bluetooth.nix
+    ./options/desktop.nix
+    ./options/gaming.nix
+    ./options/printing.nix
+    ./options/virtualisation.nix
+    ./options/vpn-tools.nix
+    ./options/windows-apps.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = lib.mkDefault true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.memtest86.enable = true;
   boot.plymouth.enable = lib.mkDefault false;
   boot.supportedFilesystems = [ "btrfs" ];
   boot.swraid.enable = false;
@@ -35,23 +42,14 @@
 
     graphics = {
       enable = true;
-      enable32Bit = true;
     };
   };
 
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = (_: true);
-    packageOverrides = pkgs: {
-      bottles = pkgs.bottles.override { removeWarningPopup = true; };
-      nur = nur;
-    };
+    packageOverrides = _: { nur = nur; };
   };
-
-  # Enable binfmt
-  boot.binfmt.emulatedSystems = [
-    "aarch64-linux"
-  ];
 
   home-manager = {
     useUserPackages = true;
@@ -115,60 +113,8 @@
       (with pkgs; [
         stdenv.cc.cc.lib
       ])
-      ++ options.programs.nix-ld.libraries.default
-      ++ (pkgs.steam-run.args.multiPkgs pkgs);
+      ++ options.programs.nix-ld.libraries.default;
   };
-
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
-
-  xdg = {
-    portal = {
-      enable = true;
-
-      xdgOpenUsePortal = false;
-
-      wlr = {
-        enable = true;
-
-        settings = {
-          screencast = {
-            max_fps = 60;
-            chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
-            chooser_type = "simple";
-          };
-        };
-      };
-
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
-      config.common = {
-        default = "*";
-        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
-      };
-    };
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-      };
-    };
-  };
-
-  hardware.sane = {
-    enable = true;
-    extraBackends = [ pkgs.hplipWithPlugin ];
-  };
-
-  services.blueman.enable = true;
 
   services.earlyoom = {
     enable = true;
@@ -188,7 +134,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     appimage-run
-    bridge-utils
     brightnessctl
     curl
     dig
@@ -214,7 +159,6 @@
     pkg-config
     powertop
     pulseaudio
-    qemu
     restic
     rsync
     #nixos-unstable.rustdesk-flutter
@@ -227,15 +171,10 @@
     usbutils
     vim
     wget
-    wineWow64Packages.stable
-    bottles
     wireguard-tools
     xdg-utils
     yq
 
-    # WinBoat - Windows app runner
-    nixos-unstable.winboat # Not yet in any release branch, only available on master branch
-    freerdp
   ];
 
   environment.etc = {
@@ -300,8 +239,6 @@
 
   security.polkit.enable = true;
 
-  virtualisation.spiceUSBRedirection.enable = true;
-
   # Allow sudo without password
   security.sudo.wheelNeedsPassword = false;
 
@@ -314,12 +251,15 @@
   # Automatic GC
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
-  nix.gc.options = "--delete-older-than 30d";
+  nix.gc.options = "--delete-older-than 14d";
 
-  nix.extraOptions = ''
-    auto-optimise-store = true
-    experimental-features = nix-command flakes
-  '';
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   # Allow remote build & push
   nix.settings.trusted-users = [ "atrost" ];

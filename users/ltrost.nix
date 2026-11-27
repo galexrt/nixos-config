@@ -3,8 +3,6 @@
 {
   imports = [
     ./apps/audio.nix
-    ./apps/printing.nix
-    ./apps/kde.nix
   ];
 
   users.users.ltrost = {
@@ -21,7 +19,6 @@
       "network"
       "scanner"
       "dialout"
-      "libvirtd"
       "gamemode"
     ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [

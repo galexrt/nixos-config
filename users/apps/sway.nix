@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  nixos-unstable,
   nixpkgs-master,
   pkgs,
   ...
@@ -256,9 +257,8 @@ in
           "${cfg.config.modifier}+n" = "border normal";
           # Start Applications
           "${cfg.config.modifier}+F2" = "exec ${pkgs.librewolf}/bin/librewolf";
-          "${cfg.config.modifier}+F3" = "exec ${pkgs.pcmanfm}/bin/pcmanfm";
-          "${cfg.config.modifier}+F4" = "exec ${pkgs.pcmanfm}/bin/codium";
-          "${cfg.config.modifier}+Ctrl+m" = "exec ${pkgs.easyeffects}/bin/easyeffects";
+          "${cfg.config.modifier}+F3" = "exec ${inputs.luciole.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/luciole";
+          "${cfg.config.modifier}+F4" = "exec ${nixos-unstable.vscode.fhs}/bin/code";
           ## Joplin
           "${cfg.config.modifier}+F5" = "[con_mark=\"Joplin\"] scratchpad show";
           "${cfg.config.modifier}+Shift+F5" =
@@ -549,94 +549,6 @@ in
           { command = "sleep 2 && Chiri"; }
         ];
 
-        # Display device configuration
-        output = {
-          # Laptop Screens
-          eDP-1 = {
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            adaptive_sync = "on";
-          };
-          eDP-2 = {
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            adaptive_sync = "on";
-          };
-
-          # Reaper
-          DP-1 = {
-            pos = "0,0";
-            res = "2560x1440@239.970Hz";
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            scale_filter = "nearest";
-
-            transform = "normal";
-            adaptive_sync = "off";
-            power = "on";
-            render_bit_depth = "10";
-            hdr = "on";
-          };
-          DP-2 = {
-            pos = "2560,0";
-            res = "2560x1440@239.970Hz";
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            scale_filter = "nearest";
-
-            transform = "normal";
-            adaptive_sync = "off";
-            power = "on";
-            render_bit_depth = "10";
-            hdr = "on";
-          };
-          HDMI-A-1 = {
-            pos = "5120,0";
-            res = "2560x1440@143.991Hz";
-            # Set HIDP scale (pixel integer scaling)
-            scale = lib.strings.floatToString config.services.sway.scale;
-            scale_filter = "nearest";
-
-            transform = "normal";
-            adaptive_sync = "off";
-            power = "on";
-            render_bit_depth = "10";
-            hdr = "on";
-          };
-          ## KVM
-          HDMI-A-3 = {
-            disable = "";
-          };
-        };
-
-        workspaceOutputAssign = [
-          # Laptops
-          {
-            workspace = "1";
-            output = "eDP-1";
-          }
-          {
-            workspace = "1";
-            output = "eDP-2";
-          }
-          # Workstation
-          {
-            workspace = "1";
-            output = "DP-1";
-          }
-          {
-            workspace = "2";
-            output = "DP-2";
-          }
-          {
-            workspace = "16";
-            output = "HDMI-A-1";
-          }
-          {
-            workspace = "20";
-            output = "HDMI-A-1";
-          }
-        ];
       };
 
       extraConfigEarly = ''

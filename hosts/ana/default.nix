@@ -12,6 +12,12 @@
 
   networking.hostName = "ana";
 
+  myConfig = {
+    desktop.kde.enable = true;
+    bluetooth.enable = true;
+    printing.enable = true;
+  };
+
   i18n.defaultLocale = "de_DE.UTF-8";
 
   services.displayManager = {

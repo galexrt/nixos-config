@@ -306,6 +306,7 @@
               "gtk"
               "qt"
               "sway"
+              "luciole"
             ];
             enable_builtin_templates = true;
           };

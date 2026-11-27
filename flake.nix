@@ -62,11 +62,15 @@
 
     # Noctalia Shell
     noctalia = {
-      url = "github:noctalia-dev/noctalia/v5.5.0";
+      url = "github:noctalia-dev/noctalia/v5.6.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter/v1.7.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    luciole = {
+      url = "github:noctalia-dev/luciole";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -125,10 +129,10 @@
     in
     {
       # for `nix fmt`
-      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.wrapper);
       # for `nix flake check`
       checks = eachSystem (pkgs: {
-        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+        formatting = treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.check self;
       });
 
       nixosConfigurations = {
